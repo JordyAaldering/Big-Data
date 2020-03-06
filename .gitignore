@@ -1,2 +1,10 @@
+# Ignore VS Code Settings
+.vscode
+
+# Ignore Scala Files
 *.class
 *.log
+
+# Ignore Java JDK and Scala
+jdk-*.tar.gz
+scala-*.tgz
