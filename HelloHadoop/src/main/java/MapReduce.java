@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
 public class MapReduce {
     public static class CharMapper extends Mapper<Object, Text, Text, IntWritable> {
         private final static IntWritable one = new IntWritable(1);
-        private Text character = new Text();
+        private Text character = new Text("Characters");
 
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             String line = value.toString();
@@ -26,12 +26,12 @@ public class MapReduce {
 
     public static class WordMapper extends Mapper<Object, Text, Text, IntWritable> {
         private final static IntWritable one = new IntWritable(1);
-        private Text word = new Text();
+        private Text word = new Text("Words");
 
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             StringTokenizer itr = new StringTokenizer(value.toString());
             while (itr.hasMoreTokens()) {
-                word.set(itr.nextToken());
+                itr.nextToken();
                 context.write(word, one);
             }
         }
@@ -39,7 +39,7 @@ public class MapReduce {
 
     public static class LineMapper extends Mapper<Object, Text, Text, IntWritable> {
         private final static IntWritable one = new IntWritable(1);
-        private Text line = new Text();
+        private Text line = new Text("Lines");
 
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             context.write(line, one);
@@ -84,9 +84,9 @@ public class MapReduce {
         job.setJarByClass(MapReduce.class);
 
         // job.setMapperClass(CharMapper.class);
-        // job.setMapperClass(WordMapper.class);
+        job.setMapperClass(WordMapper.class);
         // job.setMapperClass(LineMapper.class);
-        job.setMapperClass(NameMapper.class);
+        // job.setMapperClass(NameMapper.class);
 
         job.setCombinerClass(IntSumReducer.class);
         job.setReducerClass(IntSumReducer.class);
