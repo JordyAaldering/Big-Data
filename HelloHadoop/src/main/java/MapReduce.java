@@ -16,7 +16,8 @@ public class MapReduce {
         private final static IntWritable one = new IntWritable(1);
         private Text character = new Text("Characters");
 
-        public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+        public void map(Object key, Text value, Context context)
+                throws IOException, InterruptedException {
             String line = value.toString();
             for (char ignored : line.toCharArray()) {
                 context.write(character, one);
@@ -28,7 +29,8 @@ public class MapReduce {
         private final static IntWritable one = new IntWritable(1);
         private Text word = new Text("Words");
 
-        public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+        public void map(Object key, Text value, Context context)
+                throws IOException, InterruptedException {
             StringTokenizer itr = new StringTokenizer(value.toString());
             while (itr.hasMoreTokens()) {
                 itr.nextToken();
@@ -41,7 +43,8 @@ public class MapReduce {
         private final static IntWritable one = new IntWritable(1);
         private Text line = new Text("Lines");
 
-        public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+        public void map(Object key, Text value, Context context)
+                throws IOException, InterruptedException {
             context.write(line, one);
         }
     }
@@ -51,13 +54,14 @@ public class MapReduce {
         private final Text Romeo = new Text("Romeo");
         private final Text Juliet = new Text("Juliet");
 
-        public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+        public void map(Object key, Text value, Context context)
+                throws IOException, InterruptedException {
             StringTokenizer itr = new StringTokenizer(value.toString());
             while (itr.hasMoreTokens()) {
                 String name = itr.nextToken().replaceAll("\\W", "");
-                if (name.equals("Romeo")){
+                if (name.equalsIgnoreCase("Romeo")){
                     context.write(Romeo, one);
-                } else if (name.equals("Juliet")){
+                } else if (name.equalsIgnoreCase("Juliet")){
                     context.write(Juliet, one);
                 }
             }
@@ -67,7 +71,8 @@ public class MapReduce {
     public static class IntSumReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
         private IntWritable result = new IntWritable();
 
-        public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+        public void reduce(Text key, Iterable<IntWritable> values, Context context)
+                throws IOException, InterruptedException {
             int sum = 0;
             for (IntWritable val : values) {
                 sum += val.get();
@@ -80,13 +85,13 @@ public class MapReduce {
 
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "count");
+        Job job = Job.getInstance(conf, "Count");
         job.setJarByClass(MapReduce.class);
 
         // job.setMapperClass(CharMapper.class);
-        job.setMapperClass(WordMapper.class);
+        // job.setMapperClass(WordMapper.class);
         // job.setMapperClass(LineMapper.class);
-        // job.setMapperClass(NameMapper.class);
+        job.setMapperClass(NameMapper.class);
 
         job.setCombinerClass(IntSumReducer.class);
         job.setReducerClass(IntSumReducer.class);
