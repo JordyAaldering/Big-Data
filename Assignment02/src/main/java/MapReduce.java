@@ -13,56 +13,55 @@ import java.util.StringTokenizer;
 
 public class MapReduce {
     public static class CharMapper extends Mapper<Object, Text, Text, IntWritable> {
-        private final static IntWritable one = new IntWritable(1);
-        private Text character = new Text("Characters");
+        private Text name = new Text("Characters");
 
         public void map(Object key, Text value, Context context)
                 throws IOException, InterruptedException {
             String line = value.toString();
-            for (char ignored : line.toCharArray()) {
-                context.write(character, one);
-            }
+            int length = line.length();
+            context.write(name, new IntWritable(length));
         }
     }
 
     public static class WordMapper extends Mapper<Object, Text, Text, IntWritable> {
         private final static IntWritable one = new IntWritable(1);
-        private Text word = new Text("Words");
+        private Text name = new Text("Words");
 
         public void map(Object key, Text value, Context context)
                 throws IOException, InterruptedException {
             StringTokenizer itr = new StringTokenizer(value.toString());
             while (itr.hasMoreTokens()) {
                 itr.nextToken();
-                context.write(word, one);
+                context.write(name, one);
             }
         }
     }
 
     public static class LineMapper extends Mapper<Object, Text, Text, IntWritable> {
         private final static IntWritable one = new IntWritable(1);
-        private Text line = new Text("Lines");
+        private Text name = new Text("Lines");
 
         public void map(Object key, Text value, Context context)
                 throws IOException, InterruptedException {
-            context.write(line, one);
+            context.write(name, one);
         }
     }
 
     public static class NameMapper extends Mapper<Object, Text, Text, IntWritable> {
         private final static IntWritable one = new IntWritable(1);
-        private final Text Romeo = new Text("Romeo");
-        private final Text Juliet = new Text("Juliet");
+        private final Text romeo = new Text("Romeo");
+        private final Text juliet = new Text("Juliet");
 
         public void map(Object key, Text value, Context context)
                 throws IOException, InterruptedException {
             StringTokenizer itr = new StringTokenizer(value.toString());
+
             while (itr.hasMoreTokens()) {
                 String name = itr.nextToken().replaceAll("\\W", "");
-                if (name.equalsIgnoreCase("Romeo")){
-                    context.write(Romeo, one);
-                } else if (name.equalsIgnoreCase("Juliet")){
-                    context.write(Juliet, one);
+                if (name.equalsIgnoreCase("romeo")) {
+                    context.write(romeo, one);
+                } else if (name.equalsIgnoreCase("juliet")) {
+                    context.write(juliet, one);
                 }
             }
         }
