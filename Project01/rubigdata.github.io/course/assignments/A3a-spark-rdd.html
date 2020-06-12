@@ -1,0 +1,140 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Assignment 3 Part A</title>
+    
+    <meta name="author" content="Arjen P. de Vries">
+
+    <!-- New stuff, copied from http://www.w3schools.com/bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--  Use newer bootstrap? If so, go here:
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/kbroman.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/arjenpdevries.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- atom & rss feed -->
+    <link href="https://rubigdata.github.io/coursenil" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="https://rubigdata.github.io/coursenil" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="https://rubigdata.github.io/course">RU Big Data 2019 (NWI-IBC036)</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+
+<div class="page-header">
+  <h2>Assignment 3 Part A  <small>Hands-on session with Spark RDDs</small></h2>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <h2 id="spark-rdds">Spark RDDs</h2>
+
+<p>The goal of assignment 3A is to get hands-on experience in using the 
+Spark Notebook to write your spark programs.</p>
+
+<p>Start a new docker container following the <a href="../background/spark-notebook.html">Spark Notebook background</a>
+instructions.</p>
+
+<p>You can access the Spark Notebook environment in your browser by navigating to <a href="http://localhost:9000/">localhost:9000</a>.
+(Feel free to take a quick peek, but do not spend too much time before following the instructions below.)</p>
+
+<h3 id="prepare-container">Prepare container</h3>
+
+<p>For the assignment, we copy the <em>_course notebooks</em> prepared for the assignments into the directory with notebooks on the container.</p>
+
+<p>Assignment A3a consists of two Spark notebooks, where the first notebook serves to introduce Spark and the second notebook takes a deep dive in the query processing mechanisms of Spark:</p>
+
+<ol>
+  <li><a href="https://github.com/rubigdata/hey-spark/blob/master/BigData-big-data-spark-rdd-part-1.snb.ipynb">BigData-big-data-spark-rdd-part-1.snb.ipynb</a></li>
+  <li><a href="https://github.com/rubigdata/hey-spark/blob/master/BigData-big-data-spark-rdd-part-2.snb.ipynb">BigData-big-data-spark-rdd-part-2.snb.ipynb</a></li>
+</ol>
+
+<p><em>You can preview these Spark notebooks in your browser as (imperfectly) rendered by Github UI.</em></p>
+
+<p>To get these notebooks onto your <code class="language-plaintext highlighter-rouge">rubigdata/hadoop</code> docker container, the recommended approach is to copy them from your assignment three repository <code class="language-plaintext highlighter-rouge">hey-spark</code> into a new directory on the container, using <code class="language-plaintext highlighter-rouge">docker cp</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker exec snb mkdir /opt/docker/notebooks/BigData
+docker cp BigData-big-data-spark-rdd-part-1.snb.ipynb snb:/opt/docker/notebooks/BigData
+</code></pre></div></div>
+
+<!--
+An alternative approach is to start a shell inside the container (using the `docker exec` command), 
+and download the files there. (From the shell, you can simply `cd` to move to the directory you need,
+and use `scp`, `wget` or `git clone` commands to copy the files needed.)
+Create a directory for the course notebooks and download the file there: 
+
+    mkdir -p /opt/docker/notebooks/BigData
+    cd /opt/docker/notebooks/BigData
+    wget http://rubigdata.github.io/course/assignments/BigData-big-data-spark-rdd-part-1.snb.ipynb
+-->
+
+<h3 id="using-notebook">Using Notebook</h3>
+
+<p>Navigate to <a href="http://localhost:9000/tree/BigData">localhost:9000/tree/BigData</a> in your browser 
+and open the notebook you just copied into inside your Spark Notebook container.</p>
+
+<p>Navigate the notebook using the keyboard, pressing shift-enter to execute a cell, and enter to add lines to a cell.
+<em>You can try out any scala command - create a new cell, enter some scala code in the cell,
+and execute it, just to get familiar with the notebook environment.</em></p>
+
+<p>You will have to copy the Shakespeare file into the notebook, as last week, and/or modify its path in the notebook. 
+For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker exec snb mkdir /mnt/bigdata
+docker cp 100.txt snb:/mnt/bigdata
+</code></pre></div></div>
+
+<p><em>This is just an example, the exercise in the notebook expects the <code class="language-plaintext highlighter-rouge">100.txt</code> to be in the folder <code class="language-plaintext highlighter-rouge">/opt/docker/hadoop-2.9.2/100.txt</code>!</em>
+Follow the steps in the course notebook to get at ease with using spark, scala;
+and make sure that you understand what you find in the Spark UI, 
+available at <a href="http://localhost:4040">localhost:4040</a> 
+(after starting a <em>kernel</em> by opening the Spark Notebook).</p>
+
+<h3 id="need-help">Need help?</h3>
+
+<p><strong>When you get stuck, open an issue in the 
+<a href="https://github.com/rubigdata/forum-2020">Forum</a>
+to find help from your fellow students and/or me!</strong></p>
+
+<p>Back to <a href="A3-spark.html">Assignment 3 overview</a>.</p>
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p><small>
+  <!-- start of footer -->
+          <a href="https://arjenp.dev/">Arjen P. de Vries</a>
+  <!-- end of footer -->
+        </small></p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

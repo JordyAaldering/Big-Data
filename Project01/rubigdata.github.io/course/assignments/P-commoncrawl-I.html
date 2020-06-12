@@ -1,0 +1,210 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Final Project - Part I</title>
+    <meta name="description" content="Commoncrawl">
+    <meta name="author" content="Arjen P. de Vries">
+
+    <!-- New stuff, copied from http://www.w3schools.com/bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--  Use newer bootstrap? If so, go here:
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/kbroman.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/arjenpdevries.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- atom & rss feed -->
+    <link href="https://rubigdata.github.io/coursenil" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="https://rubigdata.github.io/coursenil" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="https://rubigdata.github.io/course">RU Big Data 2019 (NWI-IBC036)</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+
+<div class="page-header">
+  <h2>Final Project - Part I </h2>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <h2 id="commoncrawl---part-i">Commoncrawl - Part I</h2>
+
+<p>The final project is an open assignment, where we will work with data from a
+large WebCrawl.</p>
+
+<p>Follow this link to the <em>Classroom for Github</em> <a href="https://classroom.github.com/a/kFNhGWAu"><strong>Commoncrawl</strong>
+assignment</a>, login with your github
+account, and accept the assignment.</p>
+
+<h3 id="the-no-worries-disclaimer">The “No Worries” Disclaimer</h3>
+
+<p>The main objective is not so much to prepare a winning submission for the next
+<a href="http://norvigaward.github.io/">Norvig Award</a>, should SurfSara get the hang of
+it again. Merely, we want to get hands-on experience in running <em>and debugging</em>
+jobs working on large amounts of unstructured data.</p>
+
+<h3 id="assignment">Assignment</h3>
+
+<p>The course so far prepared the majority of the code to work with - for the final
+project, it is time for you to get creative and modify setup and files provided
+for your own project’s sake.</p>
+
+<p>The assignment is open-ended: “do something with the Commoncrawl data”, and
+write-up your experience in a final blog post.</p>
+
+<p>First, check out the Commoncrawl foundation’s excellent 
+<a href="http://commoncrawl.org/the-data/get-started/">get started</a> and
+<a href="http://commoncrawl.org/the-data/tutorials/">other tutorials</a>.</p>
+
+<p>Start your project using a small WARC file that you create yourself, e.g.,
+using <a href="https://webrecorder.io/">webrecorder.io</a> or
+<a href="http://www.archiveteam.org/index.php?title=Wget_with_WARC_output">a recent <code class="language-plaintext highlighter-rouge">wget</code> with WARC output</a>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -r -l 3 "http://rubigdata.github.io/course/" --warc-file="course"
+</code></pre></div></div>
+
+<p>As a next step, identify test data of interest using the public
+<a href="http://index.commoncrawl.org/">CDX Index service</a> (and select a specific crawl,
+e.g. <a href="http://index.commoncrawl.org/CC-MAIN-2020-16">CC-MAIN-2020-16</a> for the
+most recent one) to locate a sample of WARC files to download for analysis and
+code development on your local machine: for example, find <a href="http://index.commoncrawl.org/CC-MAIN-2020-16-index?url=www.bbc.com&amp;output=json">BBC captures in the
+crawl</a>, 
+and check out the corresponding WARC files on Amazon S3. Simply prefix
+<code class="language-plaintext highlighter-rouge">https://commoncrawl.s3.amazonaws.com/</code> to the <code class="language-plaintext highlighter-rouge">crawl-data/CC-MAIN-2020-16/...</code>
+locations you get from the CDX server</p>
+
+<p><em>(you might as well try and use the JSON reader and map the prefixing over the
+CDX results to solve access to the data using Spark itself!)</em>.</p>
+
+<h4 id="warc-for-spark">WARC for Spark</h4>
+
+<p>We created a new Docker image that should match software version with the
+cluster we are creating, aiming to simplify the transition into part II of the
+project.</p>
+
+<p>Proceed as follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull rubigdata/project:v0.9.1
+docker create --name cc -p 9001:8080 -p 4040-4045:4040-4045 rubigdata/project:v0.9.1
+docker start cc
+</code></pre></div></div>
+
+<p>Your assignment repository contains a Zeppelin notebook called <em>WARC for
+Spark</em>. The notebook should be helpful to play with WARC files, and give an easy
+way to develop new code <em>and debug it</em>, before creating a self-contained Spark
+application for execution on the cluster.</p>
+
+<p>Open <a href="localhost:9001"><code class="language-plaintext highlighter-rouge">localhost:9001</code></a> in your browser, and import the WARC for
+Spark notebook.</p>
+
+<p>For a first experiment with the course WARC, you would then do:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -r -l 3 "http://rubigdata.github.io/course/" --warc-file="course"
+docker exec -it cc mkdir -p /data
+docker cp course.warc.gz cc:/data
+</code></pre></div></div>
+
+<p>If this all works out, try with a larger WARC file drawn from the CommonCrawl
+itself.</p>
+
+<h4 id="other-references">Other references</h4>
+
+<p>SurfSara and the Commoncrawl foundation have provided useful utility code on
+the <a href="https://github.com/norvigaward/warcutils">Norvig Award github repository</a>.
+(including classes for a <code class="language-plaintext highlighter-rouge">WARCInputFormat</code>).
+Their code is based on the <a href="https://bitbucket.org/nclarkekb/jwat"><code class="language-plaintext highlighter-rouge">jwat</code> libraries</a>
+(inspecting the code may be useful to understand the <code class="language-plaintext highlighter-rouge">WarcRecord</code> classes).</p>
+
+<p>The <a href="http://www.netpreserve.org/">International Internet Preservation Consortium (IIPC)</a> 
+provides <a href="https://github.com/iipc/webarchive-commons">utility code</a>
+for <code class="language-plaintext highlighter-rouge">OpenWayback</code>, an open version of the Internet Archive’s Wayback machine.
+They also coordinate development of a better Java package for processing WARC
+files, called <a href="https://github.com/iipc/jwarc"><code class="language-plaintext highlighter-rouge">jwarc</code></a>; feel free to explore if
+that works better than the libraries we applied!</p>
+
+<p>Other related pointers to help you get going include Jimmy Lin’s now outdated
+<a href="https://github.com/lintool/warcbase">Warcbase project</a> and L3S’s (seemingly
+inactive) <a href="https://github.com/helgeho/ArchiveSpark">ArchiveSpark</a>. These may not
+be that easy to apply, but contain a lot of example code that might help.</p>
+
+<p>Finally, before developing your own code for specific tasks, check the
+<a href="https://spark-packages.org/">SparkPackages community index</a> to see if
+your problem has already been solved (partially) before.</p>
+
+<h4 id="blog-post">Blog post</h4>
+
+<p>Imagine a reader that has followed your previous experiences with Spark.
+The goal of this post is to share your work on the Commoncrawl data with them,
+emphasizing the problems of working with unstructured Web data.</p>
+
+<p>Readers will be curious to learn basic statistics about samples taken from the crawl, 
+but also how long it takes to make a pass over (subsets of) the data.
+Ideally, your analysis teaches us something about the Web we did not yet know;
+but that is not a requirement for completing the assignment.</p>
+
+<p>The deadline for the final project (after completing parts I and II) has been
+set to June 30th (first round) or July 9th (second round).</p>
+
+<p>Hand in your results as always:</p>
+
+<ol>
+  <li>Push the code of your working standalone application to the assignment
+repository (accept invite at top of page);</li>
+  <li>Include a README.md file with a link to the blog post about the final
+assignment;</li>
+  <li>Publish your blog post;</li>
+  <li>Submit the blog post URL in Peergrade.</li>
+</ol>
+
+<p><em>Wishing you good big data vibes!</em></p>
+
+<h4 id="need-help">Need help?!</h4>
+
+<p>Feel free to ask for help, but please do that by using the github issue tracker
+on <a href="https://github.com/rubigdata/forum-2019/">the forum</a>. Every student may help
+out, please contribute and share your knowledge!</p>
+
+<!-- Occasional recurring questions are moving into the [FAQ](P-faq.html). -->
+
+<p><a href="../index.html">Back to assignments overview</a></p>
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p><small>
+  <!-- start of footer -->
+          <a href="https://arjenp.dev/">Arjen P. de Vries</a>
+  <!-- end of footer -->
+        </small></p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

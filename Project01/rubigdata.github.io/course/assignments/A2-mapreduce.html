@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Map Reduce</title>
+    <meta name="description" content="Learn how the abstract concepts from the lectures so far work out in practice.">
+    <meta name="author" content="Arjen P. de Vries">
+
+    <!-- New stuff, copied from http://www.w3schools.com/bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--  Use newer bootstrap? If so, go here:
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/kbroman.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/arjenpdevries.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- atom & rss feed -->
+    <link href="https://rubigdata.github.io/coursenil" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="https://rubigdata.github.io/coursenil" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="https://rubigdata.github.io/course">RU Big Data 2019 (NWI-IBC036)</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+
+<div class="page-header">
+  <h2>Map Reduce  <small>Hands-on session with Hadoop 2.9.2 and Map-Reduce</small></h2>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <p>Hadoop is an open source project that implements the Big Data frameworks discussed in lectures 2 - 4 (distributed filesystems and Map-Reduce).</p>
+
+<p>In this assignment, we install Hadoop on our own “pseudo-cluster”, and use Map-Reduce to do some basic count operations.</p>
+
+<p>You accept the assignment via Github for Education, using 
+<a href="https://classroom.github.com/a/8Qk9V6LD"><strong>this invitation link</strong></a> <em>(only once per assignment)</em>.
+<em>Please select your student number at step 1; let me know by email if your student number is not included in the list (skipping to step 2 is fine in that case).</em></p>
+
+<p>In the first week, you should try to have set up a pseudo-distributed cluster running HDFS, and understand how to use it.
+In the subsequent two weeks, you can then run your own map-reduce jobs. 
+<em>If you can go at a higher pace, that is fine; but make sure you understand how the concepts in the main lectures relate to the steps in the assignment, and do not just rush through without thinking.</em></p>
+
+<h3 id="setup">Setup</h3>
+
+<p>Setup distributed filesystem <code class="language-plaintext highlighter-rouge">HDFS</code> and the Map-Reduce tools using our <a href="../background/hadoop.html"><strong>Hadoop instructions</strong></a>.</p>
+
+<p>HDFS background information you (most likely) will need:</p>
+
+<ul>
+  <li><a href="https://hadoop.apache.org/docs/r2.9.2/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html">User Guide</a></li>
+  <li><a href="https://hadoop.apache.org/docs/r2.9.2/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html">Commands Reference</a></li>
+</ul>
+
+<p>Make sure that you understand conceptually what is going on, and you know how to use the filesystem:
+create files, read them, delete files and directories, <em>etc</em>.
+Run the examples with a different pattern on a different set of files to ensure you know what you are doing.</p>
+
+<h3 id="assignment">Assignment</h3>
+
+<p>These instructions assume you completed the previous steps, and a pseudocluster runs HDFS.</p>
+
+<p>Download the <em>Complete Shakespeare</em> from the github website and save it to the HDFS:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /opt/docker/hadoop-2.9.2
+wget https://raw.githubusercontent.com/rubigdata-dockerhub/hadoop-dockerfile/master/100.txt
+bin/hdfs dfs -put 100.txt input
+</code></pre></div></div>
+
+<p>When you clone your assignment repository (from github classroom), you find an example <code class="language-plaintext highlighter-rouge">WordCount.java</code>.
+You can also extract it from the examples archive (see the background info), or simply copy-paste the sourcecode from 
+<a href="https://hadoop.apache.org/docs/r2.9.2/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html#Source_Code">the relevant Hadoop documentation</a>.</p>
+
+<p>Whatever you choose to get the template code for an example word counting job, ensure that your program <code class="language-plaintext highlighter-rouge">WordCount.java</code> 
+exists in the <code class="language-plaintext highlighter-rouge">/opt/docker/hadoop-2.9.2</code> directory.
+Next, set up the environment to compile and run WordCount code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
+bin/hadoop com.sun.tools.javac.Main WordCount.java
+jar cf wc.jar WordCount*.class
+</code></pre></div></div>
+
+<p>Next, run this code with</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bin/hadoop jar wc.jar WordCount input output
+</code></pre></div></div>
+
+<p>The output of your code is now located in the file output in the HDFS and can be inspected like you did in the Hadoop instructions.</p>
+
+<p><em>If you previously ran the Hadoop example from the background instructions (above), you will most likely get an error that indicates that <code class="language-plaintext highlighter-rouge">output</code> exists. Remove the old output directory (from HDFS) and try again! If you see weird output, go check out what input you actually ran your program on…</em></p>
+
+<p>Now, adapt the code for counting something else; number of lines, words or characters, or something more interesting; 
+it is really up to you to decide what to count!</p>
+
+<p>Refer to the Map-Reduce documentation for more details:
+<a href="https://hadoop.apache.org/docs/r2.9.2/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html#Example:_WordCount_v1.0">tutorial WordCount v1.0</a></p>
+
+<h3 id="blog-post">Blog post</h3>
+
+<p>The assignment is to write a blog post about your experience with HDFS and Map-Reduce.
+Assume the reader knows what a distributed filesystem is, and why you would use it.
+You should walk your readers through a simple counting example using Map-Reduce.</p>
+
+<p>Address at least the following questions in your post:</p>
+
+<ul>
+  <li>What happens when you run the Hadoop commands (<code class="language-plaintext highlighter-rouge">hdfs dfs</code> <em>etc.</em>) in the first part of the tutorial?</li>
+  <li>How do you use mapreduce to count the number of lines/words/characters/… in the <em>Complete Shakespeare</em>?</li>
+  <li>Does Romeo or Juliet appear more often in the plays?
+++ <em>Can you answer this question making only one pass over the corpus?</em></li>
+</ul>
+
+<p>If things go smooth, try to compute the average number of words or characters per line using the patterns we discussed in the second map reduce lecture. If things go <em>really</em> smoothly, you can try to use a combiner and discuss the improvement achieved and/or problems encountered.</p>
+
+<h3 id="done">Done</h3>
+
+<p>When you completed the assignment, push your blog post to the first assignment’s repository
+and include a link to the published blog post in the README of the assignment repository.
+Commit the README as well as your code to the assignment repository. In other words:</p>
+
+<p><strong>Instructions to submit your completed work</strong> (replace USERNAME by your github account):</p>
+
+<ul>
+  <li>Write your blog in the blogpost repository you made for assignment 1. 
+This repostory is located at <code class="language-plaintext highlighter-rouge">https://github.com/rubigdata/big-data-blog-2020-USERNAME</code></li>
+  <li>Make sure your blog is published and the post is accessible from https://rubigdata.github.io/big-data-blog-2020-USERNAME</li>
+  <li>Place a link to the published blogpost (for example https://rubigdata.github.io/big-data-blog-2020-USERNAME/assignment2) in the README.md of your assignment 2 repository, which is located at https://github.com/rubigdata/hello-hadoop-2020-USERNAME</li>
+  <li>Add your code and commit your modifications, and push your repositories (both the blog and the assignment repos)</li>
+</ul>
+
+<h3 id="help">Help?!</h3>
+
+<p>Feel free to ask for help, but please do that by using the github issue tracker on <a href="https://github.com/rubigdata/forum-2020/">the forum</a>; 
+see the <a href="https://github.com/rubigdata/forum-2020/issues/1">first issue</a> as an example of how to proceed.
+Every student may help out, please contribute and share your knowledge!</p>
+
+<p><a href="../index.html">Back to assignments overview</a></p>
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p><small>
+  <!-- start of footer -->
+          <a href="https://arjenp.dev/">Arjen P. de Vries</a>
+  <!-- end of footer -->
+        </small></p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

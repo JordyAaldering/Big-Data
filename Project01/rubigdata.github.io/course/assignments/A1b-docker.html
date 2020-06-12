@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Assignment 1B</title>
+    <meta name="description" content="First steps using Docker">
+    <meta name="author" content="Arjen P. de Vries">
+
+    <!-- New stuff, copied from http://www.w3schools.com/bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--  Use newer bootstrap? If so, go here:
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/kbroman.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/arjenpdevries.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- atom & rss feed -->
+    <link href="https://rubigdata.github.io/coursenil" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="https://rubigdata.github.io/coursenil" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="https://rubigdata.github.io/course">RU Big Data 2019 (NWI-IBC036)</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+
+<div class="page-header">
+  <h2>Assignment 1B  <small>Docker</small></h2>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <h1 id="docker-environment">Docker Environment</h1>
+
+<p>We use <a href="https://www.docker.com/">Docker</a> to reduce the burden of unifying working environments.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>First, go over the <a href="https://docs.docker.com/engine/docker-overview/">basic docker overview</a> to gain familiarity with the Docker suite of tools.
+Next, continue with the <a href="https://docs.docker.com/get-started/">get started</a>.
+Do not follow the instruction to install docker <em>yet</em>.</p>
+
+<p>The easiest approach is to use Docker on the computers in the terminal room; the only drawback that you
+have to be in the terminal room to boot the machine in Linux (note that you can use <code class="language-plaintext highlighter-rouge">ssh</code> to the machine once 
+it is booted, but, anyone can decide to reboot the machine, and all machines are shutdown at the end of the day).</p>
+
+<p>Alternatively, install Docker on your own laptop or home computer.
+While this route is <strong>not officially supported</strong>, I will provide a few pointers to get you started, see below.</p>
+
+<h2 id="setting-up-docker">Setting up Docker</h2>
+
+<p>Docker can be used in terminal rooms HG00.029 and HG00.206.</p>
+
+<p>You need to be added to the Docker group - in theory, this has already been done, check using the <code class="language-plaintext highlighter-rouge">groups</code> command.</p>
+
+<p><em>If not, let me or the TAs know and we can help you.</em></p>
+
+<h2 id="using-docker">Using Docker</h2>
+
+<p>A minimal test shows that the docker client can start so-called containers:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run hello-world
+</code></pre></div></div>
+
+<p>If Docker is new to you, it is highly recommended to learn more about its architecture and usage on the Docker
+site; specifically, the rest of the course material will assume that you followed step <strong>two</strong> from the excellent 
+documentation.</p>
+
+<p>Follow the tutorial <a href="https://docs.docker.com/get-started/part2/"><strong>step two</strong></a>.</p>
+
+<p>In the course, we will only use docker with images provided by others, so it is not necessary to actually
+upload your own Dockerfile to the hub.</p>
+
+<h3 id="diy">DIY</h3>
+
+<p><em>Note: Docker has become more and more professional (read: commercial) since the course started - 
+you will not need anything beyond the free <strong>community edition</strong> for the course, but they may try to make you install paid products.</em></p>
+
+<p>If you opt to install docker for Linux on your own hardware (and work independently from the availability of
+computers in the Huygens building), follow the instructions to download the 
+<a href="https://www.docker.com/products/docker-engine">Docker Engine</a> (aka <em>community edition</em>).</p>
+
+<p><em>If you are on Fedora 31 or newer, you may want to try <a href="https://podman.io/whatis.html">podman</a> instead of Docker. 
+I did not have the time to check if everything indeed works smoothly, but the Scala assignment below does.</em></p>
+
+<p>If you use a Windows 10 computer, setting up Docker with WSL is slightly more work, but worth the effort IMHO. <em>You should upgrade to Windows 10 Education via Surfspot (free for students), this gives access to the required windows features for Docker:
+<a href="https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v">Hyper-V</a>
+(you may need to explicitly activate Hyper-V support following these instructions).
+Combining Docker on Windows with WSL (Windows Subsystem for Linux) 
+is covered in this <a href="https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly">blog post</a> and/or <a href="https://medium.com/@sebagomez/installing-the-docker-client-on-ubuntus-windows-subsystem-for-linux-612b392a44c4">another useful blog</a>.
+If you have an older version of Windows, I recommend to stick to using the Huygens PCs;
+but if you insist, an alternative would be to use a virtual machine with, e.g., Ubuntu, and install Docker there.</em></p>
+
+<h2 id="scala">Scala</h2>
+
+<p>The <em>real</em> practical assignments of the course aim to give you basic knowledge of Spark, at the moment the 
+<em>de facto</em> Big Data platform. We will work with Spark from Scala, a functional language that is executed on 
+the Java Virtual Machine (JVM), so usage of Java libraries can be mixed with pure Scala in a hybrid environment.</p>
+
+<p>The usefulness of Docker is immediately clear when you set out to explore the language and practice your Scala.
+Just run a Docker container that comes with a complete Scala environment pre-installed:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -it --rm williamyeh/scala
+</code></pre></div></div>
+
+<p>The first time, the image is downloaded from the Docker hub, and a container is initialised and starts up 
+by automatically running the Scala interpreter (known as the REPL).</p>
+
+<p>Links to explore:</p>
+
+<ul>
+  <li><a href="http://docs.scala-lang.org/tutorials/scala-for-java-programmers.html">Scala tutorial for Java Programmers</a>;</li>
+  <li><a href="https://www.scala-exercises.org/scala_tutorial">Excellent interactive tutorial</a>;</li>
+  <li><a href="https://dzone.com/articles/scala-at-light-speed-part-1-the-essentials">Scala at light-speed</a> “for busy programmers who want to learn Scala fast — in about 2 hours or less”;</li>
+  <li><a href="http://scala-lang.org/">Main Scala site</a> and <a href="http://docs.scala-lang.org/">documentation</a>.</li>
+</ul>
+
+<p><em>This course is not about functional programming, so do not get carried away - you only want to acquire a basic understanding of the language.</em></p>
+
+<p>If you skip the first section of the Scala tutorial (where they compile and run a Hello World program), you 
+can follow along in the Scala interpreter. (Type <code class="language-plaintext highlighter-rouge">:quit</code> when you are done.)</p>
+
+<p>To follow the Scala tutorial and compile and execute a <code class="language-plaintext highlighter-rouge">HelloWorld.scala</code> program,
+start the Docker container issuing a shell (<em>notice how I leave out the <code class="language-plaintext highlighter-rouge">--rm</code> option,
+because we want to revisit the same container later!</em>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -it williamyeh/scala /bin/bash
+</code></pre></div></div>
+
+<p>You can install additional software here - but before that works, you need to initialize <code class="language-plaintext highlighter-rouge">apt</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt update
+apt-get update
+</code></pre></div></div>
+
+<p>Now, install the editor you prefer, e.g., <code class="language-plaintext highlighter-rouge">nano</code>, <code class="language-plaintext highlighter-rouge">vi</code> or <code class="language-plaintext highlighter-rouge">emacs</code> (my personal preference); 
+install it in the container, e.g.:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get install nano
+</code></pre></div></div>
+
+<p>Create the file (<code class="language-plaintext highlighter-rouge">nano HelloWorld.scala</code>, use copy-paste to enter the code).
+Next, compile the program and run it:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scalac HelloWorld.scala
+scala -classpath . HelloWorld
+</code></pre></div></div>
+
+<p>Alternatively, quit the container by typing <code class="language-plaintext highlighter-rouge">exit</code> or <code class="language-plaintext highlighter-rouge">^D</code>.
+You can create the file in your normal desktop environment, save it, and copy it into the root of the container:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker cp HelloWorld.scala HASH:/
+</code></pre></div></div>
+
+<p>You find the HASH value using <code class="language-plaintext highlighter-rouge">docker ps -a</code> (or by using autocompletion in the shell, press TAB) 
+and issue the following commands to copy the file and continue using the container
+(assuming the value of HASH is <code class="language-plaintext highlighter-rouge">vibrant_liskov</code>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker cp HelloWorld.scala vibrant_liskov:/
+docker start vibrant_liskov
+docker attach vibrant_liskov
+</code></pre></div></div>
+
+<h2 id="clean-up">Clean up</h2>
+
+<p>Once you are fluent in using the docker client, it is easy to forget that every container and image used takes up 
+disk space on the local machine. Please clean up regularly!</p>
+
+<p>The following command lists the running containers:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps -f status=running
+</code></pre></div></div>
+
+<p>Any running containers you do not use, can be stopped using <code class="language-plaintext highlighter-rouge">docker stop HASH</code> (tab autocompletion is easiest to 
+find the corresponding HASH).
+You can remove all inactive, exited containers that you do not plan to restart by issuing:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker container prune
+</code></pre></div></div>
+
+<p>Images that are not needed any longer can also be removed, use <code class="language-plaintext highlighter-rouge">docker image ls</code> followed by <code class="language-plaintext highlighter-rouge">docker image rm</code> 
+for the image you can free up (or, equivalently, <code class="language-plaintext highlighter-rouge">docker rmi</code>).</p>
+
+<h2 id="see-also">See also</h2>
+
+<p>Optional extra reading (not required for the course):</p>
+
+<ul>
+  <li><a href="https://towardsdatascience.com/docker-for-data-science-4901f35d7cf9">Docker for Data Science</a> (blog post)</li>
+  <li>Various <a href="https://docs.docker.com/get-started/resources/">learning resources</a> endorsed by Docker</li>
+</ul>
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p><small>
+  <!-- start of footer -->
+          <a href="https://arjenp.dev/">Arjen P. de Vries</a>
+  <!-- end of footer -->
+        </small></p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+

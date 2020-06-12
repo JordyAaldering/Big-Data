@@ -1,0 +1,148 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Assignment 1a</title>
+    <meta name="description" content="Setting up the blogging environment that will be used for handing in the practical work">
+    <meta name="author" content="Arjen P. de Vries">
+
+    <!-- New stuff, copied from http://www.w3schools.com/bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--  Use newer bootstrap? If so, go here:
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/kbroman.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://rubigdata.github.io/course/assets/themes/twitter/css/arjenpdevries.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- atom & rss feed -->
+    <link href="https://rubigdata.github.io/coursenil" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="https://rubigdata.github.io/coursenil" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="https://rubigdata.github.io/course">RU Big Data 2019 (NWI-IBC036)</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+
+<div class="page-header">
+  <h2>Assignment 1a  <small>Blogging environment</small></h2>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <h2 id="content-over-layout">Content over layout</h2>
+
+<p>Grading this course will not take into account how beautiful results of the work are formatted.
+We more easily focus on content by using <strong>Markdown</strong>, an increasingly popular language used to document code and/or write blogs published on the web.</p>
+
+<p>Markdown is convenient as a tool to publish on the web, <em>especially</em> when used in combination with <a href="http://pages.github.com">GitHub Pages</a> and <a href="http://git-scm.com">git</a></p>
+
+<p><em>Note: if an assignment pages include links, you are supposed to have a look at those before proceeding!</em></p>
+
+<p>Equating webpages to files in a GitHub repository means that we edit and publish a website the exact same way as we version our code:
+<code class="language-plaintext highlighter-rouge">git add</code>, <code class="language-plaintext highlighter-rouge">git commit</code>, and <code class="language-plaintext highlighter-rouge">git push</code> the website, <em>collaboratively and versioned</em>. When setup correctly, a tool called <em>Jekyll</em> will 
+automagically convert the markdown into HTML (without you doing anything, Jekyll will run at the Github servers upon <code class="language-plaintext highlighter-rouge">git push</code>).</p>
+
+<h2 id="github-for-education">Github for Education</h2>
+
+<p>Did you already request your github student pack?
+You might want to visit <a href="https://education.github.com/pack/join">github for education</a> to get benefits like private repositories.
+(BTW, all repositories created in the course are private unless you change that, so no worries about your future career if you write silly things here).</p>
+
+<p>If you are not yet fluent in <code class="language-plaintext highlighter-rouge">git</code> and Github, then go ahead and study the 
+<a href="https://help.github.com/articles/git-and-github-learning-resources/">online training material</a>
+provided by Github. If you are unhappy working with the command line (<em>a skill which I do recommend taking the 
+effort to acquire</em>), consider Github’s <a href="http://mac.github.com">OS X</a> or <a href="http://windows.github.com">Windows</a>
+tool suites (the Windows one <em>is</em> convenient, but I never use it really).</p>
+
+<p>Earlier (on Brightspace), I already pointed you to MIT’s <a href="https://missing.csail.mit.edu/">The Missing Semester of Your CS Education</a>, 
+which includes both commandline and git lectures. Recommended stuff!</p>
+
+<h2 id="how-to-create-a-blog-post">How to Create a Blog Post</h2>
+
+<p>The goal in this first assignment is to just complete your first repository that contains a simple site, 
+composed in Markdown, published online for free; make sure the process is familiar.
+Use the results of assignment one as your personal <strong>course website and blog</strong>, and deploy the same steps in the rest 
+of the course to bootstrap new blog posts, one for every <em>real</em> course assignment.</p>
+
+<p>So, after familiarizing yourself with <code class="language-plaintext highlighter-rouge">git</code> (or refreshing your memory) with the resources above, continue to write the first post on your blog:</p>
+
+<ol>
+  <li>Follow the link to the <em>Classroom for Github</em> <a href="https://classroom.github.com/a/-mxpLYgT" title="Blogpost Assignment (#1)"><strong>Bigdata Blog 2020</strong> assignment</a>, login with your github account, and accept the assignment. This creates a private repository under the <code class="language-plaintext highlighter-rouge">rubigdata</code> “organization”, specifically for this assignment. This newly created repository <code class="language-plaintext highlighter-rouge">rubigdata/big-data-blog-2020-USERNAME</code> contains the structure that you use throughout the practical assignments for the course.</li>
+  <li>Go to your Github repository on <a href="https://github.com">Github</a> (you can follow the link that is shown after accepting the assignment) and navigate to the settings tab. Scroll down to the <strong>Github Pages</strong> settings and select <code class="language-plaintext highlighter-rouge">master branch /docs folder</code> as source to enable Github pages. After a little delay your repository should appear on <code class="language-plaintext highlighter-rouge">rubigdata.github.io/big-data-blog-2020-USERNAME</code>.</li>
+  <li>If you would like your blog to look better than plain HTML, select a theme in your repository settings after enabling Github Pages.</li>
+</ol>
+
+<h2 id="editing-the-blog-post">Editing the Blog post</h2>
+
+<p>In order to add your own content you should now <code class="language-plaintext highlighter-rouge">clone</code> the private assignment repository. The <code class="language-plaintext highlighter-rouge">README.md</code> demonstrates some Markdown markup that you may use. The <code class="language-plaintext highlighter-rouge">docs/</code> directory contains the Github Pages source for your blog (if you followed the instructions above).</p>
+
+<p>Proceed as follows:</p>
+
+<ol>
+  <li>Edit <code class="language-plaintext highlighter-rouge">docs/index.md</code> to include some basic information about you (name, student number, course programme), and create a table of contents (ToC)
+(just use a bulleted list) with at least one link to a (so far non-existent) HTML file; that you will have Jekyll generate in the next step.</li>
+  <li>Create a <em>new markdown file</em>, do the <code class="language-plaintext highlighter-rouge">git add</code>, <code class="language-plaintext highlighter-rouge">git commit</code>, <code class="language-plaintext highlighter-rouge">git push</code> sequence, and Jekyll will turn the new <code class="language-plaintext highlighter-rouge">.md</code> file into a <code class="language-plaintext highlighter-rouge">.html</code> file with the same name - the latter is what you should link to in the ToC.</li>
+  <li>Create that blog post, including some extra information about yourself, e.g., hobbies, favourite study/sports/student association, why you follow this course, etc.</li>
+</ol>
+
+<h2 id="finalize-the-test-assignment">Finalize the test assignment</h2>
+
+<p>If you are just starting out using <code class="language-plaintext highlighter-rouge">git</code>, it is fine to use just simple markup and limited styling.
+<em>Have you been committing and pulling for months or even longer, then you should figure out how to use the 
+Github pages features for a blog series instead of having to create separate files manually
+(<a href="https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/">background info</a>
+and <a href="http://jmcglone.com/guides/github-pages/">this excellent blog</a>).</em></p>
+
+<h2 id="see-also">See also</h2>
+
+<ul>
+  <li><a href="https://guides.github.com/features/mastering-markdown/">Mastering Markdown</a> by Github</li>
+  <li><a href="https://daringfireball.net/projects/markdown/">Markdown</a> roots</li>
+  <li><a href="http://kramdown.gettalong.org/quickref.html">Quick reference guide</a></li>
+</ul>
+
+<p>And</p>
+
+<ul>
+  <li><a href="https://classroom.github.com/classrooms/17478409-ru-big-data-course-2020">Classroom for Github</a></li>
+</ul>
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p><small>
+  <!-- start of footer -->
+          <a href="https://arjenp.dev/">Arjen P. de Vries</a>
+  <!-- end of footer -->
+        </small></p>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
