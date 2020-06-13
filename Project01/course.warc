@@ -1,8 +1,8 @@
 WARC/1.0
 WARC-Type: warcinfo
 Content-Type: application/warc-fields
-WARC-Date: 2020-06-12T18:54:57Z
-WARC-Record-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Date: 2020-06-12T19:01:30Z
+WARC-Record-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Filename: course.warc
 WARC-Block-Digest: sha1:CPRQZTIKYLFPLU722WGZJUY2CSKR7DC4
 Content-Length: 253
@@ -19,10 +19,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <http://rubigdata.github.io/course/>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:57Z
-WARC-Record-ID: <urn:uuid:4ff7ef51-c529-43f5-8ac9-84ab3bb397f4>
+WARC-Date: 2020-06-12T19:01:31Z
+WARC-Record-ID: <urn:uuid:402b538c-a06d-4916-b3f0-37013f9730e1>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:CISYFQLEZLILEODIUA7L3UFVY4COXF4S
 Content-Length: 153
 
@@ -37,13 +37,13 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:d3b38750-20d2-4a8c-ab39-3eec58666b6b>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:4ff7ef51-c529-43f5-8ac9-84ab3bb397f4>
+WARC-Record-ID: <urn:uuid:cc8b08c4-7520-4ba5-8073-2077b97918c5>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:402b538c-a06d-4916-b3f0-37013f9730e1>
 WARC-Target-URI: <http://rubigdata.github.io/course/>
-WARC-Date: 2020-06-12T18:54:57Z
+WARC-Date: 2020-06-12T19:01:31Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:BDKSYZE6QSPTGL23GQUPO5IOLWQXFD77
+WARC-Block-Digest: sha1:5LS5M7EAENPAD36F3CXVVUKHYY6CODPL
 WARC-Payload-Digest: sha1:HLNR6AWVWYCU3YAENY3HYHLIPNWN66X7
 Content-Type: application/http;msgtype=response
 Content-Length: 660
@@ -55,16 +55,16 @@ Location: https://rubigdata.github.io/course/
 X-GitHub-Request-Id: 6B06:1475:134FE:20355:5EE3CDEB
 Content-Length: 162
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:56 GMT
+Date: Fri, 12 Jun 2020 19:01:30 GMT
 Via: 1.1 varnish
-Age: 405
+Age: 799
 Connection: keep-alive
-X-Served-By: cache-ams21044-AMS
+X-Served-By: cache-ams21071-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988097.617565,VS0,VE0
+X-Timer: S1591988491.558071,VS0,VE0
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 29af9324e0a140c7de82b0a4f0a58f6e398691db
+X-Fastly-Request-ID: 872b6dbb4fe023e5eb5a2e1713dd2438b0aef0eb
 
 <html>
 <head><title>301 Moved Permanently</title></head>
@@ -79,10 +79,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:57Z
-WARC-Record-ID: <urn:uuid:15f3e1f3-af06-4f77-a4b8-5a57b5427c72>
+WARC-Date: 2020-06-12T19:01:32Z
+WARC-Record-ID: <urn:uuid:7224d1e8-bfd0-4f2e-982c-8ab2c675dfcc>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:CISYFQLEZLILEODIUA7L3UFVY4COXF4S
 Content-Length: 153
 
@@ -97,16 +97,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:162ae4f8-84cb-4175-8d13-1d960c2b5861>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:15f3e1f3-af06-4f77-a4b8-5a57b5427c72>
+WARC-Record-ID: <urn:uuid:436e8182-86ca-470b-b3d2-49294968bd71>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:7224d1e8-bfd0-4f2e-982c-8ab2c675dfcc>
 WARC-Target-URI: <https://rubigdata.github.io/course/>
-WARC-Date: 2020-06-12T18:54:57Z
+WARC-Date: 2020-06-12T19:01:32Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:GCW2KSKDERUOKHYLWJEZSAYW3G5NVIJV
+WARC-Block-Digest: sha1:C7RIWZHNPKKKFYWBZXHSGWOZTXY5BOH6
 WARC-Payload-Digest: sha1:X7TKIIDPALSV2O5OJ2RXHCVUMNFHHHQ4
 Content-Type: application/http;msgtype=response
-Content-Length: 8192
+Content-Length: 8191
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -121,15 +121,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 8FAA:5A5E:C7CC7:DD3F7:5EE33D47
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:56 GMT
+Date: Fri, 12 Jun 2020 19:01:31 GMT
 Via: 1.1 varnish
-Age: 405
-X-Served-By: cache-ams21079-AMS
+Age: 0
+X-Served-By: cache-ams21030-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988097.775678,VS0,VE1
+X-Timer: S1591988491.378882,VS0,VE94
 Vary: Accept-Encoding
-X-Fastly-Request-ID: f6003e3bf74f9aa26f38fe1e2955ce2dea692ada
+X-Fastly-Request-ID: 2cc80b1b6d05b60a47bad7074a9c4749b46e3fc9
 
 
 
@@ -324,10 +324,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/robots.txt>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:57Z
-WARC-Record-ID: <urn:uuid:7332515f-bfa5-4679-b379-5fa88c9289aa>
+WARC-Date: 2020-06-12T19:01:32Z
+WARC-Record-ID: <urn:uuid:ca77e0b9-fb31-4c8a-ad60-836f00ab6aac>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:A27JSQUMQWBQEL7SENDX6SF7ZNHP4IDP
 Content-Length: 156
 
@@ -342,13 +342,13 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:6f86c066-d0aa-44b3-82c9-ba93277b888e>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:7332515f-bfa5-4679-b379-5fa88c9289aa>
+WARC-Record-ID: <urn:uuid:020551de-b359-4ab5-9862-7d28ca212a58>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:ca77e0b9-fb31-4c8a-ad60-836f00ab6aac>
 WARC-Target-URI: <https://rubigdata.github.io/robots.txt>
-WARC-Date: 2020-06-12T18:54:57Z
+WARC-Date: 2020-06-12T19:01:32Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:JS5OYPPOADIXBD337XQGHJXNVCZOOEMT
+WARC-Block-Digest: sha1:HNYIH4BDIPCILXHG47VRD2BFYIGD5CFG
 WARC-Payload-Digest: sha1:OZWV6LW2LMKGDXHE7RNVT2YIAIKQ5YWL
 Content-Type: application/http;msgtype=response
 Content-Length: 9983
@@ -364,15 +364,15 @@ Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; img-src 
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 5A2E:1F9F:355294:4473D0:5EE3CDEB
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:56 GMT
+Date: Fri, 12 Jun 2020 19:01:31 GMT
 Via: 1.1 varnish
-Age: 405
-X-Served-By: cache-ams21079-AMS
+Age: 800
+X-Served-By: cache-ams21030-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988097.980351,VS0,VE1
+X-Timer: S1591988492.534803,VS0,VE0
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 33a8eb0146d52e38b602851a3d6b57310e1f15ba
+X-Fastly-Request-ID: 6aca08f76d50cdd76c25c53fd247639a8dc421b3
 
 <!DOCTYPE html>
 <html>
@@ -468,10 +468,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:58Z
-WARC-Record-ID: <urn:uuid:73deef63-ecc2-4750-addb-f7efc2a46a0f>
+WARC-Date: 2020-06-12T19:01:32Z
+WARC-Record-ID: <urn:uuid:74816726-13dd-4424-9660-f7de3cf55e3b>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:H7VPCELRY2IS2S7PSYP2247VVC3B3UGS
 Content-Length: 258
 
@@ -487,13 +487,13 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:310a163f-da32-48ab-be38-b9c682f9bb38>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:73deef63-ecc2-4750-addb-f7efc2a46a0f>
+WARC-Record-ID: <urn:uuid:175b78cd-e2fb-44a9-8842-52ffecd78f73>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:74816726-13dd-4424-9660-f7de3cf55e3b>
 WARC-Target-URI: <https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css>
-WARC-Date: 2020-06-12T18:54:58Z
+WARC-Date: 2020-06-12T19:01:32Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:FU5GDAI4MMMTRKPRPQ4S3IVWZXT3QIW6
+WARC-Block-Digest: sha1:3QB26Z24FOCI7EXRG5TSSBRJW5RMP5CG
 WARC-Payload-Digest: sha1:NZ4XXASLM43V5JK5UQ2GH2EVYOE7IIWN
 Content-Type: application/http;msgtype=response
 Content-Length: 113071
@@ -511,15 +511,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 43E2:1483:C1997:D6F5E:5EE33D48
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:57 GMT
+Date: Fri, 12 Jun 2020 19:01:32 GMT
 Via: 1.1 varnish
-Age: 405
-X-Served-By: cache-ams21079-AMS
+Age: 0
+X-Served-By: cache-ams21030-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988097.049840,VS0,VE1
+X-Timer: S1591988492.749916,VS0,VE330
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 1514713581868b6074ef6146764305a17c9391d1
+X-Fastly-Request-ID: e2dedb8ea03ea25cdaa530540768e7361de0ed48
 
 /*!
  * Bootstrap v2.2.2
@@ -1309,10 +1309,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assets/themes/twitter/css/style.css?body=1>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:58Z
-WARC-Record-ID: <urn:uuid:20ce181e-7c79-47d0-9537-4f212f44dfeb>
+WARC-Date: 2020-06-12T19:01:34Z
+WARC-Record-ID: <urn:uuid:2265cb44-f8ea-4776-84d7-59e678d9144d>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:SL7FBLK76ROYL6EVXH36YVPNF44TVLHY
 Content-Length: 241
 
@@ -1328,16 +1328,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:f19b1030-5a55-41ff-9b06-1ee1d9ba3af3>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:20ce181e-7c79-47d0-9537-4f212f44dfeb>
+WARC-Record-ID: <urn:uuid:69311a9b-d675-4d82-b29f-1205c0f4531e>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:2265cb44-f8ea-4776-84d7-59e678d9144d>
 WARC-Target-URI: <https://rubigdata.github.io/course/assets/themes/twitter/css/style.css?body=1>
-WARC-Date: 2020-06-12T18:54:58Z
+WARC-Date: 2020-06-12T19:01:34Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:A4WTLWBOFMHIGZYHBXBWE4APQYLILJOX
+WARC-Block-Digest: sha1:YOISSEFKRP7OCBZYFGW3GHJS34EVDTRQ
 WARC-Payload-Digest: sha1:RBSBZF6EZXY67KP7UNFRM42UD64XP23T
 Content-Type: application/http;msgtype=response
-Content-Length: 1693
+Content-Length: 1692
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -1353,15 +1353,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 2DC4:586D:D06E7:E68F6:5EE33D48
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:57 GMT
+Date: Fri, 12 Jun 2020 19:01:33 GMT
 Via: 1.1 varnish
-Age: 405
-X-Served-By: cache-ams21079-AMS
+Age: 0
+X-Served-By: cache-ams21030-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988097.235401,VS0,VE1
+X-Timer: S1591988493.081856,VS0,VE98
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 9b87d98279b37c0d0808d2b80c49b5019e773818
+X-Fastly-Request-ID: 0daf079639d72fa7bd95f25c9bdc433d1c020e0b
 
 /* Custom container */
 .container-narrow {
@@ -1433,10 +1433,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assets/themes/twitter/css/kbroman.css>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:58Z
-WARC-Record-ID: <urn:uuid:d4acf9fe-8cc8-488a-8bc0-e21b3b39adde>
+WARC-Date: 2020-06-12T19:01:34Z
+WARC-Record-ID: <urn:uuid:77dbddc4-9215-45b9-9088-df1954df7526>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:ULKEBTL6EDU3NCGI7PG7UJVXUVNWZEJE
 Content-Length: 236
 
@@ -1452,16 +1452,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:90637ad9-f9a1-42c5-be5b-fc47222e1e5d>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:d4acf9fe-8cc8-488a-8bc0-e21b3b39adde>
+WARC-Record-ID: <urn:uuid:20ccd064-85d3-4053-81b7-a844886fab79>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:77dbddc4-9215-45b9-9088-df1954df7526>
 WARC-Target-URI: <https://rubigdata.github.io/course/assets/themes/twitter/css/kbroman.css>
-WARC-Date: 2020-06-12T18:54:58Z
+WARC-Date: 2020-06-12T19:01:34Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:PO4SRCQOXZBFS5TRZ7TG2BIBSIPDSD5O
+WARC-Block-Digest: sha1:I2ZDSKOF6XFZD3C4LKL2NWQZS2X24XFP
 WARC-Payload-Digest: sha1:X3V6TVRWZGZXCQ7F2Y436ZZLUPQBU6UE
 Content-Type: application/http;msgtype=response
-Content-Length: 796
+Content-Length: 795
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -1477,15 +1477,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 756A:1F3E:D6BAC:EDBCA:5EE33D49
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:57 GMT
+Date: Fri, 12 Jun 2020 19:01:33 GMT
 Via: 1.1 varnish
-Age: 404
-X-Served-By: cache-ams21079-AMS
+Age: 0
+X-Served-By: cache-ams21030-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988097.335837,VS0,VE0
+X-Timer: S1591988493.256756,VS0,VE88
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 01316d69d1e712875554ee8faadcc462d6c2cc63
+X-Fastly-Request-ID: 3ede9fda33647ac5ff211c9b31cc0e4d9ec23c48
 
 code {
   padding: 0;
@@ -1503,10 +1503,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assets/themes/twitter/css/arjenpdevries.css>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:58Z
-WARC-Record-ID: <urn:uuid:c7b0fd70-f54d-4709-9a09-433db2de4cf0>
+WARC-Date: 2020-06-12T19:01:34Z
+WARC-Record-ID: <urn:uuid:3316923e-b80b-4ea3-9c3f-35a4e68cec58>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:TKTJ6JBILHRZOY73J3NMQ7P4GVHUOSKT
 Content-Length: 242
 
@@ -1522,16 +1522,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:3ff1adac-f106-406f-8699-52efb93ac3eb>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:c7b0fd70-f54d-4709-9a09-433db2de4cf0>
+WARC-Record-ID: <urn:uuid:b0c8668d-7419-4b3b-ae8f-7a0294ce632b>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:3316923e-b80b-4ea3-9c3f-35a4e68cec58>
 WARC-Target-URI: <https://rubigdata.github.io/course/assets/themes/twitter/css/arjenpdevries.css>
-WARC-Date: 2020-06-12T18:54:58Z
+WARC-Date: 2020-06-12T19:01:34Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:NC2GJZLTLEZL2CDVBUAQNLJGMVKF2XKU
+WARC-Block-Digest: sha1:MB4IAFV45BOK622YYVWNS2UTAF6RUF62
 WARC-Payload-Digest: sha1:JWP5LN3B7GY6IRPDB3K2DWUFJ37IEFTF
 Content-Type: application/http;msgtype=response
-Content-Length: 874
+Content-Length: 873
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -1547,15 +1547,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: DE8E:1E3F:C022D:D5B7E:5EE33D49
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:57 GMT
+Date: Fri, 12 Jun 2020 19:01:33 GMT
 Via: 1.1 varnish
-Age: 404
-X-Served-By: cache-ams21079-AMS
+Age: 0
+X-Served-By: cache-ams21030-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988097.436756,VS0,VE1
+X-Timer: S1591988494.530891,VS0,VE83
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 762aa0c993c9ab51d0aa8115b92ad48af56fc291
+X-Fastly-Request-ID: d55a52d5e30d39326702131d55673feaf8791beb
 
 /* Table rendering */
 th, td {
@@ -1579,10 +1579,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/coursenil>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:58Z
-WARC-Record-ID: <urn:uuid:a6f66d06-2a50-4131-90ce-22f8c9995d1f>
+WARC-Date: 2020-06-12T19:01:34Z
+WARC-Record-ID: <urn:uuid:c37e5f6b-341f-466d-ab78-19dc86539a9d>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:GOEQXWDU3GM5EPJZSLWHBQ3LWMRZDHB3
 Content-Length: 201
 
@@ -1598,13 +1598,13 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:0045ab84-1b7c-4aab-94d5-6a0a07f96e34>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:a6f66d06-2a50-4131-90ce-22f8c9995d1f>
+WARC-Record-ID: <urn:uuid:8f79300f-d2e9-46d0-8de5-1270ea223449>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:c37e5f6b-341f-466d-ab78-19dc86539a9d>
 WARC-Target-URI: <https://rubigdata.github.io/coursenil>
-WARC-Date: 2020-06-12T18:54:58Z
+WARC-Date: 2020-06-12T19:01:34Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:DLF6ZQUFCGB4TBYKFEX5TWYDPFCSCWDE
+WARC-Block-Digest: sha1:JAOT3Z6NMNPLEFMEKUQUCKV4RZKSN7ZQ
 WARC-Payload-Digest: sha1:OZWV6LW2LMKGDXHE7RNVT2YIAIKQ5YWL
 Content-Type: application/http;msgtype=response
 Content-Length: 9983
@@ -1620,15 +1620,15 @@ Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; img-src 
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: ACC0:286C:1C026C:23F5E4:5EE3CDEC
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:57 GMT
+Date: Fri, 12 Jun 2020 19:01:33 GMT
 Via: 1.1 varnish
-Age: 404
-X-Served-By: cache-ams21079-AMS
+Age: 800
+X-Served-By: cache-ams21030-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988098.536488,VS0,VE1
+X-Timer: S1591988494.748780,VS0,VE1
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 9b3c898c244c10b3624d285d72747c8253a255f4
+X-Fastly-Request-ID: 496ab497fbb9b5e3baf3384c9a7b8f946a76d0cf
 
 <!DOCTYPE html>
 <html>
@@ -1724,10 +1724,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:58Z
-WARC-Record-ID: <urn:uuid:9420fbe7-9107-457f-867d-0f6cb1b2dc87>
+WARC-Date: 2020-06-12T19:01:34Z
+WARC-Record-ID: <urn:uuid:4538a2a2-777f-4269-b4b4-d7167712a3b9>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:3IVEMFGV6O2364JPT6EGYHXIII6VKVMZ
 Content-Length: 198
 
@@ -1743,13 +1743,13 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:560bc5db-6bc3-45e2-87ce-628eb3bdb015>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:9420fbe7-9107-457f-867d-0f6cb1b2dc87>
+WARC-Record-ID: <urn:uuid:2bd160b3-083f-4856-83e3-36157486e97a>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:4538a2a2-777f-4269-b4b4-d7167712a3b9>
 WARC-Target-URI: <https://rubigdata.github.io/course>
-WARC-Date: 2020-06-12T18:54:58Z
+WARC-Date: 2020-06-12T19:01:34Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:QVCPVPD2WVUEJODEHRMWXMS2J2NJYOLJ
+WARC-Block-Digest: sha1:NKLN6KH6NKZUBWUPORRLZKENTI5HIF27
 WARC-Payload-Digest: sha1:HLNR6AWVWYCU3YAENY3HYHLIPNWN66X7
 Content-Type: application/http;msgtype=response
 Content-Length: 681
@@ -1763,15 +1763,15 @@ X-Origin-Cache: HIT
 Location: https://rubigdata.github.io/course/
 X-GitHub-Request-Id: D248:6106:22F2D:34828:5EE3CDED
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:57 GMT
+Date: Fri, 12 Jun 2020 19:01:34 GMT
 Via: 1.1 varnish
-Age: 403
-X-Served-By: cache-ams21079-AMS
+Age: 800
+X-Served-By: cache-ams21030-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988098.586778,VS0,VE1
+X-Timer: S1591988494.096391,VS0,VE0
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 11c79ccd56fc62ef53df34adefedef348666aefc
+X-Fastly-Request-ID: af51218dcc694461700e2321a9c3ba6527336cec
 
 <html>
 <head><title>301 Moved Permanently</title></head>
@@ -1786,10 +1786,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:58Z
-WARC-Record-ID: <urn:uuid:62caed6e-7f27-488f-b6f8-cdfa1642ab25>
+WARC-Date: 2020-06-12T19:01:35Z
+WARC-Record-ID: <urn:uuid:38e16fc9-408d-47c6-8115-c2a95a8fea5e>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:363BNEW24DAX52CY2JN4HN7NLZI4QQAM
 Content-Length: 199
 
@@ -1807,10 +1807,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A1a-blogging.html>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:58Z
-WARC-Record-ID: <urn:uuid:31fa52d6-e85e-4984-9245-e6435ca2912c>
+WARC-Date: 2020-06-12T19:01:36Z
+WARC-Record-ID: <urn:uuid:239056ca-1d60-425e-9120-d9162ae6a0e2>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:VPFRA75HV5PRHIHDFZATDJ2WD3QA4NOH
 Content-Length: 228
 
@@ -1826,16 +1826,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:b459ad02-12c0-4f6d-9f69-69e33f022987>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:31fa52d6-e85e-4984-9245-e6435ca2912c>
+WARC-Record-ID: <urn:uuid:209bd407-daad-47eb-94c3-ea534e597bd9>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:239056ca-1d60-425e-9120-d9162ae6a0e2>
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A1a-blogging.html>
-WARC-Date: 2020-06-12T18:54:58Z
+WARC-Date: 2020-06-12T19:01:36Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:D5USDM2JGNEWFZDCSDZUSCGWWEL2DAXL
+WARC-Block-Digest: sha1:3HBCUKP4F5IJOBDWLRMSQ5DJMWGU4GO2
 WARC-Payload-Digest: sha1:ETALZJUPPMRKWPKLCHLG54OEBTMYFF7S
 Content-Type: application/http;msgtype=response
-Content-Length: 10237
+Content-Length: 10236
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -1850,15 +1850,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 7940:0A31:B7975:CBC41:5EE33D4A
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:57 GMT
+Date: Fri, 12 Jun 2020 19:01:35 GMT
 Via: 1.1 varnish
-Age: 403
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988098.755180,VS0,VE1
+X-Timer: S1591988495.076861,VS0,VE94
 Vary: Accept-Encoding
-X-Fastly-Request-ID: b6bf3f3925bd432808e8231612901c993a3ea186
+X-Fastly-Request-ID: e3d73d3635b97d35d6a5c3feba1e901d71848a55
 
 
 
@@ -2014,10 +2014,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A1b-docker.html>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:58Z
-WARC-Record-ID: <urn:uuid:6b3053ba-3436-4dce-9c37-461e0d1ce0e3>
+WARC-Date: 2020-06-12T19:01:36Z
+WARC-Record-ID: <urn:uuid:bb8831d9-a73a-4fc0-adad-3feb8a2098f5>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:NKDIIN2WRTC5HS2YKS6JGT54STPZHULB
 Content-Length: 226
 
@@ -2033,16 +2033,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:a048e438-ac5b-4a7b-9066-b37ea0c15866>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:6b3053ba-3436-4dce-9c37-461e0d1ce0e3>
+WARC-Record-ID: <urn:uuid:30177a79-d8ee-4523-b914-df9e5f5bd9a5>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:bb8831d9-a73a-4fc0-adad-3feb8a2098f5>
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A1b-docker.html>
-WARC-Date: 2020-06-12T18:54:58Z
+WARC-Date: 2020-06-12T19:01:36Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:MDLKLW5QD2QL67XB2LBFSHRZ6RESAJJH
+WARC-Block-Digest: sha1:6QWKFHYEKLVPBJPEHKNORP6CISGOF525
 WARC-Payload-Digest: sha1:V2UM54UIVCPDVRITSSTH434YNCVTJVMP
 Content-Type: application/http;msgtype=response
-Content-Length: 13310
+Content-Length: 13309
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -2058,15 +2058,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: F1C4:1E3E:EF0AA:108F18:5EE33D4A
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:57 GMT
+Date: Fri, 12 Jun 2020 19:01:35 GMT
 Via: 1.1 varnish
-Age: 403
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988098.855215,VS0,VE0
+X-Timer: S1591988495.260212,VS0,VE81
 Vary: Accept-Encoding
-X-Fastly-Request-ID: ec6fa3e7bee35bce33c433158c2e308f2cd9fd99
+X-Fastly-Request-ID: 8bd2995ecec2143fb6bbc23edeca725f2d8d228f
 
 
 
@@ -2304,10 +2304,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A2-mapreduce.html>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:59Z
-WARC-Record-ID: <urn:uuid:1e9886fb-c39f-4e6f-9c63-ea4bfa864b33>
+WARC-Date: 2020-06-12T19:01:36Z
+WARC-Record-ID: <urn:uuid:f20719a9-b0ba-4737-92da-29376a0222fa>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:5ROYYM6JHQSN3A2WKBYYABRFFYRFHRUV
 Content-Length: 228
 
@@ -2323,16 +2323,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:596e1704-0e13-41a8-900c-b9d82e2ba11d>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:1e9886fb-c39f-4e6f-9c63-ea4bfa864b33>
+WARC-Record-ID: <urn:uuid:8e998997-6669-4828-8c3a-749d7c88972a>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:f20719a9-b0ba-4737-92da-29376a0222fa>
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A2-mapreduce.html>
-WARC-Date: 2020-06-12T18:54:59Z
+WARC-Date: 2020-06-12T19:01:36Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:YP2JCMBLLWCQXLK5W67CPH4GCFG7NPQP
+WARC-Block-Digest: sha1:46UVICM6BISJMPFRX43TEPHE2S6HN5BT
 WARC-Payload-Digest: sha1:DTMAH6U7XJ5R56QPBYGJCWU5WE2JCLKT
 Content-Type: application/http;msgtype=response
-Content-Length: 10392
+Content-Length: 10391
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -2348,15 +2348,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 9E26:586D:D0706:E691E:5EE33D4A
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:57 GMT
+Date: Fri, 12 Jun 2020 19:01:35 GMT
 Via: 1.1 varnish
-Age: 402
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988098.974913,VS0,VE0
+X-Timer: S1591988495.432410,VS0,VE83
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 256e71e62ca55c3526febf7325f4539e037b2a31
+X-Fastly-Request-ID: bb004810e34e45f88c070619976b4ba8dbd8185b
 
 
 
@@ -2540,10 +2540,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A3-spark.html>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:59Z
-WARC-Record-ID: <urn:uuid:0db36c30-d50c-4bc8-8e87-7be2288e688e>
+WARC-Date: 2020-06-12T19:01:36Z
+WARC-Record-ID: <urn:uuid:61bdf270-717a-4444-a2e1-1b3c229b9512>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:3UU5I2M7K3X6O3VL3JB2Q6YCL7DEDPAA
 Content-Length: 224
 
@@ -2559,16 +2559,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:fddfeaa4-b030-4280-a29d-7ffe45f6d803>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:0db36c30-d50c-4bc8-8e87-7be2288e688e>
+WARC-Record-ID: <urn:uuid:d2944493-7b3c-4545-9ecd-65c27c19fdc4>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:61bdf270-717a-4444-a2e1-1b3c229b9512>
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A3-spark.html>
-WARC-Date: 2020-06-12T18:54:59Z
+WARC-Date: 2020-06-12T19:01:36Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:XU7OX2ALGJBN7LZNUQRUBBFFTWRAVBRX
+WARC-Block-Digest: sha1:NBA6PYD744FFO25AAGT35I2XHS3IJULL
 WARC-Payload-Digest: sha1:EEY5Y7ZNLZVIDHNBGGDMHWYT3CLQAC7M
 Content-Type: application/http;msgtype=response
-Content-Length: 7426
+Content-Length: 7425
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -2584,15 +2584,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 08F0:1249:2F6AF:35958:5EE33D4A
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:58 GMT
+Date: Fri, 12 Jun 2020 19:01:35 GMT
 Via: 1.1 varnish
-Age: 402
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988098.052389,VS0,VE0
+X-Timer: S1591988496.773185,VS0,VE90
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 67cb3ca4f865efc9f38fc4296ec86b30e230639b
+X-Fastly-Request-ID: cbf0d14cf3a543809ac1624b1493dad14cfbff0c
 
 
 
@@ -2753,10 +2753,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A3a-spark-rdd.html>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:59Z
-WARC-Record-ID: <urn:uuid:7667b915-0631-48f7-867b-955b73693553>
+WARC-Date: 2020-06-12T19:01:37Z
+WARC-Record-ID: <urn:uuid:683c5f1c-f412-4915-9a14-35655fd5aebe>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:SSWOKJRZVEFYCRYZS2Y4P3FOZQB73CVF
 Content-Length: 229
 
@@ -2772,16 +2772,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:8648de85-ad85-43e3-a32a-b6bcbedadfe1>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:7667b915-0631-48f7-867b-955b73693553>
+WARC-Record-ID: <urn:uuid:a2151c2a-c822-4bda-8162-8fc79a1c4316>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:683c5f1c-f412-4915-9a14-35655fd5aebe>
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A3a-spark-rdd.html>
-WARC-Date: 2020-06-12T18:54:59Z
+WARC-Date: 2020-06-12T19:01:37Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:FFOBEBNXLQNJEOMSJP6JGE52C2RP7GVD
+WARC-Block-Digest: sha1:FPFP3OTVO4WXLTVVMMEXFMRXBRPRRP2J
 WARC-Payload-Digest: sha1:X7R2CIODBRYTUABKWTIJQ4WDWJ6UFT52
 Content-Type: application/http;msgtype=response
-Content-Length: 7193
+Content-Length: 7192
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -2797,15 +2797,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 2686:1249:2F6B2:35956:5EE33D4A
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:58 GMT
+Date: Fri, 12 Jun 2020 19:01:36 GMT
 Via: 1.1 varnish
-Age: 402
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988098.260509,VS0,VE1
+X-Timer: S1591988497.522123,VS0,VE96
 Vary: Accept-Encoding
-X-Fastly-Request-ID: caad4f1b9c553199b8f7d7616f62d1fbd4ea1f79
+X-Fastly-Request-ID: 76484ebb3fe0923c21a850bce815f823b4ada91d
 
 
 
@@ -2953,10 +2953,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A3b-spark-df.html>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:59Z
-WARC-Record-ID: <urn:uuid:1a635edf-76eb-4434-9770-4b937367d43e>
+WARC-Date: 2020-06-12T19:01:37Z
+WARC-Record-ID: <urn:uuid:d69e28ca-8583-4443-aeb4-4a53997d0af6>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:JWQ6POHY6MRPS2QKZTAPY2TFVSE5YZFU
 Content-Length: 228
 
@@ -2972,16 +2972,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:3cc45ce8-1e57-488b-ab27-9625058dbaaf>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:1a635edf-76eb-4434-9770-4b937367d43e>
+WARC-Record-ID: <urn:uuid:08678d61-457f-4bd3-9155-499700cc1a48>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:d69e28ca-8583-4443-aeb4-4a53997d0af6>
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A3b-spark-df.html>
-WARC-Date: 2020-06-12T18:54:59Z
+WARC-Date: 2020-06-12T19:01:37Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:UXLGJBTP3TOX2NSD6VDUFIS2P5KWY3MQ
+WARC-Block-Digest: sha1:5SACATLE4TXXD5XR3LLBL2TUFQLH6IBS
 WARC-Payload-Digest: sha1:S4JZ6YZITDJEBRP2DUVDYTWLT5MZKFBP
 Content-Type: application/http;msgtype=response
-Content-Length: 5186
+Content-Length: 5185
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -2997,15 +2997,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 9A88:8E4C:DDDCC:F5625:5EE33D4B
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:58 GMT
+Date: Fri, 12 Jun 2020 19:01:36 GMT
 Via: 1.1 varnish
-Age: 402
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988099.622105,VS0,VE1
+X-Timer: S1591988497.818896,VS0,VE96
 Vary: Accept-Encoding
-X-Fastly-Request-ID: cd12ec658220dd45f1fe165ebcc3eddbe101af78
+X-Fastly-Request-ID: 23cb9a4cff3f1ef7a6d99a9acfbd6ebe90cb09ea
 
 
 
@@ -3113,10 +3113,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A4-bdr-hackathon.html>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:59Z
-WARC-Record-ID: <urn:uuid:4588b606-7902-4533-8f3d-1ae1772667cd>
+WARC-Date: 2020-06-12T19:01:38Z
+WARC-Record-ID: <urn:uuid:27b4cefd-e3a2-4246-9f57-72b24233fd74>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:KIJX3XUJ6SDMSTG4O43LEA6NVUGA2DOM
 Content-Length: 232
 
@@ -3132,16 +3132,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:8068bbe3-b9e1-4af0-9c52-269a5d3da2d5>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:4588b606-7902-4533-8f3d-1ae1772667cd>
+WARC-Record-ID: <urn:uuid:9c5a3723-30c3-47cd-8ca8-70d419dcd146>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:27b4cefd-e3a2-4246-9f57-72b24233fd74>
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A4-bdr-hackathon.html>
-WARC-Date: 2020-06-12T18:54:59Z
+WARC-Date: 2020-06-12T19:01:38Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:KCD2YXFWCSKIQY7VWXSYCPR5PHPMZDIY
+WARC-Block-Digest: sha1:KGPQXKNG2FP6BIMUHSFWHZFUOB5JPJFS
 WARC-Payload-Digest: sha1:KUFI2536MTM3ZAU5J3E7YFD7QTZ63SLK
 Content-Type: application/http;msgtype=response
-Content-Length: 4370
+Content-Length: 4369
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -3157,15 +3157,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 7D30:90CE:EC70A:105A99:5EE33D4B
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:58 GMT
+Date: Fri, 12 Jun 2020 19:01:37 GMT
 Via: 1.1 varnish
-Age: 402
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988099.725496,VS0,VE0
+X-Timer: S1591988497.225105,VS0,VE88
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 29e0b480b21a97ebf37e1e422aa446cc2ec8bc63
+X-Fastly-Request-ID: 492e356c319ba8d9f6c824997e39db35e7c61f67
 
 
 
@@ -3267,10 +3267,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A5-streaming.html>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:59Z
-WARC-Record-ID: <urn:uuid:c5ff7204-967b-47cf-b9fc-3b86aaf8962c>
+WARC-Date: 2020-06-12T19:01:38Z
+WARC-Record-ID: <urn:uuid:35740c37-573f-4aab-b62b-6ce3ac29244f>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:XLRZBICNPKSQU4L5NSYPA7CB2GAZ7WQQ
 Content-Length: 228
 
@@ -3286,16 +3286,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:56ecdf50-92c1-4363-be98-3f159455fa41>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:c5ff7204-967b-47cf-b9fc-3b86aaf8962c>
+WARC-Record-ID: <urn:uuid:ad880d46-ed27-4401-9379-587206843334>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:35740c37-573f-4aab-b62b-6ce3ac29244f>
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/A5-streaming.html>
-WARC-Date: 2020-06-12T18:54:59Z
+WARC-Date: 2020-06-12T19:01:38Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:NOVI5ZWTZSVB3XPDGC7QJ6F2I2ZUVNIL
+WARC-Block-Digest: sha1:RE43NQAU4WEQWZQ5DQGOMWT6DON7A7L3
 WARC-Payload-Digest: sha1:BR6BI4J5BASM6KCMIMIHSTIUAO7J4Q5Y
 Content-Type: application/http;msgtype=response
-Content-Length: 6913
+Content-Length: 6912
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -3311,15 +3311,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: D8E4:58FC:C32DB:D8970:5EE33D4B
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:58 GMT
+Date: Fri, 12 Jun 2020 19:01:37 GMT
 Via: 1.1 varnish
-Age: 402
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988099.767486,VS0,VE1
+X-Timer: S1591988497.425074,VS0,VE87
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 9bdbd7c8a33c7288debb7bc34dc6a6640a51ccb1
+X-Fastly-Request-ID: 1158ce6c3aad11d1970f74db8463279c21c88ef5
 
 
 
@@ -3464,10 +3464,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/P-commoncrawl-I.html>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:59Z
-WARC-Record-ID: <urn:uuid:4ad85139-8163-483f-9c50-5cd062cb20cc>
+WARC-Date: 2020-06-12T19:01:39Z
+WARC-Record-ID: <urn:uuid:5fbbdf83-cbce-4312-abbc-808fa2598561>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:UC5JSIH2SEX3MNJPEA76DSFXL7FGFWAP
 Content-Length: 231
 
@@ -3483,16 +3483,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:65827c57-ca2d-4e44-9106-351027c31a8e>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:4ad85139-8163-483f-9c50-5cd062cb20cc>
+WARC-Record-ID: <urn:uuid:a04852e2-68b3-48df-87b9-0e10a86163eb>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:5fbbdf83-cbce-4312-abbc-808fa2598561>
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/P-commoncrawl-I.html>
-WARC-Date: 2020-06-12T18:54:59Z
+WARC-Date: 2020-06-12T19:01:39Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:TWTA3BYT3KWWSWPWIUPJFZW5KDETQ3OS
+WARC-Block-Digest: sha1:VSHXZKOKHGBXTBMU5BCVTRT5KENH6ES4
 WARC-Payload-Digest: sha1:6EH24Y3ND76544HH5C6QNH3K7VXMKOCA
 Content-Type: application/http;msgtype=response
-Content-Length: 10463
+Content-Length: 10462
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -3508,15 +3508,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 2B4A:147F:7B22B:884F5:5EE33D4B
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:58 GMT
+Date: Fri, 12 Jun 2020 19:01:38 GMT
 Via: 1.1 varnish
-Age: 402
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988099.838819,VS0,VE1
+X-Timer: S1591988498.206670,VS0,VE91
 Vary: Accept-Encoding
-X-Fastly-Request-ID: eeb4ce6e035a3a742e912a50016d2a762a6dae27
+X-Fastly-Request-ID: 622bc6ba9eeaa136811338527dcf88fabc0a6424
 
 
 
@@ -3734,10 +3734,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:54:59Z
-WARC-Record-ID: <urn:uuid:b02e600e-4820-4269-8f54-28935a61f2f2>
+WARC-Date: 2020-06-12T19:01:40Z
+WARC-Record-ID: <urn:uuid:5b319cf5-7fa7-4db3-8d09-4c5213d52df9>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:KV24UX3OKEL6Y3Q5TUA6CGA3X6Q4OCUM
 Content-Length: 318
 
@@ -3753,16 +3753,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:d300ec0f-2196-46e9-a025-e777f6427e62>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:b02e600e-4820-4269-8f54-28935a61f2f2>
+WARC-Record-ID: <urn:uuid:bd62f327-6d9d-492e-b32e-1fc493085cd9>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:5b319cf5-7fa7-4db3-8d09-4c5213d52df9>
 WARC-Target-URI: <https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png>
-WARC-Date: 2020-06-12T18:54:59Z
+WARC-Date: 2020-06-12T19:01:40Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:XNAMEZZUKKAHL2S6YFYY5S6CASNBYZY5
+WARC-Block-Digest: sha1:Q3HCWCADMHECQ5PW46BFW75SCI66JMI7
 WARC-Payload-Digest: sha1:QT3BGYY3A7KP4IVMXK2Q4VI4B7QEXV4L
 Content-Type: application/http;msgtype=response
-Content-Length: 13448
+Content-Length: 13447
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -3778,15 +3778,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 44F2:90D0:B78AC:CB99E:5EE33D4B
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:58 GMT
+Date: Fri, 12 Jun 2020 19:01:39 GMT
 Via: 1.1 varnish
-Age: 401
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988099.898356,VS0,VE1
+X-Timer: S1591988499.086617,VS0,VE98
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 3bb787b2a63da73ed24549118ff2ee646d5a5294
+X-Fastly-Request-ID: dcbfb223020be110b654f70cd865cbb27049f4b3
 
 �PNG
 
@@ -3845,10 +3845,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings-white.png>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:55:00Z
-WARC-Record-ID: <urn:uuid:8e19af52-96b4-45fc-a0fb-0a9677b52d92>
+WARC-Date: 2020-06-12T19:01:43Z
+WARC-Record-ID: <urn:uuid:f8ba027c-6552-488a-94b8-8e23ecce8811>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:NER3PX7QLCT2VHAVNWS6PKHMMVFWNVGE
 Content-Length: 324
 
@@ -3864,16 +3864,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:cad5fad9-0f1a-482e-bf80-0b218522c66b>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:8e19af52-96b4-45fc-a0fb-0a9677b52d92>
+WARC-Record-ID: <urn:uuid:bc07d6d7-0dbc-4640-9789-43386fbdce9e>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:f8ba027c-6552-488a-94b8-8e23ecce8811>
 WARC-Target-URI: <https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings-white.png>
-WARC-Date: 2020-06-12T18:55:00Z
+WARC-Date: 2020-06-12T19:01:43Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:F2LMVPGQJ5IJAJL3NZSMEEPDBYS26SXN
+WARC-Block-Digest: sha1:VYHKZNEVOH2PWFDKPTWSODA3ZDFVAV6L
 WARC-Payload-Digest: sha1:UJOEOBJSB7LDYM3ZBZTGQ4URBZYCXG7W
 Content-Type: application/http;msgtype=response
-Content-Length: 9426
+Content-Length: 9425
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -3889,15 +3889,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 227C:5A5C:F90CC:113646:5EE33D4C
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:59 GMT
+Date: Fri, 12 Jun 2020 19:01:43 GMT
 Via: 1.1 varnish
-Age: 401
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988099.004658,VS0,VE0
+X-Timer: S1591988503.263303,VS0,VE97
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 0bcf8e4e90f6f6a8867040fd3fddffb35533facd
+X-Fastly-Request-ID: 90da602714cee45996dbb39bf21e3e246854c587
 
 �PNG
 
@@ -3927,10 +3927,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/background/hadoop.html>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:55:00Z
-WARC-Record-ID: <urn:uuid:dc0933bb-b653-4618-93c4-6fd1cbc9d9d6>
+WARC-Date: 2020-06-12T19:01:46Z
+WARC-Record-ID: <urn:uuid:c9e709d6-fe60-48be-90dc-e972c003272f>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:VAJ5G5P235UXFRQCB5SNOK5SI5WFTMY5
 Content-Length: 250
 
@@ -3946,16 +3946,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:d6f5f00a-f519-4900-bbd0-b56e43202032>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:dc0933bb-b653-4618-93c4-6fd1cbc9d9d6>
+WARC-Record-ID: <urn:uuid:af0c7185-12b8-4e23-8f7f-3ca9e863bcd3>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:c9e709d6-fe60-48be-90dc-e972c003272f>
 WARC-Target-URI: <https://rubigdata.github.io/course/background/hadoop.html>
-WARC-Date: 2020-06-12T18:55:00Z
+WARC-Date: 2020-06-12T19:01:46Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:CK4HLLXKWNFB3GVAH2XGPV5QWPHHRAJK
+WARC-Block-Digest: sha1:TMFDZENSHB3KMTTBBW425LWSO25I4MAM
 WARC-Payload-Digest: sha1:JARBDFF2TDMIBXSLTRAF6BXDD6UMSVX3
 Content-Type: application/http;msgtype=response
-Content-Length: 13869
+Content-Length: 13868
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -3971,15 +3971,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: FDBA:90C9:8F39:B78E:5EE33D4C
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:59 GMT
+Date: Fri, 12 Jun 2020 19:01:45 GMT
 Via: 1.1 varnish
-Age: 400
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988099.057064,VS0,VE1
+X-Timer: S1591988506.506872,VS0,VE86
 Vary: Accept-Encoding
-X-Fastly-Request-ID: ebea2f5aa5ad3d454966320d4701f957f6369218
+X-Fastly-Request-ID: 42e4fe61afbd8a41a85365fe0064a875e674051f
 
 
 
@@ -4207,10 +4207,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/index.html>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:55:00Z
-WARC-Record-ID: <urn:uuid:2a3ecfcb-b64f-4591-9a6e-1c6efa1f59c4>
+WARC-Date: 2020-06-12T19:01:48Z
+WARC-Record-ID: <urn:uuid:9b2ae9d5-bb38-43ee-b681-f630e5403ef2>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:GPUFB6UTILKLIF33YYM3CN3JQ5TB3GJ6
 Content-Length: 238
 
@@ -4226,16 +4226,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:a6d0bb63-0835-4b22-9080-65a689436168>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:2a3ecfcb-b64f-4591-9a6e-1c6efa1f59c4>
+WARC-Record-ID: <urn:uuid:9dcba4c9-0390-41b9-b10f-908b57c11197>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:9b2ae9d5-bb38-43ee-b681-f630e5403ef2>
 WARC-Target-URI: <https://rubigdata.github.io/course/index.html>
-WARC-Date: 2020-06-12T18:55:00Z
+WARC-Date: 2020-06-12T19:01:48Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:PXS57UYB6MGCU5JIZBVM5ZMUJTO6A46C
+WARC-Block-Digest: sha1:VXT5MOKGJSABMYFTGDLLRBG2NZ2645HR
 WARC-Payload-Digest: sha1:X7TKIIDPALSV2O5OJ2RXHCVUMNFHHHQ4
 Content-Type: application/http;msgtype=response
-Content-Length: 8193
+Content-Length: 8192
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -4250,15 +4250,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 56AC:7299:E1628:125092:5EE33D4C
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:59 GMT
+Date: Fri, 12 Jun 2020 19:01:47 GMT
 Via: 1.1 varnish
-Age: 401
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988099.368377,VS0,VE1
+X-Timer: S1591988507.358978,VS0,VE82
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 1c975c65cb929283d14c0095c190ac029e57e3ad
+X-Fastly-Request-ID: 75b6048d3990f045227c673bec2c2807ebcda73d
 
 
 
@@ -4453,10 +4453,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/background/spark-notebook.html>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:55:00Z
-WARC-Record-ID: <urn:uuid:57bfc2c5-03b9-4b1a-9e9b-ecb5850d13f6>
+WARC-Date: 2020-06-12T19:01:49Z
+WARC-Record-ID: <urn:uuid:1760574e-e6f5-4739-b72b-cc99ae5d01de>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:3XBN42CFAE23W2UTNP7LNULOX6YDPOYR
 Content-Length: 259
 
@@ -4472,16 +4472,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:f95647c5-a7ec-45c4-9afb-2869f395ddde>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:57bfc2c5-03b9-4b1a-9e9b-ecb5850d13f6>
+WARC-Record-ID: <urn:uuid:9454d44e-02b7-485e-b088-22e2c65362bf>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:1760574e-e6f5-4739-b72b-cc99ae5d01de>
 WARC-Target-URI: <https://rubigdata.github.io/course/background/spark-notebook.html>
-WARC-Date: 2020-06-12T18:55:00Z
+WARC-Date: 2020-06-12T19:01:49Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:DJBU2XJ3CHRZYOQIKJAWXTZOOVBZ7SAN
+WARC-Block-Digest: sha1:ODHZGVIGYB76COWH5FED3PUIOEJNU6F6
 WARC-Payload-Digest: sha1:EGL4OCVPXC3CQNE4PKSJVSQ55XW7QK63
 Content-Type: application/http;msgtype=response
-Content-Length: 6704
+Content-Length: 6703
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -4497,15 +4497,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 2C76:6FA7:6A40D:8BC16:5EE33D4D
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:59 GMT
+Date: Fri, 12 Jun 2020 19:01:48 GMT
 Via: 1.1 varnish
-Age: 400
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988099.430515,VS0,VE1
+X-Timer: S1591988509.760052,VS0,VE88
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 2e21dd39637c508f9a930e744a5108c81259e705
+X-Fastly-Request-ID: 56c0026e96d4b9b1d084a7e03a518f2da2b97cd3
 
 
 
@@ -4638,10 +4638,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/stream.py>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:55:00Z
-WARC-Record-ID: <urn:uuid:05e435e6-d9d0-493d-82ac-390ea592e45f>
+WARC-Date: 2020-06-12T19:01:51Z
+WARC-Record-ID: <urn:uuid:0a5ceb0d-0e5f-4f24-8e4c-7d208bf75870>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:OQNXPGSIRBSDI246YLNC5OWV6PXJ7E4V
 Content-Length: 249
 
@@ -4657,16 +4657,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:8be72fb1-6bc1-4da5-bb95-9c3ab0e98a02>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:05e435e6-d9d0-493d-82ac-390ea592e45f>
+WARC-Record-ID: <urn:uuid:7b798e85-8403-4572-9f04-4ca49672f6e4>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:0a5ceb0d-0e5f-4f24-8e4c-7d208bf75870>
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/stream.py>
-WARC-Date: 2020-06-12T18:55:00Z
+WARC-Date: 2020-06-12T19:01:51Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:XHNWT7V7CVA7ZRTMODFWRVDBDG7YFGFB
+WARC-Block-Digest: sha1:QTGFQM7CZZ742PSQEBQ5AUA5EKZFGEIY
 WARC-Payload-Digest: sha1:LCHAATM76AIXF3D63PD4QFG3IFMTDJC4
 Content-Type: application/http;msgtype=response
-Content-Length: 2379
+Content-Length: 2378
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -4681,15 +4681,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 2714:3EDE:E4284:128294:5EE33D4D
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:59 GMT
+Date: Fri, 12 Jun 2020 19:01:50 GMT
 Via: 1.1 varnish
-Age: 400
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988099.498052,VS0,VE0
+X-Timer: S1591988511.874252,VS0,VE97
 Vary: Accept-Encoding
-X-Fastly-Request-ID: c20ee4bc51d935c5f14479b3fb3cf4b6e3d095ea
+X-Fastly-Request-ID: 50ba43a8a46e93a4c828dbbdfa7cac8313963952
 
 import math
 import multiprocessing as mp
@@ -4765,10 +4765,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/background/hdfs-site.xml>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:55:00Z
-WARC-Record-ID: <urn:uuid:6f6e8b5a-1465-41d2-b389-f0072ea9a67c>
+WARC-Date: 2020-06-12T19:01:52Z
+WARC-Record-ID: <urn:uuid:e5b5d7f5-1d93-4d88-901f-d133ec6a0206>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:RK327TZYMXX7LK75OIHVPFTZYEDZFFWQ
 Content-Length: 245
 
@@ -4784,16 +4784,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:eb12771c-00b3-4b05-bd25-42d5ace311a2>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:6f6e8b5a-1465-41d2-b389-f0072ea9a67c>
+WARC-Record-ID: <urn:uuid:0a5bfa49-c344-40b7-b1ad-d91f9b3e78d3>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:e5b5d7f5-1d93-4d88-901f-d133ec6a0206>
 WARC-Target-URI: <https://rubigdata.github.io/course/background/hdfs-site.xml>
-WARC-Date: 2020-06-12T18:55:00Z
+WARC-Date: 2020-06-12T19:01:52Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:GI37XPTGGLRFKUYZTGOHWTRC5UA24T4X
+WARC-Block-Digest: sha1:TE756KGXJ72EJ7KK4AK775G3MQJ4WBUR
 WARC-Payload-Digest: sha1:OOWFKHUBLDM65QX7W7O4KQEQ3XT6QONG
 Content-Type: application/http;msgtype=response
-Content-Length: 1350
+Content-Length: 1349
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -4809,15 +4809,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: F8CC:7938:36852:492EE:5EE33D4D
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:59 GMT
+Date: Fri, 12 Jun 2020 19:01:51 GMT
 Via: 1.1 varnish
-Age: 400
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988100.544225,VS0,VE1
+X-Timer: S1591988511.154383,VS0,VE90
 Vary: Accept-Encoding
-X-Fastly-Request-ID: 7976c18630f9fe86cff8891ec5abcdbd94e8b977
+X-Fastly-Request-ID: e75c80420da57dff16b7d3f3fac5ff1cfbfdd767
 
 <configuration>
     <property>
@@ -4851,10 +4851,10 @@ WARC/1.0
 WARC-Type: request
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/>
 Content-Type: application/http;msgtype=request
-WARC-Date: 2020-06-12T18:55:00Z
-WARC-Record-ID: <urn:uuid:bc84fafd-c41e-4c4e-9279-ad01540d8b48>
+WARC-Date: 2020-06-12T19:01:52Z
+WARC-Record-ID: <urn:uuid:52263a56-bd07-47a8-a383-e70868fb26ac>
 WARC-IP-Address: 185.199.110.153
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Block-Digest: sha1:TH5JV2Z32LZQJTOINIUK3TKEGWAZUXNV
 Content-Length: 241
 
@@ -4870,16 +4870,16 @@ Connection: Keep-Alive
 
 WARC/1.0
 WARC-Type: response
-WARC-Record-ID: <urn:uuid:a80397f4-d919-4d95-86fe-c6d0d3d56aca>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:bc84fafd-c41e-4c4e-9279-ad01540d8b48>
+WARC-Record-ID: <urn:uuid:b443918d-01d2-4d0a-8c71-cb7853585164>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:52263a56-bd07-47a8-a383-e70868fb26ac>
 WARC-Target-URI: <https://rubigdata.github.io/course/assignments/>
-WARC-Date: 2020-06-12T18:55:00Z
+WARC-Date: 2020-06-12T19:01:52Z
 WARC-IP-Address: 185.199.110.153
-WARC-Block-Digest: sha1:ERHDSD3F7D62YGS4YYJ76ODWMH44G2TX
+WARC-Block-Digest: sha1:ORX5TVPMVQ3DLMVB2VV2LBWSN2W5WT4Y
 WARC-Payload-Digest: sha1:3B4JVG63ACWAYL7PUF44XLAE4JXVAECG
 Content-Type: application/http;msgtype=response
-Content-Length: 4158
+Content-Length: 4157
 
 HTTP/1.1 200 OK
 Connection: keep-alive
@@ -4895,15 +4895,15 @@ Cache-Control: max-age=600
 X-Proxy-Cache: MISS
 X-GitHub-Request-Id: 089A:77C1:D2695:112B2A:5EE33D4D
 Accept-Ranges: bytes
-Date: Fri, 12 Jun 2020 18:54:59 GMT
+Date: Fri, 12 Jun 2020 19:01:51 GMT
 Via: 1.1 varnish
-Age: 400
-X-Served-By: cache-ams21031-AMS
+Age: 0
+X-Served-By: cache-ams21083-AMS
 X-Cache: HIT
 X-Cache-Hits: 1
-X-Timer: S1591988100.676745,VS0,VE0
+X-Timer: S1591988512.563424,VS0,VE81
 Vary: Accept-Encoding
-X-Fastly-Request-ID: d267ca2ee5bbdbee43f3c395584c839977f90813
+X-Fastly-Request-ID: 31757200ef508405e8ef162ceae12c1dd2d0179b
 
 
 
@@ -5027,24 +5027,24 @@ X-Fastly-Request-ID: d267ca2ee5bbdbee43f3c395584c839977f90813
 
 WARC/1.0
 WARC-Type: metadata
-WARC-Record-ID: <urn:uuid:1ce2603e-5c7d-438b-91fa-32376b0c780f>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+WARC-Record-ID: <urn:uuid:23c3e000-33bf-4255-8380-e4f6b8f83f0e>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 WARC-Target-URI: <metadata://gnu.org/software/wget/warc/MANIFEST.txt>
-WARC-Date: 2020-06-12T18:55:00Z
-WARC-Block-Digest: sha1:O33PXRPM42L5HL5IYN46Z2GKHAEZY3D7
+WARC-Date: 2020-06-12T19:01:52Z
+WARC-Block-Digest: sha1:P7XLJDINZLIGUIYUARJUZJ63W3XIBDHN
 Content-Type: text/plain
 Content-Length: 48
 
-<urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
+<urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
 
 
 WARC/1.0
 WARC-Type: resource
-WARC-Record-ID: <urn:uuid:359145f9-9b0f-411e-b4b4-809f66b34380>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:1ce2603e-5c7d-438b-91fa-32376b0c780f>
+WARC-Record-ID: <urn:uuid:adcee4e9-951a-4d24-9e39-cc0b66d53933>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:23c3e000-33bf-4255-8380-e4f6b8f83f0e>
 WARC-Target-URI: <metadata://gnu.org/software/wget/warc/wget_arguments.txt>
-WARC-Date: 2020-06-12T18:55:00Z
+WARC-Date: 2020-06-12T19:01:52Z
 WARC-Block-Digest: sha1:D4ANDF6GPE4BEO54O5PJZSSHI2PH6UIU
 Content-Type: text/plain
 Content-Length: 73
@@ -5054,280 +5054,280 @@ Content-Length: 73
 
 WARC/1.0
 WARC-Type: resource
-WARC-Record-ID: <urn:uuid:a98cbf72-d1cd-444e-881c-de83fa78258e>
-WARC-Warcinfo-ID: <urn:uuid:6e982eea-3102-4b02-b999-8f4b20a66b61>
-WARC-Concurrent-To: <urn:uuid:1ce2603e-5c7d-438b-91fa-32376b0c780f>
+WARC-Record-ID: <urn:uuid:160f89cf-acc8-4503-accc-040ed5c54d3c>
+WARC-Warcinfo-ID: <urn:uuid:5f2eb6ee-279a-46b9-9ba1-1625b4d5d4ff>
+WARC-Concurrent-To: <urn:uuid:23c3e000-33bf-4255-8380-e4f6b8f83f0e>
 WARC-Target-URI: <metadata://gnu.org/software/wget/warc/wget.log>
-WARC-Date: 2020-06-12T18:55:00Z
-WARC-Block-Digest: sha1:K64NUNIPN76LMFXX2P67Z4SYX2GSNX42
+WARC-Date: 2020-06-12T19:01:52Z
+WARC-Block-Digest: sha1:FUZRF6ZSW44C556M3J7EHWFZF5ZG2MTE
 Content-Type: text/plain
-Content-Length: 13179
+Content-Length: 13165
 
 Opening WARC file ‘course.warc’.
 
---2020-06-12 20:54:57--  http://rubigdata.github.io/course/
+--2020-06-12 21:01:30--  http://rubigdata.github.io/course/
 Resolving rubigdata.github.io (rubigdata.github.io)... 185.199.110.153, 185.199.109.153, 185.199.111.153, ...
 Connecting to rubigdata.github.io (rubigdata.github.io)|185.199.110.153|:80... connected.
 HTTP request sent, awaiting response... 301 Moved Permanently
 Location: https://rubigdata.github.io/course/ [following]
 
-     0K                                                       100% 15.4M=0s
+     0K                                                       100% 7.32M=0s
 
---2020-06-12 20:54:57--  https://rubigdata.github.io/course/
+--2020-06-12 21:01:31--  https://rubigdata.github.io/course/
 Connecting to rubigdata.github.io (rubigdata.github.io)|185.199.110.153|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 7550 (7.4K) [text/html]
 Saving to: ‘rubigdata.github.io/course/index.html’
 
-     0K .......                                               100% 2.35M=0.003s
+     0K .......                                               100% 2.71M=0.003s
 
-2020-06-12 20:54:57 (2.35 MB/s) - ‘rubigdata.github.io/course/index.html’ saved [7550/7550]
+2020-06-12 21:01:32 (2.71 MB/s) - ‘rubigdata.github.io/course/index.html’ saved [7550/7550]
 
 Loading robots.txt; please ignore errors.
---2020-06-12 20:54:57--  https://rubigdata.github.io/robots.txt
+--2020-06-12 21:01:32--  https://rubigdata.github.io/robots.txt
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 404 Not Found
 
-     0K .........                                             100%  272K=0.03s
+     0K .........                                             100% 82.3K=0.1s
 
-2020-06-12 20:54:58 ERROR 404: Not Found.
+2020-06-12 21:01:32 ERROR 404: Not Found.
 
---2020-06-12 20:54:58--  https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css
+--2020-06-12 21:01:32--  https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 112427 (110K) [text/css]
 Saving to: ‘rubigdata.github.io/course/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css’
 
-     0K .......... .......... .......... .......... .......... 45% 1.67M 0s
-    50K .......... .......... .......... .......... .......... 91%  914K 0s
-   100K .........                                             100% 2.03M=0.09s
+     0K .......... .......... .......... .......... .......... 45%  163K 0s
+    50K .......... .......... .......... .......... .......... 91%  129K 0s
+   100K .........                                             100%  287K=0.7s
 
-2020-06-12 20:54:58 (1.21 MB/s) - ‘rubigdata.github.io/course/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css’ saved [112427/112427]
+2020-06-12 21:01:34 (151 KB/s) - ‘rubigdata.github.io/course/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css’ saved [112427/112427]
 
---2020-06-12 20:54:58--  https://rubigdata.github.io/course/assets/themes/twitter/css/style.css?body=1
+--2020-06-12 21:01:34--  https://rubigdata.github.io/course/assets/themes/twitter/css/style.css?body=1
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 1032 (1.0K) [text/css]
 Saving to: ‘rubigdata.github.io/course/assets/themes/twitter/css/style.css?body=1’
 
-     0K .                                                     100% 32.4M=0s
+     0K .                                                     100% 24.9M=0s
 
-2020-06-12 20:54:58 (32.4 MB/s) - ‘rubigdata.github.io/course/assets/themes/twitter/css/style.css?body=1’ saved [1032/1032]
+2020-06-12 21:01:34 (24.9 MB/s) - ‘rubigdata.github.io/course/assets/themes/twitter/css/style.css?body=1’ saved [1032/1032]
 
---2020-06-12 20:54:58--  https://rubigdata.github.io/course/assets/themes/twitter/css/kbroman.css
+--2020-06-12 21:01:34--  https://rubigdata.github.io/course/assets/themes/twitter/css/kbroman.css
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 137 [text/css]
 Saving to: ‘rubigdata.github.io/course/assets/themes/twitter/css/kbroman.css’
 
-     0K                                                       100% 3.48M=0s
+     0K                                                       100% 5.18M=0s
 
-2020-06-12 20:54:58 (3.48 MB/s) - ‘rubigdata.github.io/course/assets/themes/twitter/css/kbroman.css’ saved [137/137]
+2020-06-12 21:01:34 (5.18 MB/s) - ‘rubigdata.github.io/course/assets/themes/twitter/css/kbroman.css’ saved [137/137]
 
---2020-06-12 20:54:58--  https://rubigdata.github.io/course/assets/themes/twitter/css/arjenpdevries.css
+--2020-06-12 21:01:34--  https://rubigdata.github.io/course/assets/themes/twitter/css/arjenpdevries.css
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 215 [text/css]
 Saving to: ‘rubigdata.github.io/course/assets/themes/twitter/css/arjenpdevries.css’
 
-     0K                                                       100% 5.01M=0s
+     0K                                                       100% 6.07M=0s
 
-2020-06-12 20:54:58 (5.01 MB/s) - ‘rubigdata.github.io/course/assets/themes/twitter/css/arjenpdevries.css’ saved [215/215]
+2020-06-12 21:01:34 (6.07 MB/s) - ‘rubigdata.github.io/course/assets/themes/twitter/css/arjenpdevries.css’ saved [215/215]
 
---2020-06-12 20:54:58--  https://rubigdata.github.io/coursenil
+--2020-06-12 21:01:34--  https://rubigdata.github.io/coursenil
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 404 Not Found
 
-     0K .........                                             100% 3.30M=0.003s
+     0K .........                                             100% 1.22M=0.007s
 
-2020-06-12 20:54:58 ERROR 404: Not Found.
+2020-06-12 21:01:34 ERROR 404: Not Found.
 
---2020-06-12 20:54:58--  https://rubigdata.github.io/course
+--2020-06-12 21:01:34--  https://rubigdata.github.io/course
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 301 Moved Permanently
 Location: https://rubigdata.github.io/course/ [following]
 
-     0K                                                       100% 4.70M=0s
+     0K                                                       100% 5.92M=0s
 
---2020-06-12 20:54:58--  https://rubigdata.github.io/course/
+--2020-06-12 21:01:35--  https://rubigdata.github.io/course/
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 7550 (7.4K) [text/html]
 rubigdata.github.io/course: Is a directory
 
 Cannot write to ‘rubigdata.github.io/course’ (Success).
---2020-06-12 20:54:58--  https://rubigdata.github.io/course/assignments/A1a-blogging.html
+--2020-06-12 21:01:35--  https://rubigdata.github.io/course/assignments/A1a-blogging.html
 Connecting to rubigdata.github.io (rubigdata.github.io)|185.199.110.153|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 9595 (9.4K) [text/html]
 Saving to: ‘rubigdata.github.io/course/assignments/A1a-blogging.html’
 
-     0K .........                                             100% 4.09M=0.002s
+     0K .........                                             100% 4.80M=0.002s
 
-2020-06-12 20:54:58 (4.09 MB/s) - ‘rubigdata.github.io/course/assignments/A1a-blogging.html’ saved [9595/9595]
+2020-06-12 21:01:36 (4.80 MB/s) - ‘rubigdata.github.io/course/assignments/A1a-blogging.html’ saved [9595/9595]
 
---2020-06-12 20:54:58--  https://rubigdata.github.io/course/assignments/A1b-docker.html
+--2020-06-12 21:01:36--  https://rubigdata.github.io/course/assignments/A1b-docker.html
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 12645 (12K) [text/html]
 Saving to: ‘rubigdata.github.io/course/assignments/A1b-docker.html’
 
-     0K .......... ..                                         100% 4.20M=0.003s
+     0K .......... ..                                         100% 3.08M=0.004s
 
-2020-06-12 20:54:58 (4.20 MB/s) - ‘rubigdata.github.io/course/assignments/A1b-docker.html’ saved [12645/12645]
+2020-06-12 21:01:36 (3.08 MB/s) - ‘rubigdata.github.io/course/assignments/A1b-docker.html’ saved [12645/12645]
 
---2020-06-12 20:54:59--  https://rubigdata.github.io/course/assignments/A2-mapreduce.html
+--2020-06-12 21:01:36--  https://rubigdata.github.io/course/assignments/A2-mapreduce.html
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 9729 (9.5K) [text/html]
 Saving to: ‘rubigdata.github.io/course/assignments/A2-mapreduce.html’
 
-     0K .........                                             100%  776K=0.01s
+     0K .........                                             100% 3.40M=0.003s
 
-2020-06-12 20:54:59 (776 KB/s) - ‘rubigdata.github.io/course/assignments/A2-mapreduce.html’ saved [9729/9729]
+2020-06-12 21:01:36 (3.40 MB/s) - ‘rubigdata.github.io/course/assignments/A2-mapreduce.html’ saved [9729/9729]
 
---2020-06-12 20:54:59--  https://rubigdata.github.io/course/assignments/A3-spark.html
+--2020-06-12 21:01:36--  https://rubigdata.github.io/course/assignments/A3-spark.html
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 6763 (6.6K) [text/html]
 Saving to: ‘rubigdata.github.io/course/assignments/A3-spark.html’
 
-     0K ......                                                100% 2.41M=0.003s
+     0K ......                                                100% 11.7K=0.6s
 
-2020-06-12 20:54:59 (2.41 MB/s) - ‘rubigdata.github.io/course/assignments/A3-spark.html’ saved [6763/6763]
+2020-06-12 21:01:37 (11.7 KB/s) - ‘rubigdata.github.io/course/assignments/A3-spark.html’ saved [6763/6763]
 
---2020-06-12 20:54:59--  https://rubigdata.github.io/course/assignments/A3a-spark-rdd.html
+--2020-06-12 21:01:37--  https://rubigdata.github.io/course/assignments/A3a-spark-rdd.html
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 6530 (6.4K) [text/html]
 Saving to: ‘rubigdata.github.io/course/assignments/A3a-spark-rdd.html’
 
-     0K ......                                                100% 23.9K=0.3s
+     0K ......                                                100%  550K=0.01s
 
-2020-06-12 20:54:59 (23.9 KB/s) - ‘rubigdata.github.io/course/assignments/A3a-spark-rdd.html’ saved [6530/6530]
+2020-06-12 21:01:37 (550 KB/s) - ‘rubigdata.github.io/course/assignments/A3a-spark-rdd.html’ saved [6530/6530]
 
---2020-06-12 20:54:59--  https://rubigdata.github.io/course/assignments/A3b-spark-df.html
+--2020-06-12 21:01:37--  https://rubigdata.github.io/course/assignments/A3b-spark-df.html
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 4523 (4.4K) [text/html]
 Saving to: ‘rubigdata.github.io/course/assignments/A3b-spark-df.html’
 
-     0K ....                                                  100% 3.17M=0.001s
+     0K ....                                                  100% 3.19M=0.001s
 
-2020-06-12 20:54:59 (3.17 MB/s) - ‘rubigdata.github.io/course/assignments/A3b-spark-df.html’ saved [4523/4523]
+2020-06-12 21:01:38 (3.19 MB/s) - ‘rubigdata.github.io/course/assignments/A3b-spark-df.html’ saved [4523/4523]
 
---2020-06-12 20:54:59--  https://rubigdata.github.io/course/assignments/A4-bdr-hackathon.html
+--2020-06-12 21:01:38--  https://rubigdata.github.io/course/assignments/A4-bdr-hackathon.html
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 3707 (3.6K) [text/html]
 Saving to: ‘rubigdata.github.io/course/assignments/A4-bdr-hackathon.html’
 
-     0K ...                                                   100% 5.24M=0.001s
+     0K ...                                                   100% 2.10M=0.002s
 
-2020-06-12 20:54:59 (5.24 MB/s) - ‘rubigdata.github.io/course/assignments/A4-bdr-hackathon.html’ saved [3707/3707]
+2020-06-12 21:01:38 (2.10 MB/s) - ‘rubigdata.github.io/course/assignments/A4-bdr-hackathon.html’ saved [3707/3707]
 
---2020-06-12 20:54:59--  https://rubigdata.github.io/course/assignments/A5-streaming.html
+--2020-06-12 21:01:38--  https://rubigdata.github.io/course/assignments/A5-streaming.html
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 6250 (6.1K) [text/html]
 Saving to: ‘rubigdata.github.io/course/assignments/A5-streaming.html’
 
-     0K ......                                                100% 3.66M=0.002s
+     0K ......                                                100% 3.78M=0.002s
 
-2020-06-12 20:54:59 (3.66 MB/s) - ‘rubigdata.github.io/course/assignments/A5-streaming.html’ saved [6250/6250]
+2020-06-12 21:01:39 (3.78 MB/s) - ‘rubigdata.github.io/course/assignments/A5-streaming.html’ saved [6250/6250]
 
---2020-06-12 20:54:59--  https://rubigdata.github.io/course/assignments/P-commoncrawl-I.html
+--2020-06-12 21:01:39--  https://rubigdata.github.io/course/assignments/P-commoncrawl-I.html
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 9800 (9.6K) [text/html]
 Saving to: ‘rubigdata.github.io/course/assignments/P-commoncrawl-I.html’
 
-     0K .........                                             100% 4.48M=0.002s
+     0K .........                                             100% 15.7K=0.6s
 
-2020-06-12 20:54:59 (4.48 MB/s) - ‘rubigdata.github.io/course/assignments/P-commoncrawl-I.html’ saved [9800/9800]
+2020-06-12 21:01:40 (15.7 KB/s) - ‘rubigdata.github.io/course/assignments/P-commoncrawl-I.html’ saved [9800/9800]
 
---2020-06-12 20:54:59--  https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png
+--2020-06-12 21:01:40--  https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 12799 (12K) [image/png]
 Saving to: ‘rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png’
 
-     0K .......... ..                                         100% 4.79M=0.003s
+     0K .......... ..                                         100% 4.39K=2.8s
 
-2020-06-12 20:55:00 (4.79 MB/s) - ‘rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png’ saved [12799/12799]
+2020-06-12 21:01:43 (4.39 KB/s) - ‘rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings.png’ saved [12799/12799]
 
---2020-06-12 20:55:00--  https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings-white.png
+--2020-06-12 21:01:43--  https://rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings-white.png
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 8777 (8.6K) [image/png]
 Saving to: ‘rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings-white.png’
 
-     0K ........                                              100% 3.82M=0.002s
+     0K ........                                              100% 4.82K=1.8s
 
-2020-06-12 20:55:00 (3.82 MB/s) - ‘rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings-white.png’ saved [8777/8777]
+2020-06-12 21:01:46 (4.82 KB/s) - ‘rubigdata.github.io/course/assets/themes/twitter/bootstrap/img/glyphicons-halflings-white.png’ saved [8777/8777]
 
---2020-06-12 20:55:00--  https://rubigdata.github.io/course/background/hadoop.html
+--2020-06-12 21:01:46--  https://rubigdata.github.io/course/background/hadoop.html
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 13207 (13K) [text/html]
 Saving to: ‘rubigdata.github.io/course/background/hadoop.html’
 
-     0K .......... ..                                         100% 61.0K=0.2s
+     0K .......... ..                                         100% 7.77K=1.7s
 
-2020-06-12 20:55:00 (61.0 KB/s) - ‘rubigdata.github.io/course/background/hadoop.html’ saved [13207/13207]
+2020-06-12 21:01:48 (7.77 KB/s) - ‘rubigdata.github.io/course/background/hadoop.html’ saved [13207/13207]
 
---2020-06-12 20:55:00--  https://rubigdata.github.io/course/index.html
+--2020-06-12 21:01:48--  https://rubigdata.github.io/course/index.html
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 7550 (7.4K) [text/html]
 Saving to: ‘rubigdata.github.io/course/index.html’
 
-     0K .......                                               100% 2.39M=0.003s
+     0K .......                                               100% 6.37K=1.2s
 
-2020-06-12 20:55:00 (2.39 MB/s) - ‘rubigdata.github.io/course/index.html’ saved [7550/7550]
+2020-06-12 21:01:49 (6.37 KB/s) - ‘rubigdata.github.io/course/index.html’ saved [7550/7550]
 
---2020-06-12 20:55:00--  https://rubigdata.github.io/course/background/spark-notebook.html
+--2020-06-12 21:01:49--  https://rubigdata.github.io/course/background/spark-notebook.html
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 6041 (5.9K) [text/html]
 Saving to: ‘rubigdata.github.io/course/background/spark-notebook.html’
 
-     0K .....                                                 100% 2.34M=0.002s
+     0K .....                                                 100% 3.00K=2.0s
 
-2020-06-12 20:55:00 (2.34 MB/s) - ‘rubigdata.github.io/course/background/spark-notebook.html’ saved [6041/6041]
+2020-06-12 21:01:51 (3.00 KB/s) - ‘rubigdata.github.io/course/background/spark-notebook.html’ saved [6041/6041]
 
---2020-06-12 20:55:00--  https://rubigdata.github.io/course/assignments/stream.py
+--2020-06-12 21:01:51--  https://rubigdata.github.io/course/assignments/stream.py
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 1737 (1.7K) [application/octet-stream]
 Saving to: ‘rubigdata.github.io/course/assignments/stream.py’
 
-     0K .                                                     100% 2.85M=0.001s
+     0K .                                                     100% 2.15M=0.001s
 
-2020-06-12 20:55:00 (2.85 MB/s) - ‘rubigdata.github.io/course/assignments/stream.py’ saved [1737/1737]
+2020-06-12 21:01:52 (2.15 MB/s) - ‘rubigdata.github.io/course/assignments/stream.py’ saved [1737/1737]
 
---2020-06-12 20:55:00--  https://rubigdata.github.io/course/background/hdfs-site.xml
+--2020-06-12 21:01:52--  https://rubigdata.github.io/course/background/hdfs-site.xml
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 698 [application/xml]
 Saving to: ‘rubigdata.github.io/course/background/hdfs-site.xml’
 
-     0K                                                       100% 7.61M=0s
+     0K                                                       100% 21.5M=0s
 
-2020-06-12 20:55:00 (7.61 MB/s) - ‘rubigdata.github.io/course/background/hdfs-site.xml’ saved [698/698]
+2020-06-12 21:01:52 (21.5 MB/s) - ‘rubigdata.github.io/course/background/hdfs-site.xml’ saved [698/698]
 
---2020-06-12 20:55:00--  https://rubigdata.github.io/course/assignments/
+--2020-06-12 21:01:52--  https://rubigdata.github.io/course/assignments/
 Reusing existing connection to rubigdata.github.io:443.
 HTTP request sent, awaiting response... 200 OK
 Length: 3495 (3.4K) [text/html]
 Saving to: ‘rubigdata.github.io/course/assignments/index.html’
 
-     0K ...                                                   100%  925K=0.004s
+     0K ...                                                   100% 60.8K=0.06s
 
-2020-06-12 20:55:00 (925 KB/s) - ‘rubigdata.github.io/course/assignments/index.html’ saved [3495/3495]
+2020-06-12 21:01:52 (60.8 KB/s) - ‘rubigdata.github.io/course/assignments/index.html’ saved [3495/3495]
 
-FINISHED --2020-06-12 20:55:00--
-Total wall clock time: 3.3s
-Downloaded: 22 files, 239K in 0.6s (392 KB/s)
+FINISHED --2020-06-12 21:01:52--
+Total wall clock time: 22s
+Downloaded: 22 files, 239K in 11s (21.0 KB/s)
 
 
