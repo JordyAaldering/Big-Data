@@ -6,7 +6,7 @@ title: Jordy Aaldering
 tagline: My personal website
 description: A website I created for the Big Data course.
 url: https://jordyaaldering.github.io/
-baseurl: ''
+baseurl: 'Big-Data/'
 
 author:
   name: Jordy Aaldering
