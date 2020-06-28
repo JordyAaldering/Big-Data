@@ -16,3 +16,23 @@ scala-*.tgz
 # Hadoop input and generated output.
 hadoop_input/
 hadoop_output/
+
+# GitHub Pages
+# Ignore docs files
+.ruby-version
+Gemfile
+Gemfile.lock
+
+# Folders to ignore
+_site/
+node_modules/
+
+# OS or Editor folders
+._*
+.cache
+.vscode
+.jekyll-cache
+.jekyll-metadata
+
+# Always-ignore extensions
+*.~
