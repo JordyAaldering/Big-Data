@@ -1,0 +1,1 @@
+Hi, my name is Jordy Aaldering. In my free time I like to do some programming by working on my own programming language and 3d-application engine. Naturally I also like to game, I specifically enjoy doing Pokémon [nuzlockes](https://bulbapedia.bulbagarden.net/wiki/Nuzlocke_Challenge). Obviously, since I'm a computing science student, my favorite student association is Thalia.
