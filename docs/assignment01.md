@@ -10,7 +10,7 @@ $ docker run -it williamyeh/scala bash
 
 This will download the image automatically and opens it with bash to that we can work within the it.
 
-In our VM we can now create a new Scala file. Let's start with a simple `Hello, World!' program, which we will place in a new file ```helloWorld.scala```.
+In our VM we can now create a new Scala file. Let's start with a simple 'Hello, World!' program, which we will place in a new file ```helloWorld.scala```.
 
 ```
 object HelloWorld {
