@@ -114,11 +114,11 @@ Romeo       291
 
 We can get more information about Hadoop and how it ran our code by going to `localhost:8088` in our browser. Once we open this page we can see a bunch of information about our cluster.
 
-![Hadoop cluster](../assignment02/images/hadoop-cluster.png)
+![Hadoop cluster](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/assignment02/images/hadoop-cluster.png)
 
 We can get more information about an application by clicking on the ID, which opens a new page.
 
-![Hadoop application](../assignment02/images/hadoop-app.png)
+![Hadoop application](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/assignment02/images/hadoop-app.png)
 
 ---
 
