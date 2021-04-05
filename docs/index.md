@@ -4,3 +4,4 @@
  * [About](about.md)
  * [Assignment 1](assignment01.md)
  * [Assignment 2](assignment02.md)
+ * [Assignment 3](assignment03.md)
