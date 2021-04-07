@@ -1,0 +1,795 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%spark\nimport org.apache.spark.rdd.RDD\nimport org.apache.spark.HashPartitioner\n\nprintf(\"Spark version %s\\nScala %s\\n\",\n    sc.version, util.Properties.versionString)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T11:55:45+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Spark version 3.1.1\nScala version 2.12.10\nimport org.apache.spark.rdd.RDD\nimport org.apache.spark.HashPartitioner\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617639969830_361821872",
+      "id": "paragraph_1617639969830_361821872",
+      "dateCreated": "2021-04-05T16:26:09+0000",
+      "dateStarted": "2021-04-07T11:55:45+0000",
+      "dateFinished": "2021-04-07T11:56:07+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:377"
+    },
+    {
+      "text": "%md\n## Data loading",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-05T19:11:33+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Data loading</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617640140696_1951092738",
+      "id": "paragraph_1617640140696_1951092738",
+      "dateCreated": "2021-04-05T16:29:00+0000",
+      "dateStarted": "2021-04-05T19:11:33+0000",
+      "dateFinished": "2021-04-05T19:11:33+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:378"
+    },
+    {
+      "text": "%sh\ncd /opt/hadoop\necho Downloading Gutenberg data\n[ ! -f 100.txt ] && wget --quiet https://raw.githubusercontent.com/rubigdata-dockerhub/hadoop-dockerfile/master/100.txt \\\n    && echo Downloaded || echo File already exists",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T11:55:47+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Downloading Gutenberg data\nFile already exists\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617639979512_1974810586",
+      "id": "paragraph_1617639979512_1974810586",
+      "dateCreated": "2021-04-05T16:26:19+0000",
+      "dateStarted": "2021-04-07T11:55:47+0000",
+      "dateFinished": "2021-04-07T11:55:50+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:379"
+    },
+    {
+      "text": "%spark\nval lines = sc.textFile(\"file:///opt/hadoop/100.txt\")\nprintf(\"Read %d lines\\n\", lines.count)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T12:28:54+0000",
+      "progress": 100,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Read 147838 lines\n\u001b[1m\u001b[34mlines\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = file:///opt/hadoop/100.txt MapPartitionsRDD[23] at textFile at <console>:30\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=5",
+              "$$hashKey": "object:2226"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617640046277_1998866359",
+      "id": "paragraph_1617640046277_1998866359",
+      "dateCreated": "2021-04-05T16:27:26+0000",
+      "dateStarted": "2021-04-07T12:28:54+0000",
+      "dateFinished": "2021-04-07T12:28:55+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:380"
+    },
+    {
+      "text": "%spark\nprintf(\"Number of partitions: %d\\n\", lines.partitions.length)\nprintf(\"Partitioner: %s\\n\", lines.partitioner)\nprintln(lines.toDebugString)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T12:28:55+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Number of partitions: 2\nPartitioner: None\n(2) file:///opt/hadoop/100.txt MapPartitionsRDD[23] at textFile at <console>:30 []\n |  file:///opt/hadoop/100.txt HadoopRDD[22] at textFile at <console>:30 []\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617641527401_253506368",
+      "id": "paragraph_1617641527401_253506368",
+      "dateCreated": "2021-04-05T16:52:07+0000",
+      "dateStarted": "2021-04-07T12:28:55+0000",
+      "dateFinished": "2021-04-07T12:28:55+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:381"
+    },
+    {
+      "text": "%md\n## Co-occurence",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-05T19:11:34+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Co-occurence</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617642202220_740881898",
+      "id": "paragraph_1617642202220_740881898",
+      "dateCreated": "2021-04-05T17:03:22+0000",
+      "dateStarted": "2021-04-05T19:11:34+0000",
+      "dateFinished": "2021-04-05T19:11:34+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:382"
+    },
+    {
+      "text": "%spark\nval cleanWord = (w: String) => w.replaceAll(\"\\\\W\", \"\").toLowerCase()\n\nval lines2d =\n    lines.map(_\n        .split(\" \")\n        .map(cleanWord)\n        .filter(_ != \"\")\n    )\n\nlines2d.take(10).map(arr => printf(\"%s\\n\", arr.mkString(\", \")))",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T12:31:12+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "<console>:37: \u001b[31merror: \u001b[0mvalue partitionBy is not a member of org.apache.spark.rdd.RDD[Array[String]]\n       lines2d.partitionBy(new HashPartitioner(8))\n               ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617644064224_1273616483",
+      "id": "paragraph_1617644064224_1273616483",
+      "dateCreated": "2021-04-05T17:34:24+0000",
+      "dateStarted": "2021-04-07T12:29:48+0000",
+      "dateFinished": "2021-04-07T12:29:49+0000",
+      "status": "ERROR",
+      "$$hashKey": "object:383"
+    },
+    {
+      "text": "%spark\nprintf(\"Number of partitions: %d\\n\", lines2d.partitions.length)\nprintf(\"Partitioner: %s\\n\", lines2d.partitioner)\nprintln(lines2d.toDebugString)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-05T19:11:34+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Number of partitions: 2\nPartitioner: None\n(2) MapPartitionsRDD[321] at map at <console>:50 []\n |  file:///opt/hadoop/100.txt MapPartitionsRDD[320] at textFile at <console>:46 []\n |  file:///opt/hadoop/100.txt HadoopRDD[319] at textFile at <console>:46 []\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617647511973_2137780675",
+      "id": "paragraph_1617647511973_2137780675",
+      "dateCreated": "2021-04-05T18:31:51+0000",
+      "dateStarted": "2021-04-05T19:11:34+0000",
+      "dateFinished": "2021-04-05T19:11:34+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:384"
+    },
+    {
+      "text": "%spark\nval cooccurences =\n    lines2d.flatMap(\n        _.combinations(2)\n        .map(_.mkString(\":\") -> 1)\n    )\n\ncooccurences.take(10).map {\n    case(k,v) => printf(\"%s, %s\\n\", k, v)\n}",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-05T19:54:47+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "project:gutenbergs, 1\nproject:the, 1\nproject:complete, 1\nproject:works, 1\nproject:of, 1\nproject:william, 1\nproject:shakespeare, 1\nproject:by, 1\ngutenbergs:the, 1\ngutenbergs:complete, 1\n\u001b[1m\u001b[34mcooccurences\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, Int)]\u001b[0m = MapPartitionsRDD[341] at flatMap at <console>:47\n\u001b[1m\u001b[34mres300\u001b[0m: \u001b[1m\u001b[32mArray[Unit]\u001b[0m = Array((), (), (), (), (), (), (), (), (), ())\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=233",
+              "$$hashKey": "object:1192"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617644145452_184627798",
+      "id": "paragraph_1617644145452_184627798",
+      "dateCreated": "2021-04-05T17:35:45+0000",
+      "dateStarted": "2021-04-05T19:54:47+0000",
+      "dateFinished": "2021-04-05T19:54:48+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:385"
+    },
+    {
+      "text": "%spark\nval co = cooccurences.reduceByKey(_ + _)\nco.cache()\n\nprintf(\"Number of tuples: %s\\n\", cooccurences.count)\nprintf(\"Number of unique tuples: %s\\n\", co.count)\nprintf(\"Percentage unique tuples: %s\\n\", co.count.toFloat / cooccurences.count * 100f)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-05T19:50:15+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Number of tuples: 3426401\nNumber of unique tuples: 1223625\nPercentage unique tuples: 35.71167\n\u001b[1m\u001b[34mco\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, Int)]\u001b[0m = ShuffledRDD[338] at reduceByKey at <console>:46\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=227",
+              "$$hashKey": "object:1238"
+            },
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=228",
+              "$$hashKey": "object:1239"
+            },
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=229",
+              "$$hashKey": "object:1240"
+            },
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=230",
+              "$$hashKey": "object:1241"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617644161969_141763079",
+      "id": "paragraph_1617644161969_141763079",
+      "dateCreated": "2021-04-05T17:36:01+0000",
+      "dateStarted": "2021-04-05T19:50:15+0000",
+      "dateFinished": "2021-04-05T19:50:29+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:386"
+    },
+    {
+      "text": "%spark\nprintf(\"Number of partitions: %d\\n\", co.partitions.length)\nprintf(\"Partitioner: %s\\n\", co.partitioner)\nprintln(co.toDebugString)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-05T19:12:08+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Number of partitions: 2\nPartitioner: Some(org.apache.spark.HashPartitioner@2)\n(2) ShuffledRDD[323] at reduceByKey at <console>:46 [Memory Deserialized 1x Replicated]\n |       CachedPartitions: 1; MemorySize: 63.9 MiB; DiskSize: 0.0 B\n +-(2) MapPartitionsRDD[322] at flatMap at <console>:47 [Memory Deserialized 1x Replicated]\n    |  MapPartitionsRDD[321] at map at <console>:50 [Memory Deserialized 1x Replicated]\n    |  file:///opt/hadoop/100.txt MapPartitionsRDD[320] at textFile at <console>:46 [Memory Deserialized 1x Replicated]\n    |  file:///opt/hadoop/100.txt HadoopRDD[319] at textFile at <console>:46 [Memory Deserialized 1x Replicated]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617649926600_80146735",
+      "id": "paragraph_1617649926600_80146735",
+      "dateCreated": "2021-04-05T19:12:06+0000",
+      "dateStarted": "2021-04-05T19:12:08+0000",
+      "dateFinished": "2021-04-05T19:12:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:387"
+    },
+    {
+      "text": "%spark\nval coTop = co.takeOrdered(25)(Ordering[Int].reverse.on(_._2))\n\ncoTop.map {\n    case(k,v) => printf(\"%s occurs %d times\\n\", k, v)\n}",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-05T19:58:44+0000",
+      "progress": 25,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "the:of occurs 6318 times\nand:the occurs 3300 times\nthe:the occurs 3205 times\nto:the occurs 3086 times\nthe:and occurs 2579 times\nand:to occurs 2295 times\ni:you occurs 2260 times\ni:to occurs 2228 times\nand:of occurs 2189 times\ni:have occurs 2173 times\ni:the occurs 2133 times\nin:the occurs 2124 times\nand:i occurs 2050 times\ni:i occurs 1982 times\ni:am occurs 1966 times\ni:not occurs 1935 times\nmy:lord occurs 1892 times\ni:will occurs 1810 times\nto:and occurs 1779 times\ni:my occurs 1751 times\ni:a occurs 1660 times\na:of occurs 1645 times\nof:and occurs 1620 times\nand:in occurs 1565 times\nof:the occurs 1562 times\n\u001b[1m\u001b[34mcoTop\u001b[0m: \u001b[1m\u001b[32mArray[(String, Int)]\u001b[0m = Array((the:of,6318), (and:the,3300), (the:the,3205), (to:the,3086), (the:and,2579), (and:to,2295), (i:you,2260), (i:to,2228), (and:of,2189), (i:have,2173), (i:the,2133), (in:the,2124), (and:i,2050), (i:i,1982), (i:am,1966), (i:not,1935), (my:lord,1892), (i:will,1810), (to:and,1779), (i:my,1751), (i:a,1660), (a:of,1645), (of:and,1620), (and:in,1565), (of:the,1562))\n\u001b[1m\u001b[34mres301\u001b[0m: \u001b[1m\u001b[32mArray[Unit]\u001b[0m = Array((), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), ())\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=234",
+              "$$hashKey": "object:1339"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617648156854_1204985185",
+      "id": "paragraph_1617648156854_1204985185",
+      "dateCreated": "2021-04-05T18:42:36+0000",
+      "dateStarted": "2021-04-05T19:58:44+0000",
+      "dateFinished": "2021-04-05T19:58:45+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:388"
+    },
+    {
+      "text": "%md\n## Romeo and Juliet",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-05T19:11:46+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Romeo and Juliet</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617648689578_107971181",
+      "id": "paragraph_1617648689578_107971181",
+      "dateCreated": "2021-04-05T18:51:29+0000",
+      "dateStarted": "2021-04-05T19:11:46+0000",
+      "dateFinished": "2021-04-05T19:11:46+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:389"
+    },
+    {
+      "text": "%spark\ndef occurrencesOf(word: String, amount: Int) {\n    val top = co.filter {\n        case(k,v) => k.split(\":\") contains word\n    }.takeOrdered(amount)(Ordering[Int].reverse.on(_._2))\n    \n    top.map {\n        case(k,v) => printf(\"%s \\toccurs %d times\\n\", k, v)\n    }\n}\n\noccurrencesOf(\"romeo\", 20)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-05T20:10:03+0000",
+      "progress": 25,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "and:romeo \toccurs 19 times\nenter:romeo \toccurs 13 times\nromeo:and \toccurs 12 times\nto:romeo \toccurs 10 times\nromeo:to \toccurs 9 times\nthe:romeo \toccurs 9 times\nromeo:he \toccurs 9 times\nromeo:is \toccurs 9 times\ni:romeo \toccurs 8 times\nromeo:a \toccurs 8 times\nis:romeo \toccurs 8 times\nthat:romeo \toccurs 7 times\nromeo:romeo \toccurs 7 times\nmy:romeo \toccurs 7 times\nromeo:i \toccurs 6 times\nromeo:not \toccurs 6 times\nromeo:dead \toccurs 6 times\nromeo:that \toccurs 6 times\nromeo:juliet \toccurs 6 times\nromeo:be \toccurs 5 times\n\u001b[1m\u001b[34moccurrencesOf\u001b[0m: \u001b[1m\u001b[32m(word: String, amount: Int)Unit\u001b[0m\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=237",
+              "$$hashKey": "object:1425"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617648909452_899200391",
+      "id": "paragraph_1617648909452_899200391",
+      "dateCreated": "2021-04-05T18:55:09+0000",
+      "dateStarted": "2021-04-05T20:10:03+0000",
+      "dateFinished": "2021-04-05T20:10:07+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:390"
+    },
+    {
+      "text": "occurrencesOf(\"thou\", 10)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-05T20:14:26+0000",
+      "progress": 25,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "thou:art \toccurs 585 times\nthou:the \toccurs 531 times\nthou:to \toccurs 525 times\nthou:me \toccurs 518 times\nand:thou \toccurs 518 times\nthou:not \toccurs 472 times\nthou:a \toccurs 468 times\nthou:thy \toccurs 453 times\nthou:and \toccurs 448 times\nthou:thou \toccurs 427 times\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=242",
+              "$$hashKey": "object:1471"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617649074920_1199194938",
+      "id": "paragraph_1617649074920_1199194938",
+      "dateCreated": "2021-04-05T18:57:54+0000",
+      "dateStarted": "2021-04-05T20:14:26+0000",
+      "dateFinished": "2021-04-05T20:14:28+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:391"
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-05T19:11:52+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617649796542_1195984545",
+      "id": "paragraph_1617649796542_1195984545",
+      "dateCreated": "2021-04-05T19:09:56+0000",
+      "dateStarted": "2021-04-05T19:11:52+0000",
+      "dateFinished": "2021-04-05T19:11:52+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:392"
+    }
+  ],
+  "name": "Shakespeare",
+  "id": "2G3TZBVYM",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Shakespeare"
+}
