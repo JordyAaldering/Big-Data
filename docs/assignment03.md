@@ -27,7 +27,9 @@ val lines2d =
     )
 ```
 
-let's see if we did that correctly by printing the first few lines. To check if we split words correctly we will place commas in between each element.
+If you're running this code you might notice that it completes unexpectedly quickly. This is because Spark is lazily evaluated, which means that expressions are only evaluated when their resulting values are needed. Up until this point we have not yet requested any results, so the values of, for instance, `lines2d` have actually not been computed yet.
+
+Now we'll change that; let's see if `lines2d` looks as expected by printing the first few lines. We should see the original lines of the text without special characters and with commas in between all words.
 
 ```scala
 lines2d.take(10).map(
@@ -51,7 +53,7 @@ united, states, youll, have, to, check, the, laws, of, the, country, where, you
 Now that each line is an array of words we can start counting the co-occurrences. We will say that two words co-occur if they appear together in a line.
 
 To find these co-occurrences we will use a `flatMap`. This map will take all possible combinations of the words in a line, and will append them together with a colon.
-These combinations are placed in a tuple with a 1, so that we can process this data using Map-Reduce.
+These combinations are then placed in a 1d list inside a tuple with a 1, so that we can process this data using Map-Reduce.
 
 ```scala
 val cooccurences =
@@ -82,7 +84,7 @@ gutenbergs:complete, 1
 ```
 
 That looks correct.
-We can now use reduce this RDD by counting how many times each word-word pair occurs. We also cache this result to avoid having to compute this value multiple times when we evaluate the results.
+We can now use reduce on this RDD by counting how many times each word-word pair occurs. We also cache this result to memory to avoid having to compute this value multiple times when we evaluate the results later.
 
 ```scala
 val co = cooccurences.reduceByKey(_ + _)
@@ -101,21 +103,21 @@ coTop.map {
 }
 ```
 ```
-the:of  occurs 6318 times
-and:the occurs 3300 times
-the:the occurs 3205 times
-to:the  occurs 3086 times
-the:and occurs 2579 times
-and:to  occurs 2295 times
-i:you   occurs 2260 times
-i:to    occurs 2228 times
-and:of  occurs 2189 times
-i:have  occurs 2173 times
+the:of      occurs 6318 times
+and:the     occurs 3300 times
+the:the     occurs 3205 times
+to:the      occurs 3086 times
+the:and     occurs 2579 times
+and:to      occurs 2295 times
+i:you       occurs 2260 times
+i:to        occurs 2228 times
+and:of      occurs 2189 times
+i:have      occurs 2173 times
 ```
 
 This looks correct, but obviously these results are not very interesting. We can also take a specific word like _Romeo_, and check what words it often co-occurs with.
 
-To do this we first need to split the key back up in two words, and check if it contains the word we want. After which we can find the top ten values like before.
+To do this we first need to split the key back up in two words, and check if either of those two is the word we want. After which we can find the top ten values like before.
 
 ```scala
 def occurrencesOf(word: String, amount: Int) {
@@ -131,16 +133,16 @@ def occurrencesOf(word: String, amount: Int) {
 occurrencesOf("romeo", 10)
 ```
 ```
-and:romeo 	occurs 19 times
+and:romeo   occurs 19 times
 enter:romeo occurs 13 times
-romeo:and 	occurs 12 times
-to:romeo 	occurs 10 times
-the:romeo 	occurs 9 times
-romeo:he 	occurs 9 times
-romeo:to 	occurs 9 times
-romeo:is 	occurs 9 times
-i:romeo 	occurs 8 times
-romeo:a 	occurs 8 times
+romeo:and   occurs 12 times
+to:romeo    occurs 10 times
+the:romeo   occurs 9 times
+romeo:he    occurs 9 times
+romeo:to    occurs 9 times
+romeo:is    occurs 9 times
+i:romeo     occurs 8 times
+romeo:a     occurs 8 times
 ```
 
 If we print a few more values we see that _Romeo_ and _Juliet_ only co-occur 6 times. This might seem like very little, but keep in mind that we look at the co-occurrences within lines, and not sentences.
@@ -148,17 +150,21 @@ An improved version of this code would look at entire sentences instead of lines
 
 ### O Romeo, Romeo, wherefore art thou Romeo?
 
-As I was looking for some interesting co-occurrences I thought of the legendary quote "O Romeo, Romeo, wherefore art thou Romeo?", and I decided to look up the co-occurrences of _thou_, I thought it was pretty funny that _art_ and _thou_ co-occur so often.
+As I was looking for some interesting co-occurrences I thought of the famous quote "O Romeo, Romeo, wherefore art thou Romeo?", and I decided to look up the co-occurrences of _thou_, I thought it was pretty funny that _art_ and _thou_ co-occur so often.
 
 ```
-thou:art 	occurs 585 times
-thou:the 	occurs 531 times
-thou:to 	occurs 525 times
-thou:me 	occurs 518 times
-and:thou 	occurs 518 times
-thou:not 	occurs 472 times
+thou:art    occurs 585 times
+thou:the    occurs 531 times
+thou:to     occurs 525 times
+thou:me     occurs 518 times
+and:thou    occurs 518 times
+thou:not    occurs 472 times
 thou:a      occurs 468 times
-thou:thy 	occurs 453 times
-thou:and 	occurs 448 times
-thou:thou 	occurs 427 times
+thou:thy    occurs 453 times
+thou:and    occurs 448 times
+thou:thou   occurs 427 times
 ```
+
+---
+
+The [code](https://github.com/JordyAaldering/Big-Data/tree/master/Assignment03) provided in this blog can be found on GitHub.
