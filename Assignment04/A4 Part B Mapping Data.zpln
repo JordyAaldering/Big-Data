@@ -1,0 +1,1986 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%md\n# Nijmegen Open Data\n\nSecond part of assignment 4 starts by reading the parquet files created in Part A of assignment 4.",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T15:44:53+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Nijmegen Open Data</h1>\n<p>Second part of assignment 4 starts by reading the parquet files created in Part A of assignment 4.</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957820_144808555",
+      "id": "20210407-114557_514259939",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "dateStarted": "2021-04-07T15:44:53+0000",
+      "dateFinished": "2021-04-07T15:44:53+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:46402"
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.sql.types._\nval addr = spark.read.parquet(\"file:///opt/hadoop/share/data/addr.parquet\").cache()\nval kos  = spark.read.parquet(\"file:///opt/hadoop/share/data/kos.parquet\").cache()",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T15:44:53+0000",
+      "progress": 100,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617797118199_1041115744",
+      "id": "paragraph_1617797118199_1041115744",
+      "dateCreated": "2021-04-07T12:05:18+0000",
+      "dateStarted": "2021-04-07T15:44:53+0000",
+      "dateFinished": "2021-04-07T15:45:27+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46403"
+    },
+    {
+      "text": "%md\n### Art on the map\n\nCan we then find out which quarters have the most artworks?\nPerhaps we can even identify the development of the city over time using the dates of these artworks?\n\nTo answer these questions, we need to join the dataset with addresses with the one with the artworks. The link between the two datasets can be made through the coordinates, present in both datasets. However, it's not trivial to align both tables; let's find out how to exploit the location fields to answer our questions.",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T15:45:27+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h3>Art on the map</h3>\n<p>Can we then find out which quarters have the most artworks?<br />\nPerhaps we can even identify the development of the city over time using the dates of these artworks?</p>\n<p>To answer these questions, we need to join the dataset with addresses with the one with the artworks. The link between the two datasets can be made through the coordinates, present in both datasets. However, it&rsquo;s not trivial to align both tables; let&rsquo;s find out how to exploit the location fields to answer our questions.</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_540796274",
+      "id": "20210407-114557_819562613",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "dateStarted": "2021-04-07T15:45:27+0000",
+      "dateFinished": "2021-04-07T15:45:27+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46404"
+    },
+    {
+      "text": "%spark\naddr.createOrReplaceTempView(\"addr\")\nspark.sql(\"SELECT * FROM addr LIMIT 5\").show(true)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T15:45:27+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617802252942_1253450685",
+      "id": "paragraph_1617802252942_1253450685",
+      "dateCreated": "2021-04-07T13:30:52+0000",
+      "dateStarted": "2021-04-07T15:45:27+0000",
+      "dateFinished": "2021-04-07T15:45:30+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46405"
+    },
+    {
+      "text": "%spark\nkos.createOrReplaceTempView(\"kos\")\nspark.sql(\"SELECT * FROM kos LIMIT 5\").show(true)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T15:45:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617802132765_772174881",
+      "id": "paragraph_1617802132765_772174881",
+      "dateCreated": "2021-04-07T13:28:52+0000",
+      "dateStarted": "2021-04-07T15:45:30+0000",
+      "dateFinished": "2021-04-07T15:45:31+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46406"
+    },
+    {
+      "text": "%md\nThese \"temporary views\" used by Spark SQL can be inspected too - they are defined in the catalog:",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T15:45:31+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>These &ldquo;temporary views&rdquo; used by Spark SQL can be inspected too - they are defined in the catalog:</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617809032491_1243590308",
+      "id": "paragraph_1617809032491_1243590308",
+      "dateCreated": "2021-04-07T15:23:52+0000",
+      "dateStarted": "2021-04-07T15:45:31+0000",
+      "dateFinished": "2021-04-07T15:45:31+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46407"
+    },
+    {
+      "text": "%spark\n// Metadata from the catalogue\nspark.catalog.listDatabases.show(false)\nspark.catalog.listTables.show(false)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T15:45:31+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_28841388",
+      "id": "20210407-114557_1001510156",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "dateStarted": "2021-04-07T15:45:31+0000",
+      "dateFinished": "2021-04-07T15:45:32+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46408"
+    },
+    {
+      "text": "%md\n#### Coordinates, coordinates\n\nBoth datasets include (x,y) locations, but they are in different coordinate systems. BAG uses an official Dutch system known as RD New, from \"Rijksdriehoekscoördinaten\" (~ \"national triangle coordinates\"). The other dataset uses (lat,lon) coordinates to show artworks on the map, see e.g. [\"de pleinenroute\"](http://www.nijmegen.nl/kos/kunstroute.aspx?id=1) (Route of the squares). \n\nBackground information, if you want to dig deeper into coordinate systems and a primer into geo-information systems:\n* RD New, or \"Amersfoort\": refer to this [Wikipedia entry](https://nl.wikipedia.org/wiki/Rijksdriehoeksco%C3%B6rdinaten);\n* The transformation that we have to implement: http://pdok-ngr.readthedocs.io/handleidingen.html#coord-trans.\n\nLuckily, we are not the first who encounter the need to convert values between coordinate systems. The following Java library is \"easy-to-use\" (compared to geo-informatics alternatives): [Coordinate Transformation Suite (CTS)](https://github.com/orbisgis/cts). We can find a pre-packaged `jar` in the maven repository (for convenience, I put a copy in the course site), we only need to install it for Spark to use.",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T15:45:32+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h4>Coordinates, coordinates</h4>\n<p>Both datasets include (x,y) locations, but they are in different coordinate systems. BAG uses an official Dutch system known as RD New, from &ldquo;Rijksdriehoekscoördinaten&rdquo; (~ &ldquo;national triangle coordinates&rdquo;). The other dataset uses (lat,lon) coordinates to show artworks on the map, see e.g. <a href=\"http://www.nijmegen.nl/kos/kunstroute.aspx?id=1\">&ldquo;de pleinenroute&rdquo;</a> (Route of the squares).</p>\n<p>Background information, if you want to dig deeper into coordinate systems and a primer into geo-information systems:</p>\n<ul>\n<li>RD New, or &ldquo;Amersfoort&rdquo;: refer to this <a href=\"https://nl.wikipedia.org/wiki/Rijksdriehoeksco%C3%B6rdinaten\">Wikipedia entry</a>;</li>\n<li>The transformation that we have to implement: <a href=\"http://pdok-ngr.readthedocs.io/handleidingen.html#coord-trans\">http://pdok-ngr.readthedocs.io/handleidingen.html#coord-trans</a>.</li>\n</ul>\n<p>Luckily, we are not the first who encounter the need to convert values between coordinate systems. The following Java library is &ldquo;easy-to-use&rdquo; (compared to geo-informatics alternatives): <a href=\"https://github.com/orbisgis/cts\">Coordinate Transformation Suite (CTS)</a>. We can find a pre-packaged <code>jar</code> in the maven repository (for convenience, I put a copy in the course site), we only need to install it for Spark to use.</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_1841380235",
+      "id": "20210407-114557_703485505",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "dateStarted": "2021-04-07T15:45:32+0000",
+      "dateFinished": "2021-04-07T15:45:32+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46409"
+    },
+    {
+      "text": "%sh\n#mkdir -p /opt/hadoop/share/lib\ncd /opt/hadoop/share/hadoop/common/lib\necho CTS library...\n[ ! -f cts-1.5.2.jar ] \\\n  && wget --quiet https://rubigdata.github.io/course/data/cts-1.5.2.jar \\\n  && echo Downloaded CTS library || echo CTS Library already exists",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T15:45:32+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617808399189_1013622567",
+      "id": "paragraph_1617808399189_1013622567",
+      "dateCreated": "2021-04-07T15:13:19+0000",
+      "dateStarted": "2021-04-07T15:45:32+0000",
+      "dateFinished": "2021-04-07T15:45:32+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46410"
+    },
+    {
+      "text": "%md\n### Restart interpreter\n\nWe put the library in a directory (`share/hadoop/common/lib`) that is already on the Spark `CLASSPATH`, but before it will actually find the new library, we have to _restart the interpreter_. The interpreter is a Zeppelin specific concept, that ties the notebook together with the Spark eco-system. You restart it by first clicking on the little wheel icon in the top right corner of this browser window, then clicking on the restart icon for the Spark interpreter, and finally clicking on \"save\".\n\nYou now have to rerun the cells above, selecting the option from the dropdown menu of the little wheel icon in this cell.\n\n_Installing the library and subsequently restarting the interpreter is only necessary once (for each separate container, naturally)._",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T21:57:54+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h3>Restart interpreter</h3>\n<p>We put the library in a directory (<code>share/hadoop/common/lib</code>) that is already on the Spark <code>CLASSPATH</code>, but before it will actually find the new library, we have to <em>restart the interpreter</em>. The interpreter is a Zeppelin specific concept, that ties the notebook together with the Spark eco-system. You restart it by first clicking on the little wheel icon in the top right corner of this browser window, then clicking on the restart icon for the Spark interpreter, and finally clicking on &ldquo;save&rdquo;.</p>\n<p>You now have to rerun the cells above, selecting the option from the dropdown menu of the little wheel icon in this cell.</p>\n<p><em>Installing the library and subsequently restarting the interpreter is only necessary once (for each separate container, naturally).</em></p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617810357623_1386221124",
+      "id": "paragraph_1617810357623_1386221124",
+      "dateCreated": "2021-04-07T15:45:57+0000",
+      "dateStarted": "2021-04-07T21:57:54+0000",
+      "dateFinished": "2021-04-07T21:57:54+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46411"
+    },
+    {
+      "text": "%md\n### Serializable code\n\nThe following snippet of Java/Scala code sets up the CTS library to transform map coordinates to RD.\n\nYou should look over the code to understand its structure, but an in-depth understanding is not necessary. Keep in mind that we have two coordinate systems, between which we want to convert. The two private class variables are initialized to the two transformations of interest. Why the code is structured this way is discussed below -- briefly, this is due to the need for serialization of the object for its use in a distributed system (Spark).",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T21:38:41+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h3>Serializable code</h3>\n<p>The following snippet of Java/Scala code sets up the CTS library to transform map coordinates to RD.</p>\n<p>You should look over the code to understand its structure, but an in-depth understanding is not necessary. Keep in mind that we have two coordinate systems, between which we want to convert. The two private class variables are initialized to the two transformations of interest. Why the code is structured this way is discussed below &ndash; briefly, this is due to the need for serialization of the object for its use in a distributed system (Spark).</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617811273599_1533864113",
+      "id": "paragraph_1617811273599_1533864113",
+      "dateCreated": "2021-04-07T16:01:13+0000",
+      "dateStarted": "2021-04-07T21:38:41+0000",
+      "dateFinished": "2021-04-07T21:38:41+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46412"
+    },
+    {
+      "text": "%spark\nobject CT extends Serializable {\n  \n  import org.cts.CRSFactory;\n  import org.cts.crs.GeodeticCRS;\n  import org.cts.registry.EPSGRegistry;\n  import org.cts.op.CoordinateOperationFactory;\n  import org.cts.op.CoordinateOperation;\n\n  // global variables to keep state for transformations\n  @transient private var xy2latlonOp : CoordinateOperation = null;\n  @transient private var latlon2xyOp : CoordinateOperation = null;\n\n  // Create the coordinate transformation functions to convert from RD New to WGS:84 and vice versa\n  def initTransforms : (CoordinateOperation, CoordinateOperation) = {\n    // Create a new CRSFactory, a necessary element to create a CRS without defining one by one all its components\n    val cRSFactory = new CRSFactory();\n\n    // Add the appropriate registry to the CRSFactory's registry manager. Here the EPSG registry is used.\n    val registryManager = cRSFactory.getRegistryManager();\n    registryManager.addRegistry(new EPSGRegistry());\n\n    // CTS will read the EPSG registry seeking the 4326 code, when it finds it,\n    // it will create a CoordinateReferenceSystem using the parameters found in the registry.\n    val crs1 : GeodeticCRS = (cRSFactory.getCRS(\"EPSG:28992\")).asInstanceOf[GeodeticCRS];\n    val crs2 : GeodeticCRS = (cRSFactory.getCRS(\"EPSG:4326\") ).asInstanceOf[GeodeticCRS];\n    \n    // Transformation (x,y) -> (lon,lat)\n    val xy2latlonOps = CoordinateOperationFactory.createCoordinateOperations(crs1,crs2);\n    val xy2latlon = xy2latlonOps.iterator().next(); //get(0);\n    \n    val latlon2xyOps = CoordinateOperationFactory.createCoordinateOperations(crs2,crs1);\n    val latlon2xy = latlon2xyOps.iterator().next(); //get(0);\n    \n    (xy2latlon, latlon2xy)\n  }\n\n  // Encapsulate private transient variable (for serializability of the object)\n  def getXYOp : CoordinateOperation = {\n    if (xy2latlonOp == null){\n      val ts = initTransforms\n      xy2latlonOp = ts._1\n      latlon2xyOp = ts._2\n    }\n    xy2latlonOp\n  }\n\n  // Encapsulate private transient variable (for serializability of the object)\n  def getLatLonOp : CoordinateOperation = {\n    if (latlon2xyOp == null){\n      val ts = initTransforms\n      xy2latlonOp = ts._1\n      latlon2xyOp = ts._2\n    }\n    latlon2xyOp\n  }\n  \n  // Use the library's transformation function to convert the coordinates\n  def transformXY(x:Float, y:Float) : (Float, Float) = {   \n    // Note: easily confused, (lat,lon) <-> (y,x)\n    val lonlat = this.getXYOp.transform(Array(x.toDouble, y.toDouble));\n    return ( lonlat(1).toFloat, lonlat(0).toFloat)\n  }\n  \n  // Use the library's transformation function to convert the coordinates\n  def transformLatLon(lat:Float, lon:Float) : (Float, Float) = {\n    // Note: easily confused, (lat,lon) <-> (y,x)\n    val xy = this.getLatLonOp.transform(Array(lon.toDouble, lat.toDouble));\n    return ( xy(0).toFloat, xy(1).toFloat)\n  }\n}",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T15:45:46+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_259001208",
+      "id": "20210407-114557_1574501493",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "dateStarted": "2021-04-07T15:45:46+0000",
+      "dateFinished": "2021-04-07T15:45:46+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46413"
+    },
+    {
+      "text": "%md\n_Serializable code..._\n\nWhen we create non-standard objects in Spark, we need to take care to create Java bytecode that can be shipped to worker nodes; i.e., the code has to be _serializable_. This requirement can cause headaches -- it is not always obvious why a bit of code is or is not serializable. Here, the use of class variables forms the main challenge, as you wouldn't be able to know on which node they are initialized; but we also do not have full control over the external library, assuming we do not want to modify its implementation to ensure serializability of every class in the package. In this scenario, I have worked around these limitation by ensuring that the initialization is only attempted after shipping the object to the worker node. We create a _serializable_ object for the coordinate transformation because we apply the `@transient` directive to the class variables (to instruct Scala not to include that part of the object in the serialization) in combination with a check for `null` values when using these variables.\n\nMore information, should you later run into these problems with your own project:\n* Spark documentation on [passing functions to Spark](https://spark.apache.org/docs/latest/rdd-programming-guide.html#passing-functions-to-spark);\n* the role of \"annotation\" `@transient` in the so-called [transient lazy val pattern](http://fdahms.com/2015/10/14/scala-and-the-transient-lazy-val-pattern/);\n* another [blog post](https://medium.com/onzo-tech/serialization-challenges-with-spark-and-scala-a2287cd51c54) discussing serialization issues.\n\n_Understanding all the details of serialization and the exact inner workings of the `CT` class is not necessary to complete assignment 3._",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T21:40:18+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><em>Serializable code&hellip;</em></p>\n<p>When we create non-standard objects in Spark, we need to take care to create Java bytecode that can be shipped to worker nodes; i.e., the code has to be <em>serializable</em>. This requirement can cause headaches &ndash; it is not always obvious why a bit of code is or is not serializable. Here, the use of class variables forms the main challenge, as you wouldn&rsquo;t be able to know on which node they are initialized; but we also do not have full control over the external library, assuming we do not want to modify its implementation to ensure serializability of every class in the package. In this scenario, I have worked around these limitation by ensuring that the initialization is only attempted after shipping the object to the worker node. We create a <em>serializable</em> object for the coordinate transformation because we apply the <code>@transient</code> directive to the class variables (to instruct Scala not to include that part of the object in the serialization) in combination with a check for <code>null</code> values when using these variables.</p>\n<p>More information, should you later run into these problems with your own project:</p>\n<ul>\n<li>Spark documentation on <a href=\"https://spark.apache.org/docs/latest/rdd-programming-guide.html#passing-functions-to-spark\">passing functions to Spark</a>;</li>\n<li>the role of &ldquo;annotation&rdquo; <code>@transient</code> in the so-called <a href=\"http://fdahms.com/2015/10/14/scala-and-the-transient-lazy-val-pattern/\">transient lazy val pattern</a>;</li>\n<li>another <a href=\"https://medium.com/onzo-tech/serialization-challenges-with-spark-and-scala-a2287cd51c54\">blog post</a> discussing serialization issues.</li>\n</ul>\n<p><em>Understanding all the details of serialization and the exact inner workings of the <code>CT</code> class is not necessary to complete assignment 3.</em></p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617808402093_1340542439",
+      "id": "paragraph_1617808402093_1340542439",
+      "dateCreated": "2021-04-07T15:13:22+0000",
+      "dateStarted": "2021-04-07T21:40:18+0000",
+      "dateFinished": "2021-04-07T21:40:18+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46414"
+    },
+    {
+      "text": "%md\n### Coordinate Transformations, finally\n\nUsing the transformation from RD New to WGS:84 (the latitude/longitude pairs used in google maps and open streetmap), we can plot our information on the map.\n\nFirst create a user-defined function that uses `CT` for this transformation:",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T19:29:41+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h3>Coordinate Transformations, finally</h3>\n<p>Using the transformation from RD New to WGS:84 (the latitude/longitude pairs used in google maps and open streetmap), we can plot our information on the map.</p>\n<p>First create a user-defined function that uses <code>CT</code> for this transformation:</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_749480774",
+      "id": "20210407-114557_86183664",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "dateStarted": "2021-04-07T19:29:41+0000",
+      "dateFinished": "2021-04-07T19:29:41+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46415"
+    },
+    {
+      "text": "%spark\n// Register a lambda function that transforms an XY coordinate pair under the name txyudf\nspark.udf.register(\"txyudf\", (x:Float, y:Float) => CT.transformXY(x,y))",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T21:44:00+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_1447498234",
+      "id": "20210407-114557_623387390",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "dateStarted": "2021-04-07T21:44:00+0000",
+      "dateFinished": "2021-04-07T21:44:01+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46416"
+    },
+    {
+      "text": "%md\n_Toernooiveld:_\n\nRemember where to find Mercator I after more than a year of lockdown? Just to be absolutely certain, let's take the address data that corresponds to _Toernooiveld_ and put these on the map of Nijmegen ;-)\n\nSo far, we used `%spark` and `%md` cells only, but the Spark interpreter also defines a specific type of cell for SQL queries, using the `%spark.sql` directive. The Spark SQL interpreter uses the fact that results in SQL have a regular structure (mathematical `relations`, usually displayed as tables) to improve the rendering of the results. You get a table with scrollbars, and can also display the data using a variety of charts (not that useful for this result though).",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T21:45:05+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><em>Toernooiveld:</em></p>\n<p>Remember where to find Mercator I after more than a year of lockdown? Just to be absolutely certain, let&rsquo;s take the address data that corresponds to <em>Toernooiveld</em> and put these on the map of Nijmegen ;-)</p>\n<p>So far, we used <code>%spark</code> and <code>%md</code> cells only, but the Spark interpreter also defines a specific type of cell for SQL queries, using the <code>%spark.sql</code> directive. The Spark SQL interpreter uses the fact that results in SQL have a regular structure (mathematical <code>relations</code>, usually displayed as tables) to improve the rendering of the results. You get a table with scrollbars, and can also display the data using a variety of charts (not that useful for this result though).</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617819438504_1183747907",
+      "id": "paragraph_1617819438504_1183747907",
+      "dateCreated": "2021-04-07T18:17:18+0000",
+      "dateStarted": "2021-04-07T21:45:05+0000",
+      "dateFinished": "2021-04-07T21:45:05+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46417"
+    },
+    {
+      "text": "%spark.sql\n-- Toernooiveld with its coordinates after transformation from RD New to WGS:84\nselect street, quarter, txyudf(x,y) latlon from addr where street == \"Toernooiveld\"",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T21:44:05+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "street": "string",
+                      "quarter": "string",
+                      "latlon": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": false
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "street",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "quarter",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_677022742",
+      "id": "20210407-114557_1416830743",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "dateStarted": "2021-04-07T21:44:06+0000",
+      "dateFinished": "2021-04-07T21:44:06+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46418"
+    },
+    {
+      "text": "%md\n_Up the mountain:_\n\nHave you ever cycled the Berg en Dalseweg? That long street spans multiple quarters... click on \"settings\" shown next to all those tiny chart icons above the Table, and you can configure the cell to display quarter count as a Bar or Pie chart instead of a Table (though one might wonder for what purpose, of course).",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T19:42:46+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617824283381_1856976890",
+      "id": "paragraph_1617824283381_1856976890",
+      "dateCreated": "2021-04-07T19:38:03+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:54284",
+      "dateFinished": "2021-04-07T19:42:46+0000",
+      "dateStarted": "2021-04-07T19:42:46+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><em>Up the mountain:</em></p>\n<p>Have you ever cycled the Berg en Dalseweg? That long street spans multiple quarters&hellip; click on &ldquo;settings&rdquo; shown next to all those tiny chart icons above the Table, and you can configure the cell to display quarter count as a Bar or Pie chart instead of a Table (though one might wonder for what purpose, of course).</p>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%spark.sql\n-- What quarters intersect with the Berg en Dalseweg?\nselect quarter, count(quarter) from addr where street == \"Berg en Dalseweg\" group by quarter",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T20:22:03+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "quarter": "string",
+                      "count(quarter)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "pieChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "quarter",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count(quarter)",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617824152797_1343614588",
+      "id": "paragraph_1617824152797_1343614588",
+      "dateCreated": "2021-04-07T19:35:52+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:51812",
+      "dateFinished": "2021-04-07T19:42:52+0000",
+      "dateStarted": "2021-04-07T19:42:52+0000"
+    },
+    {
+      "text": "%md\n_From 2D-point values to latitude - longitude coordinates:_\n\nA more useful visualization of our results in this assignment would make use of a Map widget. Zeppelin can do this for us, but first we have to untangle the `latlon` column that contains multidimensional values, and split the 2D point values into their two constituent values `lat` and `lon`. The following nested SQL query does this for you:",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:00:09+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><em>From 2D-point values to latitude - longitude coordinates:</em></p>\n<p>A more useful visualization of our results in this assignment would make use of a Map widget. Zeppelin can do this for us, but first we have to untangle the <code>latlon</code> column that contains multidimensional values, and split the 2D point values into their two constituent values <code>lat</code> and <code>lon</code>. The following nested SQL query does this for you:</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617819554106_1215171106",
+      "id": "paragraph_1617819554106_1215171106",
+      "dateCreated": "2021-04-07T18:19:14+0000",
+      "dateStarted": "2021-04-07T22:00:09+0000",
+      "dateFinished": "2021-04-07T22:00:09+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46419"
+    },
+    {
+      "text": "%spark.sql\n-- Toernooiveld's coordinates from BAG address data\nselect street, quarter, latlon._1 as lat, latlon._2 as lon\nfrom ( select street, quarter, txyudf(x,y) as latlon from addr where street = \"Toernooiveld\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:01:05+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "street0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "quarter1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "lat2",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "lon3",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1,
+                      "paginationPageSize": 250
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "updated": false,
+                    "names": {
+                      "street": "string",
+                      "quarter": "string",
+                      "lat": "string",
+                      "lon": "string"
+                    }
+                  },
+                  "updated": false,
+                  "initialized": false,
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  }
+                },
+                "zeppelin-leaflet": {
+                  "latitude": {
+                    "name": "lat",
+                    "index": 2,
+                    "aggr": "sum"
+                  },
+                  "longitude": {
+                    "name": "lon",
+                    "index": 3,
+                    "aggr": "sum"
+                  },
+                  "tooltip": {
+                    "name": "street",
+                    "index": 0,
+                    "aggr": "sum"
+                  },
+                  "popup": {
+                    "name": "quarter",
+                    "index": 1,
+                    "aggr": "sum"
+                  }
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617812981635_1717856439",
+      "id": "paragraph_1617812981635_1717856439",
+      "dateCreated": "2021-04-07T16:29:41+0000",
+      "dateStarted": "2021-04-07T22:01:05+0000",
+      "dateFinished": "2021-04-07T22:01:05+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46420"
+    },
+    {
+      "text": "%md\n_Displaying the output on the Map:_\n\nNow we only need to enable the Map extension of Zeppelin, using the Helium framework (described in the [Zeppelin Helium documentation](https://zeppelin.apache.org/docs/0.9.0/development/helium/writing_visualization_basic.html)) -- if you did not do that before. \n\nWe enable map display by opening the Zeppelin configuration, by clicking on Helium in the dropdown menu that you see after clicking on the username in the top right corner of the browser window (in our case, the user name is \"anonymous\"); you may want to do this in a different browser window or tab.\n\nLook for [\"zeppelin-leaflet\"](https://www.npmjs.com/package/zeppelin-leaflet) in the list of visualizations and click on _Enable_.\n\nIf you now reload this notebook (just the notebook in the browser; for Firefox I'd press `^R`) and then execute the cell below this one, you will notice a new icon in the visualization options, a tiny globe. Click on it, and then click on the widget settings to enter the columns for lat, lon, tooltip and popup.",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:37:29+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617819696578_265208222",
+      "id": "paragraph_1617819696578_265208222",
+      "dateCreated": "2021-04-07T18:21:36+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46421",
+      "dateFinished": "2021-04-07T22:37:29+0000",
+      "dateStarted": "2021-04-07T22:37:29+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><em>Displaying the output on the Map:</em></p>\n<p>Now we only need to enable the Map extension of Zeppelin, using the Helium framework (described in the <a href=\"https://zeppelin.apache.org/docs/0.9.0/development/helium/writing_visualization_basic.html\">Zeppelin Helium documentation</a>) &ndash; if you did not do that before.</p>\n<p>We enable map display by opening the Zeppelin configuration, by clicking on Helium in the dropdown menu that you see after clicking on the username in the top right corner of the browser window (in our case, the user name is &ldquo;anonymous&rdquo;); you may want to do this in a different browser window or tab.</p>\n<p>Look for <a href=\"https://www.npmjs.com/package/zeppelin-leaflet\">&ldquo;zeppelin-leaflet&rdquo;</a> in the list of visualizations and click on <em>Enable</em>.</p>\n<p>If you now reload this notebook (just the notebook in the browser; for Firefox I&rsquo;d press <code>^R</code>) and then execute the cell below this one, you will notice a new icon in the visualization options, a tiny globe. Click on it, and then click on the widget settings to enter the columns for lat, lon, tooltip and popup.</p>\n\n</div>"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%spark.sql\n-- Toernooiveld coördinates in BAG\nselect street, quarter, latlon._1 as lat, latlon._2 as lon\nfrom ( select street, quarter, txyudf(x,y) as latlon from addr where street = \"Toernooiveld\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:31:24+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "editorHide": false,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "zeppelin-leaflet",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "street0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "quarter1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "lat2",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "lon3",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1,
+                      "paginationPageSize": 250
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "updated": false,
+                    "names": {
+                      "street": "string",
+                      "quarter": "string",
+                      "lat": "string",
+                      "lon": "string"
+                    }
+                  },
+                  "updated": false,
+                  "initialized": false,
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  }
+                },
+                "zeppelin-leaflet": {
+                  "latitude": {
+                    "name": "lat",
+                    "index": 2,
+                    "aggr": "sum"
+                  },
+                  "longitude": {
+                    "name": "lon",
+                    "index": 3,
+                    "aggr": "sum"
+                  },
+                  "tooltip": {
+                    "name": "street",
+                    "index": 0,
+                    "aggr": "sum"
+                  },
+                  "popup": {
+                    "name": "quarter",
+                    "index": 1,
+                    "aggr": "sum"
+                  }
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617826717538_1107385384",
+      "id": "paragraph_1617826717538_1107385384",
+      "dateCreated": "2021-04-07T20:18:37+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:59485",
+      "dateFinished": "2021-04-07T22:01:19+0000",
+      "dateStarted": "2021-04-07T22:01:19+0000"
+    },
+    {
+      "text": "%spark.sql\n-- Cell left empty on purpose, to encourage you to plot your own selections of street data on the map! \n-- Maybe your own address?\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T20:24:25+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/sql",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_1852082324",
+      "id": "20210407-114557_1443353183",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "status": "READY",
+      "$$hashKey": "object:46425"
+    },
+    {
+      "text": "%md\n### Joining the two datasets together!\n\nAfter all this fun with the open address data on the map, we'd almost forget that we set out on a journey to join the two datasets!\n\nLet's switch back to SQL, and use the artworks as a starting point.\n\n__Q:__ _Why would you apply the transformation on the artworks dataset to join the result against the addresses, instead of vice versa?_",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T20:25:48+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h3>Joining the two datasets together!</h3>\n<p>After all this fun with the open address data on the map, we&rsquo;d almost forget that we set out on a journey to join the two datasets!</p>\n<p>Let&rsquo;s switch back to SQL, and use the artworks as a starting point.</p>\n<p><strong>Q:</strong> <em>Why would you apply the transformation on the artworks dataset to join the result against the addresses, instead of vice versa?</em></p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_2002256457",
+      "id": "20210407-114557_2079395022",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46426",
+      "dateFinished": "2021-04-07T20:25:48+0000",
+      "dateStarted": "2021-04-07T20:25:48+0000"
+    },
+    {
+      "text": "%spark\nspark.udf.register(\"transformLatLon\", (lat:Float, lon:Float) => CT.transformLatLon(lat,lon))",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:02:00+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_426323327",
+      "id": "20210407-114557_1563835687",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46427",
+      "dateFinished": "2021-04-07T22:02:00+0000",
+      "dateStarted": "2021-04-07T22:02:00+0000"
+    },
+    {
+      "text": "%spark.sql\n-- Artworks with XY coordinates\ncreate temp view kosxy as\nselect naam, bouwjaar, latitude, longitude, XY._1 as x, XY._2 as y \nfrom ( select naam, bouwjaar, latitude, longitude, transformLatLon(latitude, longitude) as XY from kos )",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:02:19+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/sql",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "naam": "string",
+                      "bouwjaar": "string",
+                      "x": "string",
+                      "y": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_544250951",
+      "id": "20210407-114557_1082543843",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "status": "ERROR",
+      "$$hashKey": "object:46428",
+      "dateFinished": "2021-04-07T22:02:19+0000",
+      "dateStarted": "2021-04-07T22:02:19+0000"
+    },
+    {
+      "text": "%spark.sql\nselect * from kosxy limit 10",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:03:23+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "naam": "string",
+                      "bouwjaar": "string",
+                      "latitude": "string",
+                      "longitude": "string",
+                      "x": "string",
+                      "y": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617832987495_1261649571",
+      "id": "paragraph_1617832987495_1261649571",
+      "dateCreated": "2021-04-07T22:03:07+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:69399",
+      "dateFinished": "2021-04-07T22:03:22+0000",
+      "dateStarted": "2021-04-07T22:03:22+0000"
+    },
+    {
+      "text": "%spark.sql\n-- Join addresses and artworks on location\n-- drop view kosquarter;\ncreate temp view kosquarter as\nselect distinct naam, quarter, first(latitude), first(longitude), min(bouwjaar) as jaar from kosxy, addr\nwhere abs(kosxy.x - addr.x) < 10.0 and abs(kosxy.y - addr.y) < 10.0\ngroup by naam, quarter",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:07:03+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/sql",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "naam": "string",
+                      "quarter": "string",
+                      "jaar": "string"
+                    },
+                    "updated": true
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_1564470741",
+      "id": "20210407-114557_687597958",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46429",
+      "dateFinished": "2021-04-07T22:07:03+0000",
+      "dateStarted": "2021-04-07T22:07:03+0000"
+    },
+    {
+      "text": "%spark.sql\n-- The ten oldest artworks\nselect * from kosquarter order by jaar asc limit 10",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:38:09+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "zeppelin-leaflet",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "naam": "string",
+                      "quarter": "string",
+                      "first(latitude)": "string",
+                      "first(longitude)": "string",
+                      "jaar": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "zeppelin-leaflet": {
+                  "latitude": {
+                    "name": "first(latitude)",
+                    "index": 2,
+                    "aggr": "sum"
+                  },
+                  "longitude": {
+                    "name": "first(longitude)",
+                    "index": 3,
+                    "aggr": "sum"
+                  },
+                  "tooltip": {
+                    "name": "jaar",
+                    "index": 4,
+                    "aggr": "sum"
+                  },
+                  "popup": {
+                    "name": "naam",
+                    "index": 0,
+                    "aggr": "sum"
+                  }
+                }
+              }
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617827808729_48854043",
+      "id": "paragraph_1617827808729_48854043",
+      "dateCreated": "2021-04-07T20:36:48+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:65502",
+      "dateFinished": "2021-04-07T22:07:10+0000",
+      "dateStarted": "2021-04-07T22:07:08+0000"
+    },
+    {
+      "text": "%md\n### Nijmegen development\n\nLet us now answer the question we started out with initially: can we infer the growth of the city of Nijmegen through the years from the years in which the artworks were created? The previous cell provides convincing evidence in support of this hypothesis, but let's analyze the idea in more detail.",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:14:18+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h3>Nijmegen development</h3>\n<p>Let us now answer the question we started out with initially: can we infer the growth of the city of Nijmegen through the years from the years in which the artworks were created? The previous cell provides convincing evidence in support of this hypothesis, but let&rsquo;s analyze the idea in more detail.</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_1363791085",
+      "id": "20210407-114557_934073962",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46431",
+      "dateFinished": "2021-04-07T22:14:18+0000",
+      "dateStarted": "2021-04-07T22:14:18+0000"
+    },
+    {
+      "text": "%spark.sql\nselect distinct quarter, min(jaar) as jaar from kosquarter group by quarter order by jaar",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:14:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/sql",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "quarter": "string",
+                      "jaar": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": false
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "decade",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "quarter",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_1127016232",
+      "id": "20210407-114557_1169127210",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46432",
+      "dateFinished": "2021-04-07T22:14:26+0000",
+      "dateStarted": "2021-04-07T22:14:23+0000"
+    },
+    {
+      "text": "%md\n_Missing quarters:_\n\nWhen you know Nijmegen, you immediately spot a few missing city quarters in this list. Do they really have no artworks, or did we not manage to find their corresponding quarter? We connected the datasets rather crudely using a spatial join on coordinates, but is that connection perhaps the problem?\n\nInspecting the artworks not matched up with their quarters is not that hard when we assume their names are unique; for example, we count those artworks missing from the join result:",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:31:04+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><em>Missing quarters:</em></p>\n<p>When you know Nijmegen, you immediately spot a few missing city quarters in this list. Do they really have no artworks, or did we not manage to find their corresponding quarter? We connected the datasets rather crudely using a spatial join on coordinates, but is that connection perhaps the problem?</p>\n<p>Inspecting the artworks not matched up with their quarters is not that hard when we assume their names are unique; for example, we count those artworks missing from the join result:</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_940309619",
+      "id": "20210407-114557_854524352",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46433",
+      "dateFinished": "2021-04-07T22:31:04+0000",
+      "dateStarted": "2021-04-07T22:31:04+0000"
+    },
+    {
+      "text": "%spark\n// Artworks not found in the spatial join result:\nspark.sql(\"select count (distinct naam) from kos where naam not in (select naam from kosquarter)\").show()",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:29:15+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/scala",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "count(DISTINCT naam)0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1,
+                      "paginationPageSize": 250
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "count(DISTINCT naam)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_1701732169",
+      "id": "20210407-114557_913130103",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46434",
+      "dateFinished": "2021-04-07T22:29:17+0000",
+      "dateStarted": "2021-04-07T22:29:15+0000"
+    },
+    {
+      "text": "%md\nThat is quite a few artworks that were not properly matched up with their quarter.\n\nNow, in the cells below, try to improve upon the analysis we did above:\n\n+ _Can you produce the list of quarters that is missing because no artwork has been situated in the quarter?_\n+ _Can you produce a longer list of quarters and their oldest artworks?_\n+ _What are the years associated to artworks not yet matched up with the addresses database? What does this mean for our initial research question?_\n\nWouldn't it be nice to create a timeline of maps with artworks in different time periods?",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:26:07+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12,
+        "editorHide": true,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p>That is quite a few artworks that were not properly matched up with their quarter.</p>\n<p>Now, in the cells below, try to improve upon the analysis we did above:</p>\n<ul>\n<li><em>Can you produce the list of quarters that is missing because no artwork has been situated in the quarter?</em></li>\n<li><em>Can you produce a longer list of quarters and their oldest artworks?</em></li>\n<li><em>What are the years associated to artworks not yet matched up with the addresses database? What does this mean for our initial research question?</em></li>\n</ul>\n<p>Wouldn&rsquo;t it be nice to create a timeline of maps with artworks in different time periods?</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_1663308279",
+      "id": "20210407-114557_842723322",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:46435",
+      "dateFinished": "2021-04-07T22:26:07+0000",
+      "dateStarted": "2021-04-07T22:26:07+0000"
+    },
+    {
+      "text": "%spark.sql\n-- Cell empty on purpose, try your approach here!\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-07T22:22:21+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true,
+          "completionKey": "TAB"
+        },
+        "editorMode": "ace/mode/sql",
+        "colWidth": 12,
+        "editorHide": false,
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617795957822_568717964",
+      "id": "20210407-114557_368076998",
+      "dateCreated": "2021-04-07T11:45:57+0000",
+      "status": "READY",
+      "$$hashKey": "object:46436"
+    }
+  ],
+  "name": "A4 Part B Mapping Data",
+  "id": "2G4GWPTTC",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {
+    "isRunning": false
+  },
+  "path": "/A4 Part B Mapping Data"
+}
