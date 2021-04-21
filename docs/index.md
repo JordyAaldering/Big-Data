@@ -5,3 +5,4 @@
  * [Assignment 1](assignment01.md)
  * [Assignment 2](assignment02.md)
  * [Assignment 3](assignment03.md)
+ * [Assignment 4](assignment04.md)
