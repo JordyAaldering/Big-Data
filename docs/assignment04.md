@@ -84,7 +84,7 @@ SELECT name FROM pokedex_data_cast
     WHERE type_1 == "Water" AND type_2 == "Ground"
 ```
 
-![Water ground types](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment04/images/water-ground-types.png)
+![Water-ground types](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment04/images/water-ground-types.png)
 
 ## Water-ground effectiveness
 
@@ -106,8 +106,25 @@ SELECT against_water_ground, count(against_water_ground) FROM pokedex_against_wg
     ORDER BY against_water_ground ASC
 ```
 
-![Against water ground](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment04/images/against-water-ground.png)
+![Against water-ground](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment04/images/against-water-ground.png)
+
+Finally, we can count how many times these values are greater or less than one to see how many Pokémon are strong or weak against water-ground types.
+
+```sql
+SELECT
+    CASE WHEN against_water_ground > 1.0 THEN "Strong"
+        ELSE CASE WHEN against_water_ground < 1.0 THEN "Weak" 
+        ELSE "Normal"
+    END END AS AgainstWater
+FROM pokedex_against_wg
+```
+
+![Against water-ground counts](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment04/images/against-wg-counts.png)
+
+Awesome, here we see that relatively few Pokémon are strong against water-ground types.
+
+![Quagsire <3](https://media1.tenor.com/images/cce9a2b4083c6116d4fa873dd2a96028/tenor.gif?itemid=18674387)
 
 ---
 
-The code shown in this blog can be found on GitHub [here](https://github.com/JordyAaldering/Big-Data/tree/master/Assignment03).
+The code shown in this blog can be found on GitHub [here](https://github.com/JordyAaldering/Big-Data/tree/master/Assignment04).
