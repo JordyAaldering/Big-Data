@@ -31,7 +31,7 @@ Lets now print this dataframe to get a feel of the data inside it. You have prob
 z.show(pokedex_data.limit(5))
 ```
 
-The Pokédex data has a lot of columns, so I'll only show the first few here.
+The Pokédex data has a lot of columns, so I'll only show the first few.
 
 ![Raw data](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment04/images/raw-data.png)
 
@@ -109,6 +109,8 @@ SELECT against_water_ground, count(against_water_ground) FROM pokedex_against_wg
 
 ![Against water-ground](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment04/images/against-water-ground.png)
 
+An effectiveness of 0 occurs very often. You might think this is an error, but it actually makes sense once you consider that electric type moves are 0 times effective against ground Pokémon.
+
 Finally, we can count how many times these values are greater or less than one to see how many Pokémon are strong or weak against water-ground types.
 
 ```sql
@@ -122,7 +124,7 @@ FROM pokedex_against_wg
 
 ![Against water-ground counts](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment04/images/against-wg-counts.png)
 
-Awesome, here we see that relatively few Pokémon are strong against water-ground types.
+Awesome, here we see that relatively few Pokémon are strong against water-ground types. Almost half of all Pokémon are weak against water-ground types.
 
 This concludes our exploration of the Pokémon dataset. Hopefully you too now see the power of the might water-ground Pokémon!
 
