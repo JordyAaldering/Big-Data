@@ -49,7 +49,7 @@ We can now execute `pokedex_data_cast.printSchema()` to ensure that we cast ever
 
 Every Pokémon has a certain type, and some Pokémon can even have two types. In the dataframe these are represented in the columns `type_1` and `type_2`, where the second one is null if the Pokémon only has one type.
 
-Using SQL we can find out how many Pokémon with a certain first type two types. We can do this using the SQL command below. We also sort by the count of dual-types to make the output a bit easier to understand.
+Using SQL we can find out how many Pokémon with a certain first type also have a secondary type. We can do this using the SQL command below. We also sort by the count of dual types to make the output a bit easier to read and understand.
 
 ```sql
 SELECT type_1, count(type_2) FROM pokedex_data_cast
@@ -57,7 +57,7 @@ SELECT type_1, count(type_2) FROM pokedex_data_cast
     ORDER BY count(type_2) DESC
 ```
 
-This gives us the following results, which tells us that Pokémon whose first type is Bug of Water have the most secondary types.
+This gives us the following results, which tells us that Pokémon whose first type is Bug or Water have the most secondary types.
 
 ![Dual type counts](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment04/images/dual-type-counts.png)
 
@@ -72,13 +72,13 @@ SELECT type_2, count(type_2) FROM pokedex_data_cast
     ORDER BY count(type_2) DESC
 ```
 
+As a sanity check we can sum these counts, after which we see that we still have 62 dual water types. Great!
 Because we are using Spark SQL we can show these results as a pie chart.
 
 ![Dual types water](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment04/images/dual-types-water.png)
 
-This chart tells us that water-ground dual types occur most often. That's great, I love water-ground Pokémon!
-
-Lets find out which Pokémon are these water-ground dual types.
+This chart tells us that water-ground dual types occur most often. Amazing, I love water-ground Pokémon!
+Lets find out which Pokémon specifically these water-ground dual types are.
 
 ```sql
 SELECT name FROM pokedex_data_cast 
@@ -89,7 +89,7 @@ SELECT name FROM pokedex_data_cast
 
 ## Water-ground effectiveness
 
-Lets find out how strong these water-ground dual types are. The dataset contains a column `against_sometype` for each possible type. This is a decimal value which tells how effective a Pokémon is against that specific type.
+Now I would like to find out how strong these water-ground dual types are. The dataset contains a column `against_sometype` for each possible type. This is a decimal value which tells how effective a Pokémon is against that specific type.
 
 To find out how effective other Pokémon are against water-ground types we will create a new column, which combines the values from `against_water` and `against_ground`. We can find this new value by simply multiplying these two columns.
 
