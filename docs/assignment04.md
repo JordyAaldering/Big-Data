@@ -126,7 +126,7 @@ FROM pokedex_against_wg
 
 Awesome, here we see that relatively few Pokémon are strong against water-ground types. Almost half of all Pokémon are weak against water-ground types.
 
-This concludes our exploration of the Pokémon dataset. Hopefully you too now see the power of the might water-ground Pokémon!
+This concludes our brief exploration of the Pokémon dataset. Hopefully you too now see the power of the might water-ground Pokémon!
 
 ![Quagsire <3](https://media1.tenor.com/images/cce9a2b4083c6116d4fa873dd2a96028/tenor.gif?itemid=18674387)
 
