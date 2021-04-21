@@ -4,6 +4,7 @@ In this blog post we will take a look at the Pokémon database using Spark SQL a
 
 # Preparing the data
 
+Obviously we need to get some data to work on first. I assume you know how to do this already, so I will go over it quickly.
 We start by downloading the dataset using the following shell commands.
 
 ```sh
