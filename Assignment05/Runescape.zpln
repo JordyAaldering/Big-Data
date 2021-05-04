@@ -1,0 +1,1178 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%sh\n# initial setup\nrm -rf /opt/hadoop/share/runedata /tmp/checkpoint*\nsed -i -e 's|hdfs://localhost:9000|file:///tmp|' /opt/hadoop/etc/hadoop/core-site.xml",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T12:22:21+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620049841373_386271568",
+      "id": "paragraph_1620049841373_386271568",
+      "dateCreated": "2021-05-03T13:50:41+0000",
+      "dateStarted": "2021-05-04T12:22:21+0000",
+      "dateFinished": "2021-05-04T12:22:24+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:15436"
+    },
+    {
+      "text": "import spark.implicits._\nimport org.apache.spark.sql.streaming.Trigger\nimport org.apache.spark.sql.ForeachWriter\nimport org.apache.spark.sql.streaming.StreamingQueryListener._\nimport org.apache.spark.sql.Dataset\nimport org.apache.spark.sql.Row",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T12:22:28+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import spark.implicits._\nimport org.apache.spark.sql.streaming.Trigger\nimport org.apache.spark.sql.ForeachWriter\nimport org.apache.spark.sql.streaming.StreamingQueryListener._\nimport org.apache.spark.sql.Dataset\nimport org.apache.spark.sql.Row\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620047302445_2023774350",
+      "id": "paragraph_1620047302445_2023774350",
+      "dateCreated": "2021-05-03T13:08:22+0000",
+      "dateStarted": "2021-05-04T12:22:28+0000",
+      "dateFinished": "2021-05-04T12:23:13+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15437"
+    },
+    {
+      "text": "%md\n## Create a dataframe tied to the TCP/IP stream",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-03T17:40:05+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Create a dataframe tied to the TCP/IP stream</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620048006063_16065015",
+      "id": "paragraph_1620048006063_16065015",
+      "dateCreated": "2021-05-03T13:20:06+0000",
+      "dateStarted": "2021-05-03T17:40:05+0000",
+      "dateFinished": "2021-05-03T17:40:07+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15438"
+    },
+    {
+      "text": "val socketDF = spark.readStream\n    .format(\"socket\")\n    .option(\"host\", \"localhost\")\n    .option(\"port\", 9999)\n    .load()\n\nsocketDF.createOrReplaceTempView(\"runeUpdatesDF\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T13:19:25+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34msocketDF\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [value: string]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620047387425_1976912332",
+      "id": "paragraph_1620047387425_1976912332",
+      "dateCreated": "2021-05-03T13:09:47+0000",
+      "dateStarted": "2021-05-04T13:19:25+0000",
+      "dateFinished": "2021-05-04T13:19:26+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15439"
+    },
+    {
+      "text": "%md\n# Load in data",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T11:10:21+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Load in data</h1>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620126410360_1752228300",
+      "id": "paragraph_1620126410360_1752228300",
+      "dateCreated": "2021-05-04T11:06:50+0000",
+      "dateStarted": "2021-05-04T11:10:21+0000",
+      "dateFinished": "2021-05-04T11:10:21+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15440"
+    },
+    {
+      "text": "// parsing the input stream\nval regex = \"\\\"^([A-Z].+) ([A-Z].+) was sold for (\\\\\\\\d+)\\\"\"\nval q = f\"\"\"SELECT \n        regexp_extract(value, $regex%s, 1) AS material, \n        regexp_extract(value, $regex%s, 2) AS item, \n        cast(regexp_extract(value, $regex%s, 3) AS Integer) AS price \n    FROM runeUpdatesDF\"\"\"\nval runes = spark.sql(q)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T13:16:43+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mregex\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = \"^([A-Z].+) ([A-Z].+) was sold for (\\\\d+)\"\n\u001b[1m\u001b[34mq\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m =\nSELECT\n        regexp_extract(value, \"^([A-Z].+) ([A-Z].+) was sold for (\\\\d+)\", 1) AS material,\n        regexp_extract(value, \"^([A-Z].+) ([A-Z].+) was sold for (\\\\d+)\", 2) AS item,\n        cast(regexp_extract(value, \"^([A-Z].+) ([A-Z].+) was sold for (\\\\d+)\", 3) AS Integer) AS price\n    FROM runeUpdatesDF\n\u001b[1m\u001b[34mrunes\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [material: string, item: string ... 1 more field]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620051719850_934160801",
+      "id": "paragraph_1620051719850_934160801",
+      "dateCreated": "2021-05-03T14:21:59+0000",
+      "dateStarted": "2021-05-04T13:16:43+0000",
+      "dateFinished": "2021-05-04T13:16:44+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15441"
+    },
+    {
+      "text": "val streamWriterMem = runes\n    .writeStream\n    .outputMode(\"append\")\n    .format(\"memory\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T12:23:17+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mstreamWriterMem\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.streaming.DataStreamWriter[org.apache.spark.sql.Row]\u001b[0m = org.apache.spark.sql.streaming.DataStreamWriter@483903e5\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620126149835_2090277036",
+      "id": "paragraph_1620126149835_2090277036",
+      "dateCreated": "2021-05-04T11:02:29+0000",
+      "dateStarted": "2021-05-04T12:23:20+0000",
+      "dateFinished": "2021-05-04T12:23:22+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15442"
+    },
+    {
+      "text": "val memoryQuery = streamWriterMem\n    .queryName(\"memoryDF\")\n    .start()\n    \n// Run for 3 minutes\nval t = 3 * 60 * 1000\nmemoryQuery.awaitTermination(t)\nmemoryQuery.stop()",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T12:23:24+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mmemoryQuery\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.streaming.StreamingQuery\u001b[0m = org.apache.spark.sql.execution.streaming.StreamingQueryWrapper@3ad3d56c\n\u001b[1m\u001b[34mt\u001b[0m: \u001b[1m\u001b[32mInt\u001b[0m = 180000\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620051737750_979515397",
+      "id": "paragraph_1620051737750_979515397",
+      "dateCreated": "2021-05-03T14:22:17+0000",
+      "dateStarted": "2021-05-04T12:23:24+0000",
+      "dateFinished": "2021-05-04T12:26:29+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15443"
+    },
+    {
+      "text": "z.show(spark.sql(\"SELECT * FROM memoryDF\").limit(10))",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T12:36:45+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 5,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 394,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "item": "string",
+                      "material": "string",
+                      "price": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "material\titem\tprice\nBlack\tMace\t2758\nAdamant\tHatchet\t3936\nDragon\tWarhammer\t105062\nRune\tDagger\t4569\nWhite\tLongsword\t3352\nDragon\tBattleaxe\t111889\nRune\tHatchet\t8580\nAdamant\tScimitar\t5871\nWhite\tHatchet\t2200\nIron\tWarhammer\t4442\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620127006350_469335845",
+      "id": "paragraph_1620127006350_469335845",
+      "dateCreated": "2021-05-04T11:16:46+0000",
+      "dateStarted": "2021-05-04T12:28:26+0000",
+      "dateFinished": "2021-05-04T12:28:28+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15444"
+    },
+    {
+      "text": "%md\n## Initial data exploration",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T11:10:46+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Initial data exploration</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620126623658_199861583",
+      "id": "paragraph_1620126623658_199861583",
+      "dateCreated": "2021-05-04T11:10:23+0000",
+      "dateStarted": "2021-05-04T11:10:46+0000",
+      "dateFinished": "2021-05-04T11:10:46+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15445"
+    },
+    {
+      "text": "%sql\n-- How many rune items were sold?\nSELECT count(item) FROM memoryDF\n    WHERE material = \"Rune\"",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T13:13:33+0000",
+      "progress": 88,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 94,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "count(item)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count(item)\n1833\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=858",
+              "$$hashKey": "object:16668"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620126625075_1491769935",
+      "id": "paragraph_1620126625075_1491769935",
+      "dateCreated": "2021-05-04T11:10:25+0000",
+      "dateStarted": "2021-05-04T12:40:00+0000",
+      "dateFinished": "2021-05-04T12:40:02+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15446"
+    },
+    {
+      "text": "%sql\n-- How many of each item type was sold?\nSELECT item, count(item) FROM memoryDF\n    GROUP BY item\n    ORDER BY count(item) DESC",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T12:56:41+0000",
+      "progress": 76,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 8,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 440,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "item": "string",
+                      "count(item)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": false
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "item",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count(item)",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "item\tcount(item)\nHalberd\t1367\nMace\t1363\nHatchet\t1354\nSword\t1354\nHasta\t1342\nWarhammer\t1333\nScimitar\t1316\nSpear\t1303\nBattleaxe\t1298\nLongsword\t1298\nClaw\t1281\nDagger\t1247\nTwo-handed sword\t1242\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=859",
+              "$$hashKey": "object:16772"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620127124898_1935883066",
+      "id": "paragraph_1620127124898_1935883066",
+      "dateCreated": "2021-05-04T11:18:44+0000",
+      "dateStarted": "2021-05-04T12:55:30+0000",
+      "dateFinished": "2021-05-04T12:55:34+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15447"
+    },
+    {
+      "text": "%sql\n-- How much gold was spent buying swords?\nSELECT sum(price) FROM memoryDF\n    WHERE item = \"Sword\"",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T12:59:18+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 98,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "sum(price)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "sum(price)\n6526259\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=860",
+              "$$hashKey": "object:16876"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620127127331_1284522747",
+      "id": "paragraph_1620127127331_1284522747",
+      "dateCreated": "2021-05-04T11:18:47+0000",
+      "dateStarted": "2021-05-04T12:56:51+0000",
+      "dateFinished": "2021-05-04T12:56:52+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15448"
+    },
+    {
+      "text": "%md\n# Calculate initial average item prices",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T11:10:07+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Calculate initial average item prices</h1>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620126591665_1777687289",
+      "id": "paragraph_1620126591665_1777687289",
+      "dateCreated": "2021-05-04T11:09:51+0000",
+      "dateStarted": "2021-05-04T11:10:07+0000",
+      "dateFinished": "2021-05-04T11:10:07+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15449"
+    },
+    {
+      "text": "var avg_prices = spark.sql(\"\"\"\n    SELECT concat(material, \" \", item) as item, count(item) AS amount, cast(avg(price) AS Int) AS average FROM memoryDF\n        GROUP BY item, material\n        ORDER BY avg(price) DESC\n\"\"\")\n\nz.show(avg_prices.limit(10))\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T13:31:03+0000",
+      "progress": 18,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 6,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 382,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "item": "string",
+                      "amount": "string",
+                      "average": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          },
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 392,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "item": "string",
+                      "amount": "string",
+                      "average": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "item = \"White Sword\"\n"
+          },
+          {
+            "type": "TABLE",
+            "data": "item\tamount\taverage\nDragon Halberd\t156\t161050\nDragon Two-handed sword\t135\t126053\nDragon Battleaxe\t157\t112075\nDragon Warhammer\t148\t105031\nDragon Longsword\t145\t63033\nDragon Scimitar\t145\t63024\nDragon Spear\t150\t62990\nDragon Claw\t157\t56018\nDragon Hatchet\t162\t41993\nDragon Hasta\t156\t35015\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mavg_prices\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [item: string, amount: bigint ... 1 more field]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://9b1612051c5f:4040/jobs/job?id=1064",
+              "$$hashKey": "object:17046"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620053145741_1354954162",
+      "id": "paragraph_1620053145741_1354954162",
+      "dateCreated": "2021-05-03T14:45:45+0000",
+      "dateStarted": "2021-05-04T13:29:59+0000",
+      "dateFinished": "2021-05-04T13:30:01+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15450"
+    },
+    {
+      "text": "%md\n# Buy and sell loop",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T13:19:59+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Buy and sell loop</h1>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620051744829_1909055178",
+      "id": "paragraph_1620051744829_1909055178",
+      "dateCreated": "2021-05-03T14:22:24+0000",
+      "dateStarted": "2021-05-04T13:19:59+0000",
+      "dateFinished": "2021-05-04T13:19:59+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15451"
+    },
+    {
+      "text": "val regex = \"\\\"([A-Z].+) was sold for (\\\\\\\\d+)\\\"\"\nval q = f\"\"\"SELECT \n        regexp_extract(value, $regex%s, 1) AS item, \n        cast(regexp_extract(value, $regex%s, 2) AS Integer) AS price \n    FROM runeUpdatesDF\"\"\"\nval runes = spark.sql(q)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T13:20:00+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "item": "string",
+                      "price": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mregex\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = \"([A-Z].+) was sold for (\\\\d+)\"\n\u001b[1m\u001b[34mq\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m =\nSELECT\n        regexp_extract(value, \"([A-Z].+) was sold for (\\\\d+)\", 1) AS item,\n        cast(regexp_extract(value, \"([A-Z].+) was sold for (\\\\d+)\", 2) AS Integer) AS price\n    FROM runeUpdatesDF\n\u001b[1m\u001b[34mrunes\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [item: string, price: int]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620049631686_810538689",
+      "id": "paragraph_1620049631686_810538689",
+      "dateCreated": "2021-05-03T13:47:11+0000",
+      "dateStarted": "2021-05-04T13:20:00+0000",
+      "dateFinished": "2021-05-04T13:20:01+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15452"
+    },
+    {
+      "text": "def buyListingAtProfit(listing: Row) = {\r\n    val avgPrices = avg_prices.filter(s\"item = '${listing(0)}'\").select(\"average\")\r\n    if (avgPrices.count > 0) {\r\n        val sellPrice: Int = listing(1).asInstanceOf[Int]\r\n        val avgPrice = avgPrices.first()(0).asInstanceOf[Int]\r\n        if (sellPrice < avgPrice) {\r\n            println(\"Buying item \" + listing(0) + \" with a profit of \" \r\n                + (avgPrice - sellPrice) + \" gold\")\r\n        }\r\n    }\r\n}\r\n\r\ndef processBatch(batchDF: Dataset[Row]) = {\r\n    val listings = batchDF.select(\"item\", \"price\").collect()\r\n    for (listing <- listings) {\r\n        buyListingAtProfit(listing)\r\n    }\r\n}\r\n\r\nval runeStream = runes\r\n    .writeStream\r\n    .outputMode(\"append\")\r\n    .format(\"memory\")\r\n    .foreachBatch{ (batchDF: Dataset[Row], batchId: Long) => {\r\n        processBatch(batchDF)\r\n    }}\r\n    .start()",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T13:39:02+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mbuyListingAtProfit\u001b[0m: \u001b[1m\u001b[32m(listing: org.apache.spark.sql.Row)Unit\u001b[0m\n\u001b[1m\u001b[34mprocessBatch\u001b[0m: \u001b[1m\u001b[32m(batchDF: org.apache.spark.sql.Dataset[org.apache.spark.sql.Row])Unit\u001b[0m\n\u001b[1m\u001b[34mruneStream\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.streaming.StreamingQuery\u001b[0m = org.apache.spark.sql.execution.streaming.StreamingQueryWrapper@69ab111c\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620134239331_162188965",
+      "id": "paragraph_1620134239331_162188965",
+      "dateCreated": "2021-05-04T13:17:19+0000",
+      "dateStarted": "2021-05-04T13:39:02+0000",
+      "dateFinished": "2021-05-04T13:39:03+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15453"
+    },
+    {
+      "text": "for( a <- 1 to 1000) {\n    val exc = runeStream.exception\n    if (exc != None) {\n        println(exc)\n    }\n    Thread.sleep(10)\n}",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T13:39:05+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Buying item Mithril Battleaxe with a profit of 10 gold\nBuying item Dragon Hasta with a profit of 93 gold\nBuying item Mithril Hatchet with a profit of 90 gold\nBuying item Iron Hasta with a profit of 16 gold\nBuying item Adamant Halberd with a profit of 46 gold\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620051114197_429665163",
+      "id": "paragraph_1620051114197_429665163",
+      "dateCreated": "2021-05-03T14:11:54+0000",
+      "dateStarted": "2021-05-04T13:39:05+0000",
+      "dateFinished": "2021-05-04T13:39:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15454"
+    },
+    {
+      "text": "runeStream.stop()",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T13:39:22+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620049651878_1539733969",
+      "id": "paragraph_1620049651878_1539733969",
+      "dateCreated": "2021-05-03T13:47:31+0000",
+      "dateStarted": "2021-05-04T13:39:22+0000",
+      "dateFinished": "2021-05-04T13:39:23+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:15455"
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620134178017_815383405",
+      "id": "paragraph_1620134178017_815383405",
+      "dateCreated": "2021-05-04T13:16:18+0000",
+      "status": "READY",
+      "$$hashKey": "object:15456"
+    }
+  ],
+  "name": "Runescape",
+  "id": "2G7QEXAHB",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Runescape"
+}
