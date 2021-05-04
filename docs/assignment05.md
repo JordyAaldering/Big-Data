@@ -1,4 +1,4 @@
-# Stream Processing
+# Streaming Data
 
 In this notebook we will be learning about Spark Streaming by looking at a (fake) [RuneScape exchange.](https://secure.runescape.com/m=itemdb_rs/).
 This exchange will be simulated as a stream of orders which we will infinitely generate through our socket using a Python script.
@@ -17,7 +17,7 @@ val socketDF = spark.readStream
 socketDF.createOrReplaceTempView("runeUpdatesDF")
 ```
 
-Using a regular expression we can now parse the input stream into two strings: material and item name, and the integer: sell price.
+Using a regular expression we can now parse the input stream into two strings for the material and item name, and an integer for the sell price.
 
 ```scala
 val regex = "\"^([A-Z].+) ([A-Z].+) was sold for (\\\\d+)\""
@@ -31,7 +31,7 @@ val runes = spark.sql(q)
 
 ## Initial analysis
 
-To do some initial analysis on this data we will use a writer that writes the stream to memory.
+To do some initial analysis on this data we will use a writeStream that writes the stream to memory.
 
 ```scala
 val streamWriterMem = runes
@@ -53,7 +53,7 @@ memoryQuery.awaitTermination(t)
 memoryQuery.stop()
 ```
 
-Like in the previous blog post, we will use `z.show` to check if the data was read in correctly.
+Like in the previous blog post, we will use `z.show` to nicely plot dataframes and check if the data was read in correctly.
 
 ```scala
 z.show(spark.sql("SELECT * FROM memoryDF").limit(10))
@@ -94,7 +94,7 @@ Now that we have a feel of the data we will move on to using streaming to get ri
 
 ## Average item prices
 
-To compute the average prices we will combine the item and its material into a single entry, which will also contain the average price of that item.
+To compute the average prices we will combine the item and its material into a single entry and group by that entry, where each group will contain the average price of that item.
 
 ```scala
 var avg_prices = spark.sql("""
@@ -116,8 +116,7 @@ As you see we also keep track of the amount of each item. We won't be using it i
 ## Buy and sell loop
 
 Now that we know the averages, we can look at each new entry into the exchange. Then when the price of an item is below average we will buy it and immediately sell it at a profit.
-
-Below we define a function that decides to buy a listing if its price is below that of the average. This listing is a row of the same shape as the average prices dataframe from before. We will see how we get this listing in a bit.
+Below we define a function that decides to buy a listing if its price is below that of the average. This listing is a row that contains the item name and its listed price.
 
 ```scala
 def buyListingAtProfit(listing: Row) = {
@@ -135,7 +134,7 @@ def buyListingAtProfit(listing: Row) = {
 
 Since this is just an example, we will just print a message to show that we made some profit.
 
-We are going to apply this function by using the [`foreachBatch`](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#foreachbatch) method to the stream.
+We are going to apply this function by using the [`foreachBatch`](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#foreachbatch) method on the stream.
 This method applies the function to each incoming batch of the streaming data, which might contain multiple listings.
 
 ```scala
