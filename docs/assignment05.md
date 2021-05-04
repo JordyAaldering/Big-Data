@@ -1,6 +1,6 @@
 # Streaming Data
 
-In this notebook we will be learning about Spark Streaming by looking at a (fake) [RuneScape exchange.](https://secure.runescape.com/m=itemdb_rs/).
+In this notebook we will be learning about Spark Streaming by looking at a (fake) [RuneScape exchange](https://secure.runescape.com/m=itemdb_rs/).
 This exchange will be simulated as a stream of orders which we will infinitely generate through our socket using a Python script.
 
 ## Loading in data
@@ -17,7 +17,7 @@ val socketDF = spark.readStream
 socketDF.createOrReplaceTempView("runeUpdatesDF")
 ```
 
-Using a regular expression we can now parse the input stream into two strings for the material and item name, and an integer for the sell price.
+Using a regular expression we can now parse the input stream into two strings for the material and item name, and an integer for the sell price of that item.
 
 ```scala
 val regex = "\"^([A-Z].+) ([A-Z].+) was sold for (\\\\d+)\""
@@ -31,7 +31,7 @@ val runes = spark.sql(q)
 
 ## Initial analysis
 
-To do some initial analysis on this data we will use a writeStream that writes the stream to memory.
+To do some initial analysis on this data we will use a `writeStream` that writes the stream to memory.
 
 ```scala
 val streamWriterMem = runes
@@ -68,7 +68,7 @@ SELECT count(item) FROM memoryDF
     WHERE material = "Rune"
 ```
 
-This tells us that `1833` rune items were sold.
+This tells us that 1833 rune items were sold.
 We can also check how many of each item type was sold, we do this by grouping by item.
 
 ```sql
@@ -111,7 +111,7 @@ z.show(avg_prices.limit(10))
 
 ![Average prices](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment05/images/avg-prices.png)
 
-As you see we also keep track of the amount of each item. We won't be using it in this blog but an improved version of this code could use this amount to repeatedly update the averages using the streaming data.
+As you see we also keep track of the amount of each item. We won't be using it in this blog post, but an improved version of this code could use this amount to repeatedly update the averages using the streaming data.
 
 ## Buy and sell loop
 
@@ -135,7 +135,7 @@ def buyListingAtProfit(listing: Row) = {
 Since this is just an example, we will just print a message to show that we made some profit.
 
 We are going to apply this function by using the [`foreachBatch`](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#foreachbatch) method on the stream.
-This method applies the function to each incoming batch of the streaming data, which might contain multiple listings.
+This method applies the function to each incoming batch of the streaming data. This batch is a dataset since it might contain multiple listings.
 
 ```scala
 def processBatch(batchDF: Dataset[Row]) = {
