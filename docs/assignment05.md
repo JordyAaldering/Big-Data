@@ -1,11 +1,7 @@
 # Stream Processing
 
-- What did you find easy or difficult about the assignment/the Spark Structured Streaming API
-- The questions found in the notebook
-- The code you wrote to do some analysis task at the end of the notebook and a brief explanation
-
 In this notebook we will be learning about Spark Streaming by looking at a (fake) [RuneScape exchange.](https://secure.runescape.com/m=itemdb_rs/).
-This exchange will be simulated as a list of orders which we will infinitely generate through our socket using a Python script.
+This exchange will be simulated as a stream of orders which we will infinitely generate through our socket using a Python script.
 
 ## Loading in data
 
@@ -125,13 +121,13 @@ Below we define a function that decides to buy a listing if its price is below t
 
 ```scala
 def buyListingAtProfit(listing: Row) = {
-    val sellPrice: Int = listing(1).asInstanceOf[Int]
-    val whereQuery = "item = \"" + listing(0) + "\""
-    val avgPrices = avg_prices.filter(whereQuery).select("average")
+    val avgPrices = avg_prices.filter(s"item = '${listing(0)}'").select("average")
     if (avgPrices.count > 0) {
+        val sellPrice: Int = listing(1).asInstanceOf[Int]
         val avgPrice = avgPrices.first()(0).asInstanceOf[Int]
         if (sellPrice < avgPrice) {
-            println("Buying item " + listing(0) + " with a profit of " + (avgPrice - sellPrice) + " gold")
+            println("Buying item " + listing(0) + " with a profit of " 
+                + (avgPrice - sellPrice) + " gold")
         }
     }
 }
@@ -160,8 +156,33 @@ val runeStream = runes
     .start()
 ```
 
+This is kind of a hack, but using `exception` we can print our log messages.
+
+```scala
+for (a <- 1 to 1000) {
+    val exc = runeStream.exception
+    if (exc != None) {
+        println(exc)
+    }
+    Thread.sleep(10)
+}
+```
+
+```
+Buying item Mithril Battleaxe with a profit of 10 gold
+Buying item Dragon Hasta with a profit of 93 gold
+Buying item Mithril Hatchet with a profit of 90 gold
+Buying item Iron Hasta with a profit of 16 gold
+Buying item Adamant Halberd with a profit of 46 gold
+```
+
+Awesome, our code seems to be working and we are making a profit!
 Don't forget to stop the stream when you are done.
 
 ```scala
 runeStream.stop()
 ```
+
+---
+
+The code shown in this blog can be found on GitHub [here](https://github.com/JordyAaldering/Big-Data/tree/master/Assignment05).
