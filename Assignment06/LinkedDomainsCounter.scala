@@ -34,9 +34,9 @@ object LinkedDomainsCounter {
 
     def setupSparkSession() : SparkSession = {
         val sparkConf = new SparkConf()
-                .setAppName("LinkedDomainsCounter")
-                .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
-                .registerKryoClasses(Array(classOf[WarcRecord]))
+            .setAppName("LinkedDomainsCounter")
+            .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+            .registerKryoClasses(Array(classOf[WarcRecord]))
         val sparkSession = SparkSession.builder().config(sparkConf).getOrCreate()
         Log.Print(s"> running spark version ${sparkSession.version}")
         return sparkSession
@@ -55,9 +55,37 @@ object LinkedDomainsCounter {
                 classOf[WarcGzInputFormat],
                 classOf[NullWritable],  // Key
                 classOf[WarcWritable]   // Value
-            ).cache()
+            )
+            .cache()
+        
         Log.Print(s"> loaded ${warcs.count()} warc files from `${filepath}'")
         return warcs
+    }
+
+
+
+    /** Tries to get the last modified date of a record
+     *  
+     *  @param record the record to process
+     *  @return the last modified date of a record
+     */
+    def tryGetYear(record: WarcRecord) : Int = {
+        val headers = record.getHttpHeaders()
+        var date = headers.get("Last-Modified")
+        if (date == null) {
+            date = headers.get("Date")
+        }
+        
+        if (date != null) {
+            return date.substring(12, 16).toInt
+        }
+        
+        date = record.getHeader().getDate()
+        if (date != null) {
+            return date.substring(0, 4).toInt
+        }
+
+        return -1
     }
 
     /** Removes the html tag `< />' or `< >' around a domain
@@ -73,6 +101,7 @@ object LinkedDomainsCounter {
                 return dom.substring(1, dom.length() - 1)
             }
         }
+
         // there was no tag to remove
         return dom
     }
@@ -105,34 +134,33 @@ object LinkedDomainsCounter {
     /** Gets all domains that were linked to by web pages
      *  
      *  @param warcs the warc files to operate on
-     *  @param allowSelfLinks whether links to the same domain as the source are counted
      *  @return a list of all linked domains
      */
-    def getAllDomains(warcs: RDD[(NullWritable, WarcWritable)], allowSelfLinks : Boolean = false) : RDD[String] = {
+    def getAllDomains(warcs: RDD[(NullWritable, WarcWritable)]) : RDD[(Int, String)] = {
         val sTime = System.nanoTime
 
         val domains = warcs
             // get all http records
             .map(_._2.getRecord())
             .filter(_.isHttp())
+            .filter(_.getHeader().getUrl() != null)
             // split records into the file's source url and http body
-            .map(r => r.getHeader().getUrl() -> r.getHttpStringBody())
-            .filter { case (url, _) => allowSelfLinks || url != null }
-            // get all linked domains with a filter depending
-            // on whether self-links are allowed
-            .flatMap { case (url, body) => {
+            .map { record =>
+                val url = record.getHeader().getUrl()
+                val year = tryGetYear(record)
+                (url, year) -> record.getHttpStringBody()
+            }
+            // get all linked domains
+            .flatMap { case ((url, year), body) => {
                 val links = getHrefDomains(Jsoup.parse(body))
-                if (allowSelfLinks) {
-                    links.filter(_ != "")
-                } else {
-                    val t = urlToDomain(removeHtmlTag(url))
-                    links.filter(l => !emptyOrEqual(t, l))
-                }
-            }}.cache()
+                val dom = urlToDomain(removeHtmlTag(url))
+                links.filter(l => !emptyOrEqual(dom, l))
+                    .map(l => (year, l))
+            }}
+            .cache()
         
         val duration = (System.nanoTime - sTime) / 1e6d
-        Log.Print(s"> found ${domains.count()} linked domains in total,"
-                + s" ${if (allowSelfLinks) "with" else "without"} self-links"
+        Log.Print(s"> found ${domains.count()} linked domains in total"
                 + s" (${Math.round(duration)} ms)")
         return domains
     }
@@ -142,7 +170,7 @@ object LinkedDomainsCounter {
      *  @param domains a list of all domains that were linked
      *  @return a mapping of domains to how many times were linked
      */
-    def reduceDomains(domains: RDD[String]) : RDD[(String, Int)] = {
+    def reduceDomains(domains: RDD[(Int, String)]) : RDD[((Int, String), Int)] = {
         val sTime = System.nanoTime
 
         val mapped = domains.map(_ -> 1)
@@ -154,41 +182,65 @@ object LinkedDomainsCounter {
         return reduced
     }
 
+
+
     /** Prints the domains that were linked the most
      *  
      *  @param counts a mapping of domains to how many times were linked
      *  @param n the maximum number of domains to print
      */
-    def printTopDomains(counts: RDD[(String, Int)], n: Int = 20) {
+    def printTopDomains(counts: RDD[((Int, String), Int)], n: Int) {
         Log.Print(s"> showing top ${n} domains")
         counts.takeOrdered(n)(Ordering[Int].reverse.on(_._2))
-            .foreach { case (dom, num) =>
-                Log.Print(s"${dom} is linked ${num} times")
+            .foreach { case ((year, dom), num) =>
+                Log.Print(s"in ${year}, ${dom} is linked ${num} times")
+            }
+    }
+
+    /** Prints how many times a domain was linked the past years
+     *  
+     *  @param counts a mapping of domains to how many times were linked
+     *  @param dom: the domain to print the yearly links of
+     *  @param n the maximum number of years to print
+     */
+    def printYearlyLinks(counts: RDD[((Int, String), Int)], dom: String, n: Int) {
+        Log.Print(s"> showing ${dom} links per year the past ${n} years")
+        counts.filter(_._1._2 == dom)
+            .takeOrdered(n)(Ordering[Int].reverse.on(_._1._1))
+            .foreach { case ((year, _), num) =>
+                Log.Print(s"in ${year}, ${dom} was linked ${num} times")
             }
     }
 
     def main(args: Array[String]) {
         // check arguments
-        if (args.length < 1 || args.length > 3) {
+        if (args.length < 1 || args.length > 4) {
             println("> usage: LinkedDomainsCounter <filename> "
-                + "<allowSelfLinks=false> <numPrintedDomains=20>")
+                + "<numPrintedDomains=10> "
+                + "<domainToCheckYearly='facebook.com'> "
+                + "<numPrintedYears=10>")
             return
         }
 
         // parse arguments
         val filename = args(0)
-        val allowSelfLinks = args.length == 2 && args(1).toLowerCase() == "true"
-        val numPrintedDomains = if (args.length == 3) args(2).toInt else 20
+        val numPrintedDomains = if (args.length > 1) args(1).toInt else 10
+        val domainToCheckYearly = if (args.length > 2) args(2) else "facebook.com"
+        val numPrintedYears = if (args.length > 3) args(3).toInt else 10
 
         // start session
         val sparkSession = setupSparkSession()
         val sc = sparkSession.sparkContext
 
-        // compute linked domains
+        // compute linked domain counts
         val warcs = loadWarcs(filename, sc)
-        val domains = getAllDomains(warcs, allowSelfLinks)
+        val domains = getAllDomains(warcs)
         val counts = reduceDomains(domains)
+
+        // print results
         printTopDomains(counts, numPrintedDomains)
+        Log.Print("")
+        printYearlyLinks(counts, domainToCheckYearly, numPrintedYears)
 
         // finalize session
         sparkSession.stop()
