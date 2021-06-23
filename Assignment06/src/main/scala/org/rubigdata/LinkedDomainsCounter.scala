@@ -6,14 +6,11 @@ import de.l3s.concatgz.data.WarcRecord
 
 import org.apache.spark.{SparkConf,SparkContext}
 import org.apache.spark.sql.{SparkSession,SaveMode}
-import org.apache.spark.storage.StorageLevel
 import org.apache.spark.rdd.RDD
 
 import org.jsoup.Jsoup
-import org.jsoup.nodes.Document
 
 import collection.JavaConverters._
-import collection.mutable.{Buffer,ArrayBuffer}
 import java.net.URI
 import util.Try
 
@@ -23,17 +20,20 @@ object LinkedDomainsCounter {
         val sparkConf = new SparkConf()
             .setAppName("LinkedDomainsCounter")
             .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
-            .set("spark.memory.storageFraction", "0.6")
+            .set("spark.memory.storageFraction", "0.3")
             .set("spark.memory.offHeap.enabled", "true")
             .set("spark.memory.offHeap.size", "10G")
-            .set("spark.yarn.driver.memory", "1G")
-            .set("spark.yarn.executor.memory", "1G")
+            .set("spark.yarn.driver.memory", "5G")
+            .set("spark.yarn.executor.memory", "5G")
             .set("spark.executor.memoryOverhead", "1G")
             .set("rdd.compression", "true")
+            .set("spark.shuffle.memoryFraction", "0")
             .set("spark.shuffle.io.maxRetries", "5")
             .set("spark.shuffle.io.retryWait", "10s")
+            .set("spark.sql.shuffle.partitions", "200")
             .registerKryoClasses(Array(classOf[WarcRecord]))
             .registerKryoClasses(Array(classOf[String]))
+            .registerKryoClasses(Array(classOf[Int]))
 
         val sparkSession = SparkSession.builder()
             .config(sparkConf)
@@ -58,7 +58,7 @@ object LinkedDomainsCounter {
             )
             .filter(_._2.isValid())
             .map(_._2.getRecord())
-            .repartition(50)
+            //.repartition(30)
         
         println(s"> loaded warc files from `${infile}'")
         return warcs
@@ -90,23 +90,15 @@ object LinkedDomainsCounter {
      *  @param record the record to process
      *  @return the last modified date of a record
      */
-    def tryGetYear(record: WarcRecord) : String = {
+    def tryGetYear(record: WarcRecord) : Int = {
         val headers = record.getHttpHeaders()
         var date = headers.get("Last-Modified")
-        if (date == null) {
-            date = headers.get("Date")
-        }
+        if (date == null) { date = headers.get("Date") }
+        if (date == null) { return 0 }
 
-        if (date != null) {
-            return date.substring(12, 16)
-        }
-
-        date = record.getHeader().getDate()
-        if (date != null) {
-            return date.substring(0, 4)
-        }
-
-        return "N/A"
+        val getYear = "(\\d{4})".r
+        val year = getYear.findFirstIn(date).getOrElse("0")
+        return year.toInt
     }
 
     /** Gets all domains that were linked to by web pages
@@ -114,58 +106,32 @@ object LinkedDomainsCounter {
      *  @param warcs the warc files to operate on
      *  @return a list of all linked domains
      */
-    def getAllDomains(warcs: RDD[WarcRecord]) : RDD[(String, String, String)] = {
-        val domains = warcs
-            // get all http records and corresponding domains
+    def getAllDomains(warcs: RDD[WarcRecord]) : RDD[(String, Int, String)] = {
+        val cleanedWarcs = warcs
+            .filter(_ != null)
+            .filter(_.hasContentHeaders())
+            .filter(_.getHeader().getHeaderValue("WARC-Type") == "response")
+            .filter(_.getHttpHeaders().get("Content-Type") != null)
             .filter(_.isHttp())
+        
+        val domainYearBody = cleanedWarcs
             .filter(r => recordToDomain(r) != "")
             .map(r => (recordToDomain(r), tryGetYear(r), r.getHttpStringBody()))
-            .repartition(400)
-            // get all linked domains that are not equal to the domain itself
+            //.repartition(300)
+
+        val linkedDomains = domainYearBody
             .flatMap { case (domain, year, body) => {
-                // get the parsed http body of the record
                 val html = Jsoup.parse(body)
-                // extract all linked domains from the body
                 val links = html.select("a[href]").asScala
                     .map(_.attr("href"))
                     .map(urlToDomain)
-                // filter linked domains
                 links.filter(l => l != "" && l != domain)
                     .map(l => (domain, year, l))
             }}
         
-        return domains
+        return linkedDomains
     }
 
-    /*
-    /** Uses map-reduce to count how many times each domain was linked
-     *  
-     *  @param domains a list of all domains that were linked
-     *  @return a mapping of domains to how many times were linked
-     */
-    def reduceDomains(domains: RDD[String]) : RDD[(String, Int)] = {
-        val mapped = domains.map(_ -> 1)
-        val reduced = mapped.reduceByKey(_ + _).cache()
-        return reduced
-    }
-
-    /** Prints the first few domains
-     *  
-     *  @param counts a mapping of domains to how many times were linked
-     *  @param n the maximum number of domains to print
-     */
-    def printDomains(counts: RDD[(String, Int)], n: Int) {
-        println(s"> showing first ${n} domains")
-        counts.take(n)
-            .foreach { case (domain, count) =>
-                println(s"${domain} is linked ${count} times")
-            }
-    }
-    */
-
-    // spark-submit --deploy-mode cluster --queue default target/scala-2.12/LinkedDomainsCounter-assembly-1.0.jar /single-warc-segment /user/JordyAaldering/out
-    // spark-submit --deploy-mode cluster --queue default target/scala-2.12/LinkedDomainsCounter-assembly-1.0.jar /single-warc-segment/CC-MAIN-20210410105831-20210410135831-00639.warc.gz /user/JordyAaldering/out
-    // yarn logs -log_files stderr -applicationId application_1623272363921_0018
     def main(args: Array[String]) {
         // check arguments
         if (args.length != 2) {
@@ -179,23 +145,17 @@ object LinkedDomainsCounter {
         // start spark session
         val sparkSession = setupSparkSession()
         val sc = sparkSession.sparkContext
-
         import sparkSession.implicits._
 
         // compute linked domain counts
         val warcs = loadWarcRecords(infile, sc)
         val domains = getAllDomains(warcs)
-        //val counts = reduceDomains(domains)
 
+        // save the RDD to a parquet file
         domains.toDF("domain", "year", "link")
-            .write.partitionBy("domain", "year")
+            .write.partitionBy("domain")
             .mode(SaveMode.Overwrite)
             .parquet(outfile)
-
-        // print a few domains
-        //printDomains(counts, 20)
-        // save the entire RDD to a file
-        //counts.saveAsTextFile(outfile)
 
         // finalize session
         sparkSession.stop()
