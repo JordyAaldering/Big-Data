@@ -1,6 +1,6 @@
 # Streaming Data
 
-In this notebook we will be learning about Spark Streaming by looking at a (fake) [RuneScape exchange](https://secure.runescape.com/m=itemdb_rs/).
+In this blog post we will be learning about Spark Streaming by looking at a (fake) [RuneScape exchange](https://secure.runescape.com/m=itemdb_rs/).
 This exchange will be simulated as a stream of orders which we will infinitely generate through our socket using a Python script.
 
 ## Loading in data
