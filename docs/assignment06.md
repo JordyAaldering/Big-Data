@@ -135,7 +135,7 @@ spark-submit \
     --num-executors 10 \
     --queue silver \
     target/scala-2.12/ReduceDomains-assembly-1.0.jar \
-    /user/JordyAaldering/out
+    /user/JordyAaldering/out \
     /user/JordyAaldering/reduced
 ```
 
@@ -159,7 +159,7 @@ spark-submit \
     --num-executors 20 \
     --queue gold \
     target/scala-2.12/ReduceDomains-assembly-1.0.jar \
-    /user/JordyAaldering/out
+    /user/JordyAaldering/out \
     /user/JordyAaldering/reduced
 ```
 
