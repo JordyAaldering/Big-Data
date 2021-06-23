@@ -1,4 +1,3 @@
-sbt assembly &&
 spark-submit \
     --deploy-mode cluster \
     --num-executors 20 \
