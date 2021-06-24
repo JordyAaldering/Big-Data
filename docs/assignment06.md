@@ -103,9 +103,10 @@ The map-reduce implementation is actually very simple. We define a function `red
 As you can see this function takes an RDD of only a string and an integer. This is because for the map-reduce we omit the parent domain, and we only take the domain of the link and its year.
 
 ```scala
-def reduceDomains(domains: RDD[(String, Int)]) : RDD[(String, Int, Int)] = {
+def reduceDomains(domains: RDD[(String, Int)], minLinks: Int) : RDD[(String, Int, Int)] = {
     val mapped = domains.map(_ -> 1)        // shape: ((domain, year), 1)
     val reduced = mapped.reduceByKey(_ + _) // shape: ((domain, year), amount)
+        .filter(_._2 >= minLinks)
         .map(t => (t._1._1, t._1._2, t._2)) // shape: (domain, year, amount)
     return reduced
 }
@@ -136,7 +137,8 @@ spark-submit \
     --queue silver \
     target/scala-2.12/ReduceDomains-assembly-1.0.jar \
     /user/JordyAaldering/out \
-    /user/JordyAaldering/reduced
+    /user/JordyAaldering/reduced \
+    50
 ```
 
 # Analysis
@@ -161,6 +163,7 @@ spark-submit \
     target/scala-2.12/ReduceDomains-assembly-1.0.jar \
     /user/JordyAaldering/out \
     /user/JordyAaldering/reduced
+    100
 ```
 
 This is going to take a while... We can use the Spark history server in a web UI to see how the process is doing.
