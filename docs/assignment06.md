@@ -282,10 +282,10 @@ This shows us that 'github<area>.io' has a total of 97 subdomains, so it seems o
 
 ## Conclusion
 
-This concludes my of the CommonCrawl. There is still a lot of room for improvement and future research, but I am very happy with the achieved results. Thank you for reading! :)
+This concludes my analysis of the CommonCrawl. There is still a lot of room for improvement and future research, but I am very happy with the achieved results. Thank you for reading! :)
 
 <p align="center">
-<img src="https://media.giphy.com/media/UVw2vDdLSepnUSpKHx/giphy.gif" width="500"/>
+<img src="https://media.giphy.com/media/UVw2vDdLSepnUSpKHx/giphy.gif" width="1000" height="1000"/>
 </p>
 
 ---
