@@ -1,8 +1,7 @@
 # CommonCrawl
 
-In this final blog post we will bring everything we have learned so far together in order to do real big data analysis on a sample of the CommonCrawl.
-
-We will do this by working on a real cluster consisting of 2 main nodes and 11 workers, which we will connect to through a VPN.
+In this final blog post we will bring everything we have learned so far together in order to do some actual big data analysis on a sample of the CommonCrawl.
+We are going to do this by working on a real cluster, consisting of 2 main nodes and 11 workers, which we will connect to through a VPN.
 
 To start we will use a relatively 'small' part of one of the monthly crawls. Using hdfs we can use the `du` command to show the size of the data along with the actual size on the disks, including replicas.
 
@@ -13,8 +12,9 @@ To start we will use a relatively 'small' part of one of the monthly crawls. Usi
 
 ## Linked Domains
 
-Our goal will be to do some analysis of this CommonCrawl, using standalone Spark code which we will submit to the cluster.
+We are going to do some analysis of this CommonCrawl, using standalone Scala code which we will submit to the cluster.
 My plan is to find out how many times certain domains are linked. For instance, we would expect domains like 'facebook<area>.com' to be linked many times. It might be interesting to see how this compares to other domains.
+We are also going to try to see how the web evolved by looking at how many times these domains were linked each year, which should show us if domains became more or less popular over time.
 
 ## Counting Links
 
@@ -38,7 +38,7 @@ def loadWarcRecords(infile: String, sc: SparkContext) : RDD[WarcRecord] = {
 
 Now we can iterate over all these WARC records, and find all the domains they link to. We are going to exclude the links that point to the parent domain itself. For this we define a function `getAllDomains`, which returns an RDD of links containing the parent domain, year, and link itself.
 
-We start with some simple filtering steps to make sure the WARCs contain all the information we need. We then map then to a triplet of (domain, year, body). Then, using `Jsoup`, we extract all links from the body, after which we do some filtering.
+We start with some simple filtering steps to make sure the WARCs contain all the information we need. We then map them to a triplet of (domain, year, body). Then, using `Jsoup`, we extract all links from the body, after which we do some filtering.
 
 ```scala
 def getAllDomains(warcs: RDD[WarcRecord]) : RDD[(String, Int, String)] = {
@@ -67,7 +67,7 @@ def getAllDomains(warcs: RDD[WarcRecord]) : RDD[(String, Int, String)] = {
 }
 ```
 
-Using these two functions we can find the linked domains, which we can then save to a Parquet file.
+Using these two functions we the get a list of all linked domains, along with their parent domain and year, which we can then save to a Parquet file.
 
 ```scala
 val warcs = loadWarcRecords(infile, sc)
@@ -79,11 +79,29 @@ domains.toDF("domain", "year", "link")
     .parquet(outfile)
 ```
 
+### Finding the year
+
+Getting the year a specific link was first added is not actually possible, so instead we will look at when the entire page was last edited. Sadly I expect that this will not work well, and that we will see that the year will almost exclusively be 2021.
+Future research could instead look at multiple crawls of different years to do some proper analysis on this evolution.
+
+```scala
+def tryGetYear(record: WarcRecord) : Int = {
+    val headers = record.getHttpHeaders()
+    var date = headers.get("Last-Modified")
+    if (date == null) { date = headers.get("Date") }
+    if (date == null) { return 0 }
+
+    val getYear = "(\\d{4})".r
+    val year = getYear.findFirstIn(date).getOrElse("0")
+    return year.toInt
+}
+```
+
 ### Building and Running
 
-We are now ready to build and run this code. To build it we simply use the command `sbt assembly`, which makes a fat jar of our compiled code, along with any external dependencies.
+We are now ready to build and run this code. To build it we simply use the command `sbt assembly`, which makes a fat jar of our compiled code, which also contains any external dependencies.
 
-Before running this code on the entire WARC segment, we will test it on a single file in this segment. To find a file we call `hdfs dfs -ls /single-warc-segment` in order to list all WARC files in this folder. After selecting a file from this list, we can submit our jar to the cluster, along with the required arguments.
+Before running this code on the entire WARC segment, we will test it on a single file in this segment. To find a file we use `hdfs dfs -ls /single-warc-segment` to list all WARC files in this folder. After selecting any file from this list, we can submit our jar to the cluster, along with the required arguments.
 
 ```
 spark-submit \
@@ -95,12 +113,14 @@ spark-submit \
     /user/JordyAaldering/out
 ```
 
+This will only take a few minutes, after which we will have a bunch of parquet files in the `out` folder. We are now ready to move on to the next map-reduce part.
+
 ## Map-Reduce
 
-We will do the map-reduce in a separate step. This is to avoid memory overhead problems. As a bonus it also makes the code easier to read and understand.
+We will do the map-reduce in a separate step. This is to avoid memory overhead problems, and so that we do not have to run the entire program again when we make a mistake in the map-reduce part. As an added bonus, it also makes the code easier to read and understand.
 
-The map-reduce implementation is actually very simple. We define a function `reduceDomains` to do this.
-As you can see this function takes an RDD of only a string and an integer. This is because for the map-reduce we omit the parent domain, and we only take the domain of the link and its year.
+The map-reduce implementation is actually very simple. We first define a function `reduceDomains`. This function takes an RDD of only a string and an integer, this is because for the map-reduce we omit the parent domain, and we only take the domain of the link and its year.
+We filter the results a bit depending on the `minLinks` value, in order to remove domains that were barely linked. These are not interesting to us.
 
 ```scala
 def reduceDomains(domains: RDD[(String, Int)], minLinks: Int) : RDD[(String, Int, Int)] = {
@@ -112,7 +132,7 @@ def reduceDomains(domains: RDD[(String, Int)], minLinks: Int) : RDD[(String, Int
 }
 ```
 
-Now we can read the parquet file we just created, apply this map-reduce, and save the results to a new file; ready for analysis.
+Now we can read the parquet file we just created, apply this map-reduce function, and save the results to a new parquet file; ready for analysis.
 
 ```scala
 // read the parquet and convert it to an RDD
@@ -128,6 +148,8 @@ reduced.toDF("domain", "year", "amount")
     .parquet(outfile)
 ```
 
+### Building and Running
+
 After editing our `build.sbt` file to compile this new class and calling `sbt assembly`, we are ready to submit this code. It works similarly to before.
 
 ```
@@ -141,8 +163,6 @@ spark-submit \
     50
 ```
 
-# Analysis
-
 This al seems to be working fine, so we are now ready to apply our code to the entire WARC segment. This is a lot of data, so we will use the gold queue, along with an increased number of executors.
 
 ```
@@ -155,6 +175,21 @@ spark-submit \
     /user/JordyAaldering/out
 ```
 
+This is going to take a while... We can use the Spark history server in a web UI to see how the process is doing. If we look deeper into the job we can also find out some summary metrics.
+
+![Linked domains counter job](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment06/images/linked-domains-counter-job.png)
+
+![Linked domains counter summary metrics](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment06/images/linked-domains-counter-metrics.png)
+
+After about an hour and a half the job was completed. We can find out how much data we generated using the `du` command we saw before.
+
+```
+[hadoop rubigdata]$ hdfs dfs -du -h -s /user/JordyAaldering/out
+2.6 G  7.7 G  /user/JordyAaldering/out
+```
+
+We can now move on to the reducer. We will again use the gold queue, and we will filter any domains that appear less than a hundred times.
+
 ```
 spark-submit \
     --deploy-mode cluster \
@@ -162,17 +197,16 @@ spark-submit \
     --queue gold \
     target/scala-2.12/ReduceDomains-assembly-1.0.jar \
     /user/JordyAaldering/out \
-    /user/JordyAaldering/reduced
+    /user/JordyAaldering/reduced100 \
     100
 ```
 
-This is going to take a while... We can use the Spark history server in a web UI to see how the process is doing.
+The reducer is a lot faster, and finishes within a few minutes. The output size is now also a lot smaller.
 
-![Linked domains counter job](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment06/images/linked-domains-counter-job.png)
-
-If we look into this job we can also find out some summary metrics.
-
-![Linked domains counter summary metrics](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment06/images/linked-domains-counter-metrics.png)
+```
+[hadoop rubigdata]$ hdfs dfs -du -h -s /user/JordyAaldering/reduced100
+16.3 M  48.9 M  /user/JordyAaldering/reduced100
+```
 
 ---
 
