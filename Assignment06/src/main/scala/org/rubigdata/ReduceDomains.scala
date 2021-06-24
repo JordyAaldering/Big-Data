@@ -66,7 +66,7 @@ object ReduceDomains {
 
         // read the parquet and get only the linked domain and the year
         val domainsRows = sparkSession.read.parquet(infile).rdd
-        val domains = domainsRows.map(r => (r.getString(1), r.getInt(0)))
+        val domains = domainsRows.map(r => (r.getString(2), r.getInt(1)))
         val reduced = reduceDomains(domains)
 
         // save the RDD to a parquet file
