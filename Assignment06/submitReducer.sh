@@ -4,4 +4,5 @@ spark-submit \
     --queue gold \
     target/scala-2.12/ReduceDomains-assembly-1.0.jar \
     /user/JordyAaldering/out \
-    /user/JordyAaldering/reduced
+    /user/JordyAaldering/reduced \
+    100

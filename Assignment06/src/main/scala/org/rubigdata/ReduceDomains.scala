@@ -41,11 +41,13 @@ object ReduceDomains {
      *  It also separated domains by the year they were linked in
      *  
      *  @param domains a list of all domains that were linked
+     *  @param minLinks the minimum amount of times a domain has to be linked
      *  @return a mapping of domains to how many times were linked
      */
-    def reduceDomains(domains: RDD[(String, Int)]) : RDD[(String, Int, Int)] = {
+    def reduceDomains(domains: RDD[(String, Int)], minLinks: Int) : RDD[(String, Int, Int)] = {
         val mapped = domains.map(_ -> 1)        // shape: ((domain, year), 1)
         val reduced = mapped.reduceByKey(_ + _) // shape: ((domain, year), amount)
+            .filter(_._2 >= minLinks)
             .map(t => (t._1._1, t._1._2, t._2)) // shape: (domain, year, amount)
         return reduced
     }
@@ -53,12 +55,13 @@ object ReduceDomains {
     def main(args: Array[String]) {
         // check arguments
         if (args.length != 2) {
-            throw new RuntimeException("usage: ReduceDomains <infile> <outfile>")
+            throw new RuntimeException("usage: ReduceDomains <infile> <outfile> <min links>")
         }
 
         // parse arguments
         val infile = args(0)
         val outfile = args(1)
+        val minLinks = args(2).toInt
 
         // start spark session
         val sparkSession = setupSparkSession()
@@ -66,8 +69,8 @@ object ReduceDomains {
 
         // read the parquet and get only the linked domain and the year
         val domainsRows = sparkSession.read.parquet(infile).rdd
-        val domains = domainsRows.map(r => (r.getString(2), r.getInt(1)))
-        val reduced = reduceDomains(domains)
+        val domains = domainsRows.map(r => (r.getString(1), r.getInt(2)))
+        val reduced = reduceDomains(domains, minLinks)
 
         // save the RDD to a parquet file
         reduced.toDF("domain", "year", "amount")
