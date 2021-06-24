@@ -81,7 +81,7 @@ domains.toDF("domain", "year", "link")
 
 ### Finding the year
 
-Getting the year a specific link was first added is not actually possible, so instead we will look at when the entire page was last edited. Sadly I expect that this will not work well, and that we will see that the year will almost exclusively be 2021.
+Getting the year a specific link was first added is not actually possible, so instead we will look at when the entire page was last edited. Sadly I expect that this will not work very well, and that we will see that the year will almost exclusively be unknown or 2021.
 We will come back to this later when we do the final analysis.
 Future research could instead look at multiple crawls of different years to do some proper analysis on this evolution.
 
