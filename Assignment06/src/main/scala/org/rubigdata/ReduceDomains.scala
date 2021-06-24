@@ -54,8 +54,8 @@ object ReduceDomains {
 
     def main(args: Array[String]) {
         // check arguments
-        if (args.length != 2) {
-            throw new RuntimeException("usage: ReduceDomains <infile> <outfile> <min links>")
+        if (args.length != 3) {
+            throw new RuntimeException("usage: ReduceDomains <infile> <outfile> <minLinks>")
         }
 
         // parse arguments
