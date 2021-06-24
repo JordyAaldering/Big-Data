@@ -70,11 +70,13 @@ def getAllDomains(warcs: RDD[WarcRecord]) : RDD[(String, Int, String)] = {
 Using these two functions we the get a list of all linked domains, along with their parent domain and year, which we can then save to a parquet file at the given location on the cluster.
 
 ```scala
+// compute linked domain counts
 val warcs = loadWarcRecords(infile, sc)
 val domains = getAllDomains(warcs)
 
+// save the RDD to a parquet file
 domains.toDF("domain", "year", "link")
-    .write.partitionBy("domain")
+    .write.partitionBy("year")
     .mode(SaveMode.Overwrite)
     .parquet(outfile)
 ```
@@ -283,7 +285,7 @@ This shows us that 'github<area>.io' has a total of 97 subdomains, so it seems o
 This concludes my of the CommonCrawl. There is still a lot of room for improvement and future research, but I am very happy with the achieved results. Thank you for reading! :)
 
 <p align="center">
-<img src="https://media.giphy.com/media/UVw2vDdLSepnUSpKHx/giphy.gif" width="200"/>
+<img src="https://media.giphy.com/media/UVw2vDdLSepnUSpKHx/giphy.gif" width="500"/>
 </p>
 
 ---
