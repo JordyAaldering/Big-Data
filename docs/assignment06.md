@@ -208,6 +208,80 @@ spark-submit \
 16.3 M  48.9 M  /user/JordyAaldering/reduced100
 ```
 
+## Final Analysis
+
+Now that the file size is a lot smaller, we can do the analysis on our own machine, using Zeppelin. This allows us to more easily try different things and, most importantly, make nice plots.
+
+First we to copy the parquet files from the cluster to our local machine using `hdfs dfs -copyToLocal redbad:/user/JordyAaldering/reduced100 reduced100`. After which we can load in this parquet file.
+
+```scala
+val data = spark.read.parquet("reduced100")
+data.createOrReplaceTempView("data")
+```
+
+Let's go back to something we have ignored for a while; the years. We will use Spark SQL to see if we were indeed correct in our fear that these years would not be very helpful.
+
+```sql
+%spark.sql
+SELECT year, count(year) FROM data
+    GROUP BY year
+    ORDER BY year DESC
+```
+
+![Linked domains years](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment06/images/linked-domains-years.png)
+
+Sadly it is indeed the case that the year is almost exclusively 2021. Funnily enough the years 2022 and 2027 also occur a few times. From now on we will have to ignore the years, as they are not helpful.
+
+Before moving on to the analysis we need to do a bit more useful preparation; it might be useful to us to work with only the top level domains. For instance, we might want to work with all domains ending in 'ru<area>.nl', instead of looking at 'portal<area>.ru<area>.nl' and 'sis<area>.ru<area>.nl' separately. We can easily do this with a regex, here we have to keep in mind that some domains end in, for instance, 'co<area>.uk'. After this we make sure to also filter out any invalid domains.
+
+```scala
+val topLevel = data.withColumn("topLevel",
+        regexp_extract(col("domain"), "\\w{4,}\\.\\w+[\\.\\w+]?$", 0))
+    .filter("topLevel != ''")
+
+topLevel.createOrReplaceTempView("data")
+```
+
+### Top domains
+
+Yes! We are now ready to do some analysis on our data and see some results. Let's start by finding the 20 most popular domains.
+
+```sql
+SELECT topLevel, sum(amount) FROM data
+    GROUP BY topLevel, year
+    ORDER BY sum(amount) DESC
+    LIMIT 20
+```
+
+![Linked domains top 20](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment06/images/linked-domains-top-20.png)
+
+And in a surprise to no-one, Facebook is linked the most with a total of 28.4 million links!
+
+Now that we have both the domain itself and its top level domain, we can also find out how many subdomains each top level domain has.
+
+```sql
+SELECT topLevel, count(domain) FROM data
+    GROUP BY topLevel
+    ORDER BY count(domain) DESC
+    LIMIT 20
+```
+
+![Linked domains num subdomains](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment06/images/linked-domains-num-subdomains.png)
+
+Here we see that 'blogspot<area>.com' has a whopping 22,324 subdomains! Which probably makes sense; I'm guessing that every person why has a blog gets their own subdomain, like with GitHub pages. Actually, let's validate that theory.
+
+```sql
+SELECT topLevel, count(domain) FROM data
+WHERE topLevel = 'github.io'
+GROUP BY topLevel
+```
+
+This shows us that 'github<area>.io' has a total of 97 subdomains, so it seems our theory makes sense.
+
+## Conclusion
+
+This concludes my analysis on linked pages of the CommonCrawl. There is still a lot of room for improvement and future research, but I am very happy with the achieved results. Thank you for reading! :)
+
 ---
 
 The code shown in this blog can be found on GitHub [here](https://github.com/JordyAaldering/Big-Data/tree/master/Assignment06).
