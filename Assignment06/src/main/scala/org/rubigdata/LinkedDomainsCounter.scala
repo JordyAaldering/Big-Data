@@ -15,7 +15,10 @@ import java.net.URI
 import util.Try
 
 object LinkedDomainsCounter {
-    /** @return a new spark session */
+    /** Initializes and sets up a new spark session
+     *  
+     *  @return a new spark session
+     */
     def setupSparkSession() : SparkSession = {
         val sparkConf = new SparkConf()
             .setAppName("LinkedDomainsCounter")
@@ -32,8 +35,8 @@ object LinkedDomainsCounter {
             .set("spark.shuffle.io.retryWait", "10s")
             .set("spark.sql.shuffle.partitions", "200")
             .registerKryoClasses(Array(classOf[WarcRecord]))
+            .registerKryoClasses(Array(classOf[Integer]))
             .registerKryoClasses(Array(classOf[String]))
-            .registerKryoClasses(Array(classOf[Int]))
 
         val sparkSession = SparkSession.builder()
             .config(sparkConf)
@@ -58,13 +61,16 @@ object LinkedDomainsCounter {
             )
             .filter(_._2.isValid())
             .map(_._2.getRecord())
-            //.repartition(30)
         
         println(s"> loaded warc files from `${infile}'")
         return warcs
     }
 
-    /** @return the domain of a given url */
+    /** Gets the domain of a given url
+     *  
+     *  @param record the url to process
+     *  @return the domain of a given url
+     */
     def urlToDomain(url: String) : String = {
         val opt = Try { new URI(url).getHost() }.toOption
         return opt match {
@@ -74,7 +80,11 @@ object LinkedDomainsCounter {
         }
     }
 
-    /** @return the source domain of a given record */
+    /** Gets the source domain of a given record
+     *  
+     *  @param record the record to process
+     *  @return the source domain of a given record
+     */
     def recordToDomain(record: WarcRecord) : String = {
         // get the url from the header
         val url = record.getHeader().getUrl()
@@ -102,6 +112,7 @@ object LinkedDomainsCounter {
     }
 
     /** Gets all domains that were linked to by web pages
+     *  along with the year they were linked to
      *  
      *  @param warcs the warc files to operate on
      *  @return a list of all linked domains
@@ -117,7 +128,6 @@ object LinkedDomainsCounter {
         val domainYearBody = cleanedWarcs
             .filter(r => recordToDomain(r) != "")
             .map(r => (recordToDomain(r), tryGetYear(r), r.getHttpStringBody()))
-            //.repartition(300)
 
         val linkedDomains = domainYearBody
             .flatMap { case (domain, year, body) => {
@@ -153,7 +163,7 @@ object LinkedDomainsCounter {
 
         // save the RDD to a parquet file
         domains.toDF("domain", "year", "link")
-            .write.partitionBy("domain")
+            .write.partitionBy("year")
             .mode(SaveMode.Overwrite)
             .parquet(outfile)
 

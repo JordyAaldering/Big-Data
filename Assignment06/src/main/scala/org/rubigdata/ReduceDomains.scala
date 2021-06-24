@@ -7,7 +7,10 @@ import org.apache.spark.rdd.RDD
 import collection.JavaConverters._
 
 object ReduceDomains {
-    /** @return a new spark session */
+    /** Initializes and sets up a new spark session
+     *  
+     *  @return a new spark session
+     */
     def setupSparkSession() : SparkSession = {
         val sparkConf = new SparkConf()
             .setAppName("ReduceDomains")
@@ -23,8 +26,8 @@ object ReduceDomains {
             .set("spark.shuffle.io.maxRetries", "5")
             .set("spark.shuffle.io.retryWait", "10s")
             .set("spark.sql.shuffle.partitions", "200")
+            .registerKryoClasses(Array(classOf[Integer]))
             .registerKryoClasses(Array(classOf[String]))
-            .registerKryoClasses(Array(classOf[Int]))
 
         val sparkSession = SparkSession.builder()
             .config(sparkConf)
@@ -68,7 +71,7 @@ object ReduceDomains {
 
         // save the RDD to a parquet file
         reduced.toDF("domain", "year", "amount")
-            .write.partitionBy("domain")
+            .write.partitionBy("year")
             .mode(SaveMode.Overwrite)
             .parquet(outfile)
 
