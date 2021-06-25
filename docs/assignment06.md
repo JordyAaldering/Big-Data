@@ -184,7 +184,25 @@ spark-submit \
     /user/JordyAaldering/out
 ```
 
-This is going to take a while... We can use the Spark history server in a web UI to see how the process is doing. If we look deeper into the job we can also find out some useful summary metrics.
+Though now we start running into memory errors. The solution is luckily not too hard, we just have to play with the Spark configuration settings a bit. I won't bore you with the details of these settings; if you are interested you can read up on what they do in the [documentation](https://spark.apache.org/docs/latest/configuration.html). After playing around with the settings for a while, this is what I ended up with.
+
+```scala
+val sparkConf = new SparkConf()
+        .set("spark.memory.storageFraction", "0.3")
+        .set("spark.memory.offHeap.enabled", "true")
+        .set("spark.memory.offHeap.size", "10G")
+        .set("spark.yarn.driver.memory", "5G")
+        .set("spark.yarn.executor.memory", "5G")
+        .set("spark.executor.memoryOverhead", "1G")
+        .set("spark.shuffle.memoryFraction", "0")
+        .set("spark.shuffle.io.maxRetries", "5")
+        .set("spark.shuffle.io.retryWait", "10s")
+        .set("spark.sql.shuffle.partitions", "200")
+        .set("rdd.compression", "true")
+        ...
+```
+
+Now our program will run properly. But this is going to take a while... We can use the Spark history server in a web UI to see how the process is doing. If we look deeper into the job we can also find out some useful summary metrics.
 
 ![Linked domains counter job](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment06/images/linked-domains-counter-job.png)
 
