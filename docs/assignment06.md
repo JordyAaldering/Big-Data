@@ -38,17 +38,20 @@ def loadWarcRecords(infile: String, sc: SparkContext) : RDD[WarcRecord] = {
 
 Now we can iterate over all these WARC records, and find all the domains they link to. We are going to exclude the links that point to the parent domain itself. For this we define a function `getAllDomains`, which returns an RDD of links containing the parent domain, year, and link itself.
 
-We start with some simple filtering steps to make sure the WARCs contain all the information we need. We then map them to a triplet of (domain, year, body). Then, using `Jsoup`, we extract all links from the body. Finally we do some more filtering, and return the results.
+We start with some simple filtering steps to make sure the WARCs are valid and contain all the information we will need. Next we can map them to a triplet of (domain, year, body). Then, using `Jsoup`, we extract all links from the body. Finally we do some filtering on these links, and return the results.
 
 ```scala
 def getAllDomains(warcs: RDD[WarcRecord]) : RDD[(String, Int, String)] = {
     val cleanedWarcs = warcs
+        // remove invalid warcs
         .filter(_ != null)
+        // remove warcs of the incorrect type
         .filter(_.hasContentHeaders())
         .filter(_.getHeader().getHeaderValue("WARC-Type") == "response")
         .filter(_.getHttpHeaders().get("Content-Type") != null)
         .filter(_.isHttp())
     
+    // split record into (domain, year, body)
     val domainYearBody = cleanedWarcs
         .filter(r => recordToDomain(r) != "")
         .map(r => (recordToDomain(r), tryGetYear(r), r.getHttpStringBody()))
@@ -56,9 +59,11 @@ def getAllDomains(warcs: RDD[WarcRecord]) : RDD[(String, Int, String)] = {
     val linkedDomains = domainYearBody
         .flatMap { case (domain, year, body) => {
             val html = Jsoup.parse(body)
+            // extract linked domains from all hrefs
             val links = html.select("a[href]").asScala
                 .map(_.attr("href"))
                 .map(urlToDomain)
+            // filter empty links and ones that are equal to the domain
             links.filter(l => l != "" && l != domain)
                 .map(l => (domain, year, l))
         }}
