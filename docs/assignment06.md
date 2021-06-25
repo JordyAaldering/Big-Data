@@ -56,6 +56,7 @@ def getAllDomains(warcs: RDD[WarcRecord]) : RDD[(String, Int, String)] = {
         .filter(r => recordToDomain(r) != "")
         .map(r => (recordToDomain(r), tryGetYear(r), r.getHttpStringBody()))
 
+    // generate (domain, year, link) triplets
     val linkedDomains = domainYearBody
         .flatMap { case (domain, year, body) => {
             val html = Jsoup.parse(body)
