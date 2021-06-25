@@ -38,7 +38,7 @@ def loadWarcRecords(infile: String, sc: SparkContext) : RDD[WarcRecord] = {
 
 Now we can iterate over all these WARC records, and find all the domains they link to. We are going to exclude the links that point to the parent domain itself. For this we define a function `getAllDomains`, which returns an RDD of links containing the parent domain, year, and link itself.
 
-We start with some simple filtering steps to make sure the WARCs are valid and contain all the information we will need. Next we can map them to a triplet of (domain, year, body). Then, using `Jsoup`, we extract all links from the body. Finally we do some filtering on these links, and return the results.
+We start with some simple filtering steps to make sure the WARCs are valid and contain all the information we will need. Next we can map them to a triplet of (domain, year, body). Then, using `Jsoup`, we extract and parse all links from the body. Finally we do some filtering on these links, and return the results.
 
 ```scala
 def getAllDomains(warcs: RDD[WarcRecord]) : RDD[(String, Int, String)] = {
@@ -72,7 +72,7 @@ def getAllDomains(warcs: RDD[WarcRecord]) : RDD[(String, Int, String)] = {
 }
 ```
 
-Using these two functions we the get a list of all linked domains, along with their parent domain and year, which we can then save to a parquet file at the given location on the cluster.
+Using these two functions we the get a list of all linked domains, along with their parent domain and year, which we can then save to a parquet file at the given location on the cluster that we can use later on.
 
 ```scala
 // compute linked domain counts
@@ -127,8 +127,8 @@ This will only take a few minutes, after which we will have a bunch of parquet f
 
 We will do the map-reduce in a separate step. This is to avoid memory overhead problems, and so that we do not have to run the entire program again if we make a mistake in the map-reduce part, saving us a lot of time. As an added bonus, it also makes the code easier to read and understand.
 
-The map-reduce implementation is actually very simple. We first define a function `reduceDomains`. This function takes an RDD of only a string and an integer, this is because for the map-reduce we omit the parent domain and only look at the link and year.
-We filter the results a bit depending on the `minLinks` value. This filter  removes domains that were barely linked to, since these are not interesting to us.
+The map-reduce implementation is actually very simple. We start by defining a function `reduceDomains`. This function takes an RDD of only a string and an integer, this is because for the map-reduce we omit the parent domain and only look at the link and year.
+We filter the results a bit depending on the `minLinks` value. This filter  removes domains that were barely linked to, since these are not going to be interesting to us in the final analysis.
 
 ```scala
 def reduceDomains(domains: RDD[(String, Int)], minLinks: Int) : RDD[(String, Int, Int)] = {
@@ -140,7 +140,7 @@ def reduceDomains(domains: RDD[(String, Int)], minLinks: Int) : RDD[(String, Int
 }
 ```
 
-Now we can read the parquet file we created in the previous step, apply this map-reduce function, and save the results to a new parquet file; ready for analysis.
+Now we can read the parquet file we created in the previous step, apply this map-reduce function on it, and save the results to a new parquet file. This new parquet file should be a lot smaller than the first one.
 
 ```scala
 // read the parquet and convert it to an RDD
