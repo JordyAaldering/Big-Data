@@ -171,7 +171,7 @@ spark-submit \
     50
 ```
 
-This al seems to be working fine, so we are now ready to apply our code to the entire WARC segment. This is a lot of data, so we will use the gold queue, along with an increased number of executors.
+This also seems to be working fine, so we are now ready to apply our code to a larger dataset. We will go back and run our first program again, but now on the entire WARC segment. As we have seen at the start of this blog; this is a lot of data, so we will now use the gold queue along with an increased number of executors.
 
 ```
 spark-submit \
@@ -229,7 +229,6 @@ data.createOrReplaceTempView("data")
 Let's go back to something we have ignored for a while; the years. We will use Spark SQL to see if we were indeed correct in our fear that these years would not be very helpful.
 
 ```sql
-%spark.sql
 SELECT year, count(year) FROM data
     GROUP BY year
     ORDER BY year DESC
@@ -239,7 +238,7 @@ SELECT year, count(year) FROM data
 
 Sadly it is indeed the case that the year is almost exclusively 2021. Funnily enough the years 2022 and 2027 also occur a few times. From now on we will have to ignore the years, as they are not helpful.
 
-Before moving on to the analysis we need to do a bit more useful preparation; it might be useful to us to work with only the top level domains. For instance, we might want to work with all domains ending in 'ru<area>.nl', instead of looking at 'portal<area>.ru<area>.nl' and 'sis<area>.ru<area>.nl' separately. We can easily do this with a regex, here we have to keep in mind that some domains end in, for instance, 'co<area>.uk'. After this we make sure to also filter out any invalid domains.
+Before moving on to the analysis we need to do a bit more preprocessing; it might be useful to us to work with only the top level domains. For instance, we might want to work with all domains ending in 'ru<area>.nl', instead of looking at 'portal<area>.ru<area>.nl' and 'sis<area>.ru<area>.nl' separately. We can easily do this with a regex, here we have to keep in mind that some domains end in, for instance, 'co<area>.uk'. After this we make sure to also filter out any invalid domains. This regex is not perfect, but it will do fine for our purposes.
 
 ```scala
 val topLevel = data.withColumn("topLevel",
@@ -275,12 +274,12 @@ SELECT topLevel, count(domain) FROM data
 
 ![Linked domains num subdomains](https://raw.githubusercontent.com/JordyAaldering/Big-Data/master/Assignment06/images/linked-domains-num-subdomains.png)
 
-Here we see that 'blogspot<area>.com' has a whopping 22,324 subdomains! Which probably makes sense; I'm guessing that every person why has a blog gets their own subdomain, like with GitHub pages. Actually, let's validate that theory.
+Here we see that 'blogspot<area>.com' has a whopping 22,324 subdomains! Which probably makes sense; I'm guessing that every person that has a blog gets their own subdomain, like with GitHub pages. Actually, let's validate that theory.
 
 ```sql
 SELECT topLevel, count(domain) FROM data
-WHERE topLevel = 'github.io'
-GROUP BY topLevel
+    WHERE topLevel = 'github.io'
+    GROUP BY topLevel
 ```
 
 This shows us that 'github<area>.io' has a total of 97 subdomains, so it seems our theory makes sense.
